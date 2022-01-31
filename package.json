@@ -1,12 +1,12 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=14"
 	},
-	"main": "./lib/add.fastify.routes.js",
-	"types": "./lib/add.fastify.routes.d.ts",
+	"main": "./lib/fastify.auto.routes.js",
+	"types": "./lib/fastify.auto.routes.d.ts",
 	"author": "Predrag Stojadinovic <predrag@stojadinovic.net>",
 	"license": "Unlicense",
 	"files": [
@@ -28,7 +28,7 @@
 		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
 		"sonar": "sonarjs -e .sonarlint/**,node_modules/**,coverage/**,.nyc_output/**",
 		"test_qube": "nyc --reporter=lcov mocha -R @danmasta/mocha-sonar -r ts-node/register test/**/*.spec.ts",
-		"qube": "yarn test_qube & docker run --rm -e SONAR_HOST_URL=\"https://sonarqube.systools.nvidia.com\" -e SONAR_LOGIN=\"3db2cc475490ea6f28ac7aac5030f3b12530dcf8\" -v \"C:/git/github/owservable/add.fastify.routes:/usr/src\" sonarsource/sonar-scanner-cli",
+		"qube": "yarn test_qube & docker run --rm -e SONAR_HOST_URL=\"https://sonarqube.systools.nvidia.com\" -e SONAR_LOGIN=\"3db2cc475490ea6f28ac7aac5030f3b12530dcf8\" -v \"C:/git/github/owservable/fastify.auto.routes:/usr/src\" sonarsource/sonar-scanner-cli",
 		"up": "yarn upgrade-interactive",
 		"upgrade": "yarn upgrade --latest",
 		"latest": "yarn upgrade-interactive --latest"
