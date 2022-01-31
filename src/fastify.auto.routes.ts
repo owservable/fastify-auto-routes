@@ -7,7 +7,7 @@ import addFastifyRoutes from './functions/add.fastify.routes';
 import cleanRelativePath from './functions/clean.relative.path';
 import processFastifyBlipp from './functions/process.fastify.blipp';
 
-export default {
+export {
 	// routing
 	RoutesMap,
 	// routing functions
@@ -15,3 +15,6 @@ export default {
 	cleanRelativePath,
 	processFastifyBlipp
 };
+
+const FastifyAutoRoutes = {};
+export default FastifyAutoRoutes;
