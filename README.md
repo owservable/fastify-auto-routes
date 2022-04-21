@@ -2,10 +2,10 @@
 
 Fastify Auto Add Routes
 
-### Documentation
+## TypeDoc Documentation
 
-Documentation can be found here: [Fastify Auto Add Routes Documentation](https://owservable.github.io/fastify-auto-routes/docs/).
+See the <a href="https://owservable.github.io/fastify-auto-routes/docs/" target="_blank">TypeDoc documentation</a>.
 
-### Coverage
+## Test Coverage
 
-Test coverage can be found here: [Fastify Auto Add Routes Test Coverage](https://owservable.github.io/fastify-auto-routes/coverage/).
+See the <a href="https://owservable.github.io/fastify-auto-routes/coverage/" target="_blank">Test coverage</a>.
