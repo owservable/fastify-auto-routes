@@ -1,0 +1,1 @@
+describe('fastify.auto.routes.ts tests', () => it('should be implemented'));

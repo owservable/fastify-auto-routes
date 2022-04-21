@@ -29,7 +29,6 @@ const _addRoute = (fastify: any, route: any, relativeFilePath: string): void => 
 	if (_.isPlainObject(route) && METHODS.includes(route.method)) fastify.route(route);
 };
 
-// TODO: move to a separate project!
 const addFastifyRoutes = (fastify: any, folder: string): void => {
 	if (!routesRootFolder) routesRootFolder = folder;
 

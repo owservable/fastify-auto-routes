@@ -2,7 +2,7 @@
 // process.env.NODE_ENV = 'test';
 
 import {expect} from 'chai';
-import cleanRelativePath from '../../../src/functions/clean.relative.path';
+import cleanRelativePath from '../../src/functions/clean.relative.path';
 
 const ext = '.ts';
 const rootFolder = 'C:/git/github/reactive-stack-js-backend/src/routes';

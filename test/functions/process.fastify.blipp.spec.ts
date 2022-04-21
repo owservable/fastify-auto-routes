@@ -1,0 +1,1 @@
+describe('process.fastify.blipp.ts tests', () => it('should be implemented'));
