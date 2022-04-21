@@ -3,7 +3,6 @@
 import {each, includes, map, split} from 'lodash';
 import RoutesMap from '../routes.map';
 
-// TODO: move to a separate project!
 const processFastifyBlipp = (blipp: string): void => {
 	console.log(blipp);
 	if (!includes(blipp, 'Routes:')) {

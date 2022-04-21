@@ -19,12 +19,16 @@ export default class RoutesMap {
 		return RoutesMap._routes.get(_.toUpper(method));
 	}
 
-	public static keys() {
+	public static keys(): string[] {
 		return Array.from(RoutesMap._routes.keys());
 	}
 
-	public static values() {
+	public static values(): string[][] {
 		return Array.from(RoutesMap._routes.values());
+	}
+
+	public static clear(): void {
+		RoutesMap._routes.clear();
 	}
 
 	public static list(): any {
@@ -45,16 +49,17 @@ export default class RoutesMap {
 				parts = _.compact(parts);
 				const last = _.join(parts, '.');
 
-				parts.pop();
-				let paths = [_.join(parts, '.')];
-				while (!_.isEmpty(parts)) {
-					parts.pop();
-					paths.push(_.join(parts, '.'));
-				}
-				paths = _.reverse(_.compact(paths));
-				_.each(paths, (path) => {
-					if (!_.get(apis, path)) _.set(apis, path, {});
-				});
+				// TODO: Seems to not be needed?
+				// parts.pop();
+				// let paths = [_.join(parts, '.')];
+				// while (!_.isEmpty(parts)) {
+				// 	parts.pop();
+				// 	paths.push(_.join(parts, '.'));
+				// }
+				// paths = _.reverse(_.compact(paths));
+				// _.each(paths, (path) => {
+				// 	if (!_.get(apis, path)) _.set(apis, path, {});
+				// });
 
 				_.set(apis, last, true);
 			});
