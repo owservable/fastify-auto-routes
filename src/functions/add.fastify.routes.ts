@@ -29,6 +29,7 @@ const _addRoute = (fastify: any, route: any, relativeFilePath: string): void => 
 	if (_.isPlainObject(route) && METHODS.includes(route.method)) fastify.route(route);
 };
 
+// TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
 const addFastifyRoutes = (fastify: any, folder: string): void => {
 	if (!routesRootFolder) routesRootFolder = folder;
 
