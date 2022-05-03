@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=16"
@@ -41,7 +41,7 @@
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.0.1",
-		"@faker-js/faker": "^6.3.0",
+		"@faker-js/faker": "^6.3.1",
 		"@types/chai": "^4.3.1",
 		"@types/mocha": "^9.1.1",
 		"@types/rewire": "^2.5.28",
