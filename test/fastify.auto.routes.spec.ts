@@ -22,11 +22,6 @@ describe('fastify.auto.routes.ts tests', () => {
 		expect(FastifyAutoRoutes.cleanRelativePath).to.be.a('function');
 	});
 
-	it('FastifyAutoRoutes::processFastifyBlipp:', () => {
-		expect(FastifyAutoRoutes.processFastifyBlipp).to.exist;
-		expect(FastifyAutoRoutes.processFastifyBlipp).to.be.a('function');
-	});
-
 	it('FastifyAutoRoutes::default', () => {
 		expect(FastifyAutoRoutes.default).to.exist;
 		expect(FastifyAutoRoutes.default).to.be.empty;

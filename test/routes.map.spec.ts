@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 
 import * as _ from 'lodash';
-import faker from '@faker-js/faker';
+import {faker} from '@faker-js/faker';
 
 import RoutesMap from '../src/routes.map';
 

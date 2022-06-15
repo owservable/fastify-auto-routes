@@ -49,19 +49,6 @@ export default class RoutesMap {
 				let parts = _.split(route, '/');
 				parts = _.compact(parts);
 				const last = _.join(parts, '.');
-
-				// TODO: Seems to not be needed?
-				// parts.pop();
-				// let paths = [_.join(parts, '.')];
-				// while (!_.isEmpty(parts)) {
-				// 	parts.pop();
-				// 	paths.push(_.join(parts, '.'));
-				// }
-				// paths = _.reverse(_.compact(paths));
-				// _.each(paths, (path) => {
-				// 	if (!_.get(apis, path)) _.set(apis, path, {});
-				// });
-
 				_.set(apis, last, true);
 			});
 			obj[method] = apis;

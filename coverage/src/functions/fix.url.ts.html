@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/functions/clean.relative.path.ts</title>
+    <title>Code coverage report for src/functions/fix.url.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/functions</a> clean.relative.path.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/functions</a> fix.url.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
@@ -74,16 +74,10 @@
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
 <a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L12'></a><a href='#L12'>12</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -93,18 +87,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import {toLower, replace, join, split} from 'lodash';</span>
+<span class="cstat-no" title="statement not covered" >import * as _ from 'lodash';</span>
 &nbsp;
-const cleanRelativePath = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>ootFolder: string, absoluteFilePath: string, ext: '.ts' | '.js'): string =&gt; {</span>
-	let relativeFilePath = <span class="cstat-no" title="statement not covered" >toLower(absoluteFilePath) + '/';</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = replace(relativeFilePath, toLower(rootFolder), '');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = replace(relativeFilePath, toLower(ext), '');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = replace(relativeFilePath, 'root', '');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = join(split(relativeFilePath, '\\'), '/');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = join(split(relativeFilePath, '//'), '/');</span>
-<span class="cstat-no" title="statement not covered" >	return relativeFilePath;</span>
+const fixUrl = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(u</span>rl: string, relativeFilePath: string): string =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >	url = relativeFilePath + url;</span>
+<span class="cstat-no" title="statement not covered" >	url = _.join(_.split(url, '//'), '/');</span>
+<span class="cstat-no" title="statement not covered" >	if (_.endsWith(url, '/')) <span class="cstat-no" title="statement not covered" >url = url.slice(0, -1);</span></span>
+<span class="cstat-no" title="statement not covered" >	return url;</span>
 };
-<span class="cstat-no" title="statement not covered" >export default cleanRelativePath;</span>
+<span class="cstat-no" title="statement not covered" >export default fixUrl;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

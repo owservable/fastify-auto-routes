@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/functions/add.fastify.routes.ts</title>
+    <title>Code coverage report for src/functions/add.route.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/functions</a> add.fastify.routes.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/functions</a> add.route.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/27</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
@@ -86,19 +86,9 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,15 +97,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,45 +107,31 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import * as fs from 'fs';</span>
-<span class="cstat-no" title="statement not covered" >import * as path from 'path';</span>
-&nbsp;
 <span class="cstat-no" title="statement not covered" >import * as _ from 'lodash';</span>
+<span class="cstat-no" title="statement not covered" >import fixUrl from './fix.url';</span>
+<span class="cstat-no" title="statement not covered" >import RoutesMap from '../routes.map';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import addRoute from './add.route';</span>
-<span class="cstat-no" title="statement not covered" >import cleanRelativePath from './clean.relative.path';</span>
+const METHODS = <span class="cstat-no" title="statement not covered" >['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'];</span>
 &nbsp;
-let routesRootFolder: string;
+const addRoute = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(f</span>astify: any, route: any, relativeFilePath: string): void =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >	if (!_.has(route, 'url')) <span class="cstat-no" title="statement not covered" >route.url = '/';</span></span>
 &nbsp;
-// TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
-const addFastifyRoutes = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(f</span>astify: any, folder: string): void =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >	if (!routesRootFolder) <span class="cstat-no" title="statement not covered" >routesRootFolder = folder;</span></span>
+	const {url} = <span class="cstat-no" title="statement not covered" >route;</span>
+<span class="cstat-no" title="statement not covered" >	if (!_.startsWith(_.toLower(url), relativeFilePath)) <span class="cstat-no" title="statement not covered" >route.url = fixUrl(url, relativeFilePath);</span></span>
 &nbsp;
-	const fileNames = <span class="cstat-no" title="statement not covered" >fs.readdirSync(folder);</span>
-	const files = <span class="cstat-no" title="statement not covered" >_.filter(fileNames, <span class="fstat-no" title="function not covered" >(n</span>ame) =&gt; <span class="cstat-no" title="statement not covered" >!fs.lstatSync(path.join(folder, name)).isDirectory())</span>;</span>
-<span class="cstat-no" title="statement not covered" >	_.each(files, <span class="fstat-no" title="function not covered" >(f</span>ile: string) =&gt; {</span>
-		const ext = <span class="cstat-no" title="statement not covered" >path.extname(file);</span>
-<span class="cstat-no" title="statement not covered" >		if (ext !== '.ts' &amp;&amp; ext !== '.js') <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >	if (_.has(route, 'method')) <span class="cstat-no" title="statement not covered" >route.method = _.toUpper(route.method);</span></span>
+	else <span class="cstat-no" title="statement not covered" >route.method = 'GET';</span>
 &nbsp;
-		const absoluteFilePath = <span class="cstat-no" title="statement not covered" >path.join(folder, file);</span>
-		const relativeFilePath = <span class="cstat-no" title="statement not covered" >cleanRelativePath(routesRootFolder, absoluteFilePath, ext);</span>
-&nbsp;
-		const route = <span class="cstat-no" title="statement not covered" >require(absoluteFilePath);</span>
-<span class="cstat-no" title="statement not covered" >		if (_.isArray(route)) <span class="cstat-no" title="statement not covered" >_.each(route, <span class="fstat-no" title="function not covered" >(r</span>: any) =&gt; <span class="cstat-no" title="statement not covered" >addRoute(fastify, r, relativeFilePath))</span>;</span></span>
-		else <span class="cstat-no" title="statement not covered" >addRoute(fastify, route, relativeFilePath);</span>
-	});
-&nbsp;
-	const folders = <span class="cstat-no" title="statement not covered" >_.filter(fileNames, <span class="fstat-no" title="function not covered" >(n</span>ame: string) =&gt; <span class="cstat-no" title="statement not covered" >fs.lstatSync(path.join(folder, name)).isDirectory())</span>;</span>
-<span class="cstat-no" title="statement not covered" >	_.each(folders, <span class="fstat-no" title="function not covered" >(s</span>ub: string) =&gt; <span class="cstat-no" title="statement not covered" >addFastifyRoutes(fastify, path.join(folder, sub)))</span>;</span>
+<span class="cstat-no" title="statement not covered" >	if (_.isPlainObject(route) &amp;&amp; METHODS.includes(route.method)) {</span>
+<span class="cstat-no" title="statement not covered" >		fastify.route(route);</span>
+<span class="cstat-no" title="statement not covered" >		RoutesMap.add(route.method, route.url);</span>
+	}
 };
-<span class="cstat-no" title="statement not covered" >export default addFastifyRoutes;</span>
+<span class="cstat-no" title="statement not covered" >export default addRoute;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
