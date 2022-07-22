@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -79,32 +79,32 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import {toLower, replace, join, split} from 'lodash';</span>
+import {toLower, replace, join, split} from 'lodash';
 &nbsp;
-const cleanRelativePath = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>ootFolder: string, absoluteFilePath: string, ext: '.ts' | '.js'): string =&gt; {</span>
-	let relativeFilePath = <span class="cstat-no" title="statement not covered" >toLower(absoluteFilePath) + '/';</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = replace(relativeFilePath, toLower(rootFolder), '');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = replace(relativeFilePath, toLower(ext), '');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = replace(relativeFilePath, 'root', '');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = join(split(relativeFilePath, '\\'), '/');</span>
-<span class="cstat-no" title="statement not covered" >	relativeFilePath = join(split(relativeFilePath, '//'), '/');</span>
-<span class="cstat-no" title="statement not covered" >	return relativeFilePath;</span>
+const cleanRelativePath = (rootFolder: string, absoluteFilePath: string, ext: '.ts' | '.js'): string =&gt; {
+	let relativeFilePath = toLower(absoluteFilePath) + '/';
+	relativeFilePath = replace(relativeFilePath, toLower(rootFolder), '');
+	relativeFilePath = replace(relativeFilePath, toLower(ext), '');
+	relativeFilePath = replace(relativeFilePath, 'root', '');
+	relativeFilePath = join(split(relativeFilePath, '\\'), '/');
+	relativeFilePath = join(split(relativeFilePath, '//'), '/');
+	return relativeFilePath;
 };
-<span class="cstat-no" title="statement not covered" >export default cleanRelativePath;</span>
+export default cleanRelativePath;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -112,7 +112,7 @@ const cleanRelativePath = <span class="cstat-no" title="statement not covered" >
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Wed Jun 15 2022 15:44:37 GMT+0200 (Mitteleuropäische Sommerzeit)
+                at Fri Jul 22 2022 12:47:38 GMT+0200 (Mitteleuropäische Sommerzeit)
             </div>
         </div>
         <script src="../../prettify.js"></script>

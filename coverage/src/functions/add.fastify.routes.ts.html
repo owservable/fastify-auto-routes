@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/27</span>
+                <span class='fraction'>7/27</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">35% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>7/20</span>
             </div>
         
             
@@ -99,52 +99,52 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import * as fs from 'fs';</span>
-<span class="cstat-no" title="statement not covered" >import * as path from 'path';</span>
+import * as fs from 'fs';
+import * as path from 'path';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import * as _ from 'lodash';</span>
+import * as _ from 'lodash';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import addRoute from './add.route';</span>
-<span class="cstat-no" title="statement not covered" >import cleanRelativePath from './clean.relative.path';</span>
+import addRoute from './add.route';
+import cleanRelativePath from './clean.relative.path';
 &nbsp;
 let routesRootFolder: string;
 &nbsp;
 // TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
-const addFastifyRoutes = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(f</span>astify: any, folder: string): void =&gt; {</span>
+const addFastifyRoutes = <span class="fstat-no" title="function not covered" >(f</span>astify: any, folder: string): void =&gt; {
 <span class="cstat-no" title="statement not covered" >	if (!routesRootFolder) <span class="cstat-no" title="statement not covered" >routesRootFolder = folder;</span></span>
 &nbsp;
 	const fileNames = <span class="cstat-no" title="statement not covered" >fs.readdirSync(folder);</span>
@@ -164,7 +164,7 @@ const addFastifyRoutes = <span class="cstat-no" title="statement not covered" ><
 	const folders = <span class="cstat-no" title="statement not covered" >_.filter(fileNames, <span class="fstat-no" title="function not covered" >(n</span>ame: string) =&gt; <span class="cstat-no" title="statement not covered" >fs.lstatSync(path.join(folder, name)).isDirectory())</span>;</span>
 <span class="cstat-no" title="statement not covered" >	_.each(folders, <span class="fstat-no" title="function not covered" >(s</span>ub: string) =&gt; <span class="cstat-no" title="statement not covered" >addFastifyRoutes(fastify, path.join(folder, sub)))</span>;</span>
 };
-<span class="cstat-no" title="statement not covered" >export default addFastifyRoutes;</span>
+export default addFastifyRoutes;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -172,7 +172,7 @@ const addFastifyRoutes = <span class="cstat-no" title="statement not covered" ><
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Wed Jun 15 2022 15:44:37 GMT+0200 (Mitteleuropäische Sommerzeit)
+                at Fri Jul 22 2022 12:47:38 GMT+0200 (Mitteleuropäische Sommerzeit)
             </div>
         </div>
         <script src="../../prettify.js"></script>
