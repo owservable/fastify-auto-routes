@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=16"
@@ -17,7 +17,7 @@
 		"url": "git+https://github.com/owservable/fastify-auto-routes.git"
 	},
 	"scripts": {
-		"all": "yarn & tsc & yarn clean & yarn build & yarn test & yarn docs",
+		"all": "pnpm i & tsc & pnpm clean & pnpm build & pnpm test & pnpm docs",
 		"build": "del /S /Q lib\\* && tsc",
 		"build:watch": "tsc --watch",
 		"lint": "tslint -p tsconfig.json",
@@ -28,28 +28,31 @@
 		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
 		"sonar": "sonarjs -e .sonarlint/**,node_modules/**,coverage/**,.nyc_output/**",
 		"test_qube": "nyc --reporter=lcov mocha -R @danmasta/mocha-sonar -r ts-node/register test/**/*.spec.ts",
-		"qube": "yarn test_qube & docker run --rm -e SONAR_HOST_URL=\"https://sonarqube.systools.nvidia.com\" -e SONAR_LOGIN=\"3db2cc475490ea6f28ac7aac5030f3b12530dcf8\" -v \"C:/git/github/owservable/fastify.auto.routes:/usr/src\" sonarsource/sonar-scanner-cli",
-		"up": "yarn upgrade-interactive",
-		"upgrade": "yarn upgrade --latest",
-		"latest": "yarn upgrade-interactive --latest"
+		"qube": "pnpm test_qube & docker run --rm -e SONAR_HOST_URL=\"https://sonarqube.systools.nvidia.com\" -e SONAR_LOGIN=\"3db2cc475490ea6f28ac7aac5030f3b12530dcf8\" -v \"C:/git/github/owservable/fastify.auto.routes:/usr/src\" sonarsource/sonar-scanner-cli",
+		"up": "pnpm up -i",
+		"latest": "pnpm up -i -L",
+		"l": "pnpm latest",
+		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@types/lodash": "^4.14.182",
-		"@types/node": "^18.0.6",
-		"fastify": "^4.3.0",
+		"@owservable/actions": "^0.0.3",
+		"@owservable/folders": "^0.0.4",
+		"@types/lodash": "^4.14.190",
+		"@types/node": "^18.11.9",
+		"fastify": "^4.10.2",
 		"lodash": "^4.17.20"
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.0.1",
-		"@faker-js/faker": "^7.3.0",
-		"@types/chai": "^4.3.1",
-		"@types/mocha": "^9.1.1",
+		"@faker-js/faker": "^7.6.0",
+		"@types/chai": "^4.3.4",
+		"@types/mocha": "^10.0.0",
 		"@types/rewire": "^2.5.28",
-		"chai": "^4.3.6",
+		"chai": "^4.3.7",
 		"coveralls": "^3.0.9",
-		"mocha": "^10.0.0",
+		"mocha": "^10.1.0",
 		"nyc": "^15.1.0",
-		"prettier": "^2.7.1",
+		"prettier": "^2.8.0",
 		"rewire": "^6.0.0",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.16",
@@ -58,7 +61,7 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.23.8",
-		"typescript": "^4.7.4"
+		"typedoc": "^0.23.21",
+		"typescript": "^4.9.3"
 	}
 }
