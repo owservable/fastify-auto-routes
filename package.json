@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=16"
@@ -31,14 +31,14 @@
 		"qube": "pnpm test_qube & docker run --rm -e SONAR_HOST_URL=\"https://sonarqube.systools.nvidia.com\" -e SONAR_LOGIN=\"3db2cc475490ea6f28ac7aac5030f3b12530dcf8\" -v \"C:/git/github/owservable/fastify.auto.routes:/usr/src\" sonarsource/sonar-scanner-cli",
 		"up": "pnpm up -i",
 		"latest": "pnpm up -i -L",
-		"l": "pnpm latest",
+		"l": "pnpm i & pnpm latest",
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.0.4",
-		"@owservable/folders": "^0.0.4",
-		"@types/lodash": "^4.14.190",
-		"@types/node": "^18.11.9",
+		"@owservable/actions": "^0.0.5",
+		"@owservable/folders": "^0.0.5",
+		"@types/lodash": "^4.14.191",
+		"@types/node": "^18.11.10",
 		"fastify": "^4.10.2",
 		"lodash": "^4.17.20"
 	},
@@ -46,7 +46,7 @@
 		"@danmasta/mocha-sonar": "^1.0.1",
 		"@faker-js/faker": "^7.6.0",
 		"@types/chai": "^4.3.4",
-		"@types/mocha": "^10.0.0",
+		"@types/mocha": "^10.0.1",
 		"@types/rewire": "^2.5.28",
 		"chai": "^4.3.7",
 		"coveralls": "^3.0.9",

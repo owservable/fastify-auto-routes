@@ -3,12 +3,12 @@ lockfileVersion: 5.4
 specifiers:
   '@danmasta/mocha-sonar': ^1.0.1
   '@faker-js/faker': ^7.6.0
-  '@owservable/actions': ^0.0.4
-  '@owservable/folders': ^0.0.4
+  '@owservable/actions': ^0.0.5
+  '@owservable/folders': ^0.0.5
   '@types/chai': ^4.3.4
-  '@types/lodash': ^4.14.190
-  '@types/mocha': ^10.0.0
-  '@types/node': ^18.11.9
+  '@types/lodash': ^4.14.191
+  '@types/mocha': ^10.0.1
+  '@types/node': ^18.11.10
   '@types/rewire': ^2.5.28
   chai: ^4.3.7
   coveralls: ^3.0.9
@@ -29,10 +29,10 @@ specifiers:
   typescript: ^4.9.3
 
 dependencies:
-  '@owservable/actions': 0.0.4
-  '@owservable/folders': 0.0.4
-  '@types/lodash': 4.14.190
-  '@types/node': 18.11.9
+  '@owservable/actions': 0.0.5
+  '@owservable/folders': 0.0.5
+  '@types/lodash': 4.14.191
+  '@types/node': 18.11.10
   fastify: 4.10.2
   lodash: 4.17.21
 
@@ -40,7 +40,7 @@ devDependencies:
   '@danmasta/mocha-sonar': 1.0.1
   '@faker-js/faker': 7.6.0
   '@types/chai': 4.3.4
-  '@types/mocha': 10.0.0
+  '@types/mocha': 10.0.1
   '@types/rewire': 2.5.28
   chai: 4.3.7
   coveralls: 3.1.1
@@ -50,7 +50,7 @@ devDependencies:
   rewire: 6.0.0
   sonarjs: 1.0.0
   source-map-support: 0.5.21
-  ts-node: 10.9.1_wup25etrarvlqkprac7h35hj7u
+  ts-node: 10.9.1_eoe7put6ewfbqpy6gs36tihw6y
   tslint: 6.1.3_typescript@4.9.3
   tslint-config-prettier: 1.18.0
   tslint-etc: 1.13.10_4bwrygh2ggumuyx7fkk23txfya
@@ -392,25 +392,25 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.13
     dev: true
 
-  /@owservable/actions/0.0.4:
-    resolution: {integrity: sha512-Nx7GCmZ5SKKMVG+IX62f/iswzrYqdtYuYDlNqLIg8fHmNr98LmOK1HBdc1z3BdiBJxs8D7nedTtTF6Gp0DaJzw==}
+  /@owservable/actions/0.0.5:
+    resolution: {integrity: sha512-wXbenFkdZXy1Z6Pjm+IE5NZS/4IV5ko4PT8tNMr4ceVD+j8UU8ioFfFAVkZ3SJBmlwDXr+LePFFs9OH3bcsKwQ==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@owservable/folders': 0.0.4
-      '@types/lodash': 4.14.190
-      '@types/node': 18.11.9
+      '@owservable/folders': 0.0.5
+      '@types/lodash': 4.14.191
+      '@types/node': 18.11.10
       commander: 9.4.1
       lodash: 4.17.21
     dev: false
 
-  /@owservable/folders/0.0.4:
-    resolution: {integrity: sha512-dynPvycUMi+LALsO9Wq5sOCszqxOxfSZjXiEOhbPYYqMBpMVmHGhtb8Jjo6yO7QTPUvE9ofcXFJWwtjBJLQxvw==}
+  /@owservable/folders/0.0.5:
+    resolution: {integrity: sha512-af1GJBd5/i7TMFCdI4AizCtV7OtrWIuuTty6cg3EB1Acj5pN6nG0/MTi/ARXjilARgQ9QTiuKsISkYU87Jr8EQ==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@types/lodash': 4.14.190
-      '@types/node': 18.11.9
+      '@types/lodash': 4.14.191
+      '@types/node': 18.11.10
       lodash: 4.17.21
     dev: false
 
@@ -443,16 +443,16 @@ packages:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
     dev: true
 
-  /@types/lodash/4.14.190:
-    resolution: {integrity: sha512-5iJ3FBJBvQHQ8sFhEhJfjUP+G+LalhavTkYyrAYqz5MEJG+erSv0k9KJLb6q7++17Lafk1scaTIFXcMJlwK8Mw==}
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: false
 
-  /@types/mocha/10.0.0:
-    resolution: {integrity: sha512-rADY+HtTOA52l9VZWtgQfn4p+UDVM2eDVkMZT1I6syp0YKxW2F9v+0pbRZLsvskhQv/vMb6ZfCay81GHbz5SHg==}
+  /@types/mocha/10.0.1:
+    resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
     dev: true
 
-  /@types/node/18.11.9:
-    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
+  /@types/node/18.11.10:
+    resolution: {integrity: sha512-juG3RWMBOqcOuXC643OAdSA525V44cVgGV6dUDuiFtss+8Fk5x1hI93Rsld43VeJVIeqlP9I7Fn9/qaVqoEAuQ==}
 
   /@types/rewire/2.5.28:
     resolution: {integrity: sha512-uD0j/AQOa5le7afuK+u+woi8jNKF1vf3DN0H7LCJhft/lNNibUr7VcAesdgtWfEKveZol3ZG1CJqwx2Bhrnl8w==}
@@ -3114,7 +3114,7 @@ packages:
     resolution: {integrity: sha512-iawgk0hLP3SxGKDfnDJf8wTz4p2qImnyihM5Hh/sGvQ3K37dPi/w8sRhdNIxYA1TwFwc5mDhIJq+O0RsvXBKdQ==}
     dev: true
 
-  /ts-node/10.9.1_wup25etrarvlqkprac7h35hj7u:
+  /ts-node/10.9.1_eoe7put6ewfbqpy6gs36tihw6y:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -3133,7 +3133,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 18.11.9
+      '@types/node': 18.11.10
       acorn: 8.7.0
       acorn-walk: 8.2.0
       arg: 4.1.3
