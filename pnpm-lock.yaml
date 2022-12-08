@@ -3,12 +3,12 @@ lockfileVersion: 5.4
 specifiers:
   '@danmasta/mocha-sonar': ^1.0.1
   '@faker-js/faker': ^7.6.0
-  '@owservable/actions': ^0.0.5
-  '@owservable/folders': ^0.0.5
+  '@owservable/actions': ^0.0.6
+  '@owservable/folders': ^0.0.6
   '@types/chai': ^4.3.4
   '@types/lodash': ^4.14.191
   '@types/mocha': ^10.0.1
-  '@types/node': ^18.11.10
+  '@types/node': ^18.11.11
   '@types/rewire': ^2.5.28
   chai: ^4.3.7
   coveralls: ^3.0.9
@@ -16,7 +16,7 @@ specifiers:
   lodash: ^4.17.20
   mocha: ^10.1.0
   nyc: ^15.1.0
-  prettier: ^2.8.0
+  prettier: ^2.8.1
   rewire: ^6.0.0
   sonarjs: ^1.0.0
   source-map-support: ^0.5.16
@@ -26,13 +26,13 @@ specifiers:
   tslint-etc: ^1.13.7
   tslint-no-unused-expression-chai: ^0.1.4
   typedoc: ^0.23.21
-  typescript: ^4.9.3
+  typescript: ^4.9.4
 
 dependencies:
-  '@owservable/actions': 0.0.5
-  '@owservable/folders': 0.0.5
+  '@owservable/actions': 0.0.6
+  '@owservable/folders': 0.0.6
   '@types/lodash': 4.14.191
-  '@types/node': 18.11.10
+  '@types/node': 18.11.11
   fastify: 4.10.2
   lodash: 4.17.21
 
@@ -46,17 +46,17 @@ devDependencies:
   coveralls: 3.1.1
   mocha: 10.1.0
   nyc: 15.1.0
-  prettier: 2.8.0
+  prettier: 2.8.1
   rewire: 6.0.0
   sonarjs: 1.0.0
   source-map-support: 0.5.21
-  ts-node: 10.9.1_eoe7put6ewfbqpy6gs36tihw6y
-  tslint: 6.1.3_typescript@4.9.3
+  ts-node: 10.9.1_bspv7bpieoza2i5ctiw2ofswem
+  tslint: 6.1.3_typescript@4.9.4
   tslint-config-prettier: 1.18.0
-  tslint-etc: 1.13.10_4bwrygh2ggumuyx7fkk23txfya
-  tslint-no-unused-expression-chai: 0.1.4_4bwrygh2ggumuyx7fkk23txfya
-  typedoc: 0.23.21_typescript@4.9.3
-  typescript: 4.9.3
+  tslint-etc: 1.13.10_qa6jqcpl3wdjfzasttq2rn2jg4
+  tslint-no-unused-expression-chai: 0.1.4_qa6jqcpl3wdjfzasttq2rn2jg4
+  typedoc: 0.23.21_typescript@4.9.4
+  typescript: 4.9.4
 
 packages:
 
@@ -392,35 +392,35 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.13
     dev: true
 
-  /@owservable/actions/0.0.5:
-    resolution: {integrity: sha512-wXbenFkdZXy1Z6Pjm+IE5NZS/4IV5ko4PT8tNMr4ceVD+j8UU8ioFfFAVkZ3SJBmlwDXr+LePFFs9OH3bcsKwQ==}
+  /@owservable/actions/0.0.6:
+    resolution: {integrity: sha512-SPyvwv1OPeL/q6hKsdvRVyMhHzBoK40GxQgACsQU/6RIO/jJZ9kpAZnzNGsZZhkb+QFdpMbkyUbEb35Dp1rH4g==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@owservable/folders': 0.0.5
+      '@owservable/folders': 0.0.6
       '@types/lodash': 4.14.191
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       commander: 9.4.1
       lodash: 4.17.21
     dev: false
 
-  /@owservable/folders/0.0.5:
-    resolution: {integrity: sha512-af1GJBd5/i7TMFCdI4AizCtV7OtrWIuuTty6cg3EB1Acj5pN6nG0/MTi/ARXjilARgQ9QTiuKsISkYU87Jr8EQ==}
+  /@owservable/folders/0.0.6:
+    resolution: {integrity: sha512-L2Dh+LZ1F+N64ZyP5Za406nlyi2SD8uuXutGET5Uc3TH7k0xjvOqHYIR/W4PrsRW6qjcOFE4Bb2khJRZqFgWtA==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
       '@types/lodash': 4.14.191
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       lodash: 4.17.21
     dev: false
 
-  /@phenomnomnominal/tsquery/4.1.1_typescript@4.9.3:
+  /@phenomnomnominal/tsquery/4.1.1_typescript@4.9.4:
     resolution: {integrity: sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ==}
     peerDependencies:
       typescript: ^3 || ^4
     dependencies:
       esquery: 1.4.0
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: true
 
   /@tsconfig/node10/1.0.8:
@@ -451,8 +451,8 @@ packages:
     resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
     dev: true
 
-  /@types/node/18.11.10:
-    resolution: {integrity: sha512-juG3RWMBOqcOuXC643OAdSA525V44cVgGV6dUDuiFtss+8Fk5x1hI93Rsld43VeJVIeqlP9I7Fn9/qaVqoEAuQ==}
+  /@types/node/18.11.11:
+    resolution: {integrity: sha512-KJ021B1nlQUBLopzZmPBVuGU9un7WJd/W4ya7Ih02B4Uwky5Nja0yGYav2EfYIk0RR2Q9oVhf60S2XR1BCWJ2g==}
 
   /@types/rewire/2.5.28:
     resolution: {integrity: sha512-uD0j/AQOa5le7afuK+u+woi8jNKF1vf3DN0H7LCJhft/lNNibUr7VcAesdgtWfEKveZol3ZG1CJqwx2Bhrnl8w==}
@@ -2517,8 +2517,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier/2.8.0:
-    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
+  /prettier/2.8.1:
+    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -3114,7 +3114,7 @@ packages:
     resolution: {integrity: sha512-iawgk0hLP3SxGKDfnDJf8wTz4p2qImnyihM5Hh/sGvQ3K37dPi/w8sRhdNIxYA1TwFwc5mDhIJq+O0RsvXBKdQ==}
     dev: true
 
-  /ts-node/10.9.1_eoe7put6ewfbqpy6gs36tihw6y:
+  /ts-node/10.9.1_bspv7bpieoza2i5ctiw2ofswem:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -3133,14 +3133,14 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       acorn: 8.7.0
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 4.9.3
+      typescript: 4.9.4
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -3159,33 +3159,33 @@ packages:
     hasBin: true
     dev: true
 
-  /tslint-etc/1.13.10_4bwrygh2ggumuyx7fkk23txfya:
+  /tslint-etc/1.13.10_qa6jqcpl3wdjfzasttq2rn2jg4:
     resolution: {integrity: sha512-6Rt6zaE9jw4iBkrnpVTlnbnjax/4LyTRrXkm/+nLuuJ6HQzZ/+TmHDAtA6C/VOkSqeOHRXCIen3B38hmIMlxow==}
     peerDependencies:
       tslint: ^5.0.0 || ^6.0.0
       typescript: ^2.3.0 || ^3.0.0 || ^4.0.0
     dependencies:
-      '@phenomnomnominal/tsquery': 4.1.1_typescript@4.9.3
+      '@phenomnomnominal/tsquery': 4.1.1_typescript@4.9.4
       tslib: 2.3.1
-      tslint: 6.1.3_typescript@4.9.3
-      tsutils: 3.21.0_typescript@4.9.3
-      tsutils-etc: 1.4.1_6srv2tajnzf4k7zj2br63blj3e
-      typescript: 4.9.3
+      tslint: 6.1.3_typescript@4.9.4
+      tsutils: 3.21.0_typescript@4.9.4
+      tsutils-etc: 1.4.1_cls2tekvgzl55omjuqfocrchqe
+      typescript: 4.9.4
     dev: true
 
-  /tslint-no-unused-expression-chai/0.1.4_4bwrygh2ggumuyx7fkk23txfya:
+  /tslint-no-unused-expression-chai/0.1.4_qa6jqcpl3wdjfzasttq2rn2jg4:
     resolution: {integrity: sha512-frEWKNTcq7VsaWKgUxMDOB2N/cmQadVkUtUGIut+2K4nv/uFXPfgJyPjuNC/cHyfUVqIkHMAvHOCL+d/McU3nQ==}
     engines: {node: '>=4'}
     peerDependencies:
       tslint: '>=5.1.0'
     dependencies:
-      tslint: 6.1.3_typescript@4.9.3
-      tsutils: 3.21.0_typescript@4.9.3
+      tslint: 6.1.3_typescript@4.9.4
+      tsutils: 3.21.0_typescript@4.9.4
     transitivePeerDependencies:
       - typescript
     dev: true
 
-  /tslint/6.1.3_typescript@4.9.3:
+  /tslint/6.1.3_typescript@4.9.4:
     resolution: {integrity: sha512-IbR4nkT96EQOvKE2PW/djGz8iGNeJ4rF2mBfiYaR/nvUWYKJhLwimoJKgjIFEIDibBtOevj7BqCRL4oHeWWUCg==}
     engines: {node: '>=4.8.0'}
     deprecated: TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information.
@@ -3205,11 +3205,11 @@ packages:
       resolve: 1.22.1
       semver: 5.7.1
       tslib: 1.14.1
-      tsutils: 2.29.0_typescript@4.9.3
-      typescript: 4.9.3
+      tsutils: 2.29.0_typescript@4.9.4
+      typescript: 4.9.4
     dev: true
 
-  /tsutils-etc/1.4.1_6srv2tajnzf4k7zj2br63blj3e:
+  /tsutils-etc/1.4.1_cls2tekvgzl55omjuqfocrchqe:
     resolution: {integrity: sha512-6UPYgc7OXcIW5tFxlsZF3OVSBvDInl/BkS3Xsu64YITXk7WrnWTVByKWPCThFDBp5gl5IGHOzGMdQuDCE7OL4g==}
     hasBin: true
     peerDependencies:
@@ -3217,28 +3217,28 @@ packages:
       typescript: ^4.0.0
     dependencies:
       '@types/yargs': 17.0.7
-      tsutils: 3.21.0_typescript@4.9.3
-      typescript: 4.9.3
+      tsutils: 3.21.0_typescript@4.9.4
+      typescript: 4.9.4
       yargs: 17.6.2
     dev: true
 
-  /tsutils/2.29.0_typescript@4.9.3:
+  /tsutils/2.29.0_typescript@4.9.4:
     resolution: {integrity: sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==}
     peerDependencies:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: true
 
-  /tsutils/3.21.0_typescript@4.9.3:
+  /tsutils/3.21.0_typescript@4.9.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: true
 
   /tunnel-agent/0.6.0:
@@ -3279,7 +3279,7 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc/0.23.21_typescript@4.9.3:
+  /typedoc/0.23.21_typescript@4.9.4:
     resolution: {integrity: sha512-VNE9Jv7BgclvyH9moi2mluneSviD43dCE9pY8RWkO88/DrEgJZk9KpUk7WO468c9WWs/+aG6dOnoH7ccjnErhg==}
     engines: {node: '>= 14.14'}
     hasBin: true
@@ -3290,11 +3290,11 @@ packages:
       marked: 4.2.3
       minimatch: 5.1.0
       shiki: 0.11.1
-      typescript: 4.9.3
+      typescript: 4.9.4
     dev: true
 
-  /typescript/4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+  /typescript/4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
