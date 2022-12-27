@@ -3,18 +3,18 @@ lockfileVersion: 5.4
 specifiers:
   '@danmasta/mocha-sonar': ^1.0.1
   '@faker-js/faker': ^7.6.0
-  '@owservable/actions': ^0.0.6
-  '@owservable/folders': ^0.0.6
+  '@owservable/actions': ^0.0.7
+  '@owservable/folders': ^0.0.7
   '@types/chai': ^4.3.4
   '@types/lodash': ^4.14.191
   '@types/mocha': ^10.0.1
-  '@types/node': ^18.11.11
+  '@types/node': ^18.11.18
   '@types/rewire': ^2.5.28
   chai: ^4.3.7
   coveralls: ^3.0.9
   fastify: ^4.10.2
   lodash: ^4.17.20
-  mocha: ^10.1.0
+  mocha: ^10.2.0
   nyc: ^15.1.0
   prettier: ^2.8.1
   rewire: ^6.0.0
@@ -25,14 +25,14 @@ specifiers:
   tslint-config-prettier: ^1.18.0
   tslint-etc: ^1.13.7
   tslint-no-unused-expression-chai: ^0.1.4
-  typedoc: ^0.23.21
+  typedoc: ^0.23.23
   typescript: ^4.9.4
 
 dependencies:
-  '@owservable/actions': 0.0.6
-  '@owservable/folders': 0.0.6
+  '@owservable/actions': 0.0.7
+  '@owservable/folders': 0.0.7
   '@types/lodash': 4.14.191
-  '@types/node': 18.11.11
+  '@types/node': 18.11.18
   fastify: 4.10.2
   lodash: 4.17.21
 
@@ -44,18 +44,18 @@ devDependencies:
   '@types/rewire': 2.5.28
   chai: 4.3.7
   coveralls: 3.1.1
-  mocha: 10.1.0
+  mocha: 10.2.0
   nyc: 15.1.0
   prettier: 2.8.1
   rewire: 6.0.0
   sonarjs: 1.0.0
   source-map-support: 0.5.21
-  ts-node: 10.9.1_bspv7bpieoza2i5ctiw2ofswem
+  ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
   tslint: 6.1.3_typescript@4.9.4
   tslint-config-prettier: 1.18.0
   tslint-etc: 1.13.10_qa6jqcpl3wdjfzasttq2rn2jg4
   tslint-no-unused-expression-chai: 0.1.4_qa6jqcpl3wdjfzasttq2rn2jg4
-  typedoc: 0.23.21_typescript@4.9.4
+  typedoc: 0.23.23_typescript@4.9.4
   typescript: 4.9.4
 
 packages:
@@ -392,25 +392,25 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.13
     dev: true
 
-  /@owservable/actions/0.0.6:
-    resolution: {integrity: sha512-SPyvwv1OPeL/q6hKsdvRVyMhHzBoK40GxQgACsQU/6RIO/jJZ9kpAZnzNGsZZhkb+QFdpMbkyUbEb35Dp1rH4g==}
+  /@owservable/actions/0.0.7:
+    resolution: {integrity: sha512-ESTceT1zlEjODT5SUakNGvB7wF92Ku5JWD5GjpCnFXKSfAdC5sqvkuSVjqVIZlKEy9u3iJNM48eQTUmLoGycuw==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@owservable/folders': 0.0.6
+      '@owservable/folders': 0.0.7
       '@types/lodash': 4.14.191
-      '@types/node': 18.11.11
+      '@types/node': 18.11.18
       commander: 9.4.1
       lodash: 4.17.21
     dev: false
 
-  /@owservable/folders/0.0.6:
-    resolution: {integrity: sha512-L2Dh+LZ1F+N64ZyP5Za406nlyi2SD8uuXutGET5Uc3TH7k0xjvOqHYIR/W4PrsRW6qjcOFE4Bb2khJRZqFgWtA==}
+  /@owservable/folders/0.0.7:
+    resolution: {integrity: sha512-OsUHC+jUFYPE0vYsXfq8FPEXWXaR+Pdu4gT64dh6NSC6AC1gyp0wo5M3RtXUUYqV95F7HvNMu33lIKbqi4FTVw==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
       '@types/lodash': 4.14.191
-      '@types/node': 18.11.11
+      '@types/node': 18.11.18
       lodash: 4.17.21
     dev: false
 
@@ -451,8 +451,8 @@ packages:
     resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
     dev: true
 
-  /@types/node/18.11.11:
-    resolution: {integrity: sha512-KJ021B1nlQUBLopzZmPBVuGU9un7WJd/W4ya7Ih02B4Uwky5Nja0yGYav2EfYIk0RR2Q9oVhf60S2XR1BCWJ2g==}
+  /@types/node/18.11.18:
+    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
 
   /@types/rewire/2.5.28:
     resolution: {integrity: sha512-uD0j/AQOa5le7afuK+u+woi8jNKF1vf3DN0H7LCJhft/lNNibUr7VcAesdgtWfEKveZol3ZG1CJqwx2Bhrnl8w==}
@@ -595,14 +595,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       color-convert: 2.0.1
-    dev: true
-
-  /anymatch/3.1.2:
-    resolution: {integrity: sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==}
-    engines: {node: '>= 8'}
-    dependencies:
-      normalize-path: 3.0.0
-      picomatch: 2.3.0
     dev: true
 
   /anymatch/3.1.3:
@@ -871,7 +863,7 @@ packages:
     resolution: {integrity: sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==}
     engines: {node: '>= 8.10.0'}
     dependencies:
-      anymatch: 3.1.2
+      anymatch: 3.1.3
       braces: 3.0.2
       glob-parent: 5.1.2
       is-binary-path: 2.1.0
@@ -2086,8 +2078,8 @@ packages:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
     dev: true
 
-  /marked/4.2.3:
-    resolution: {integrity: sha512-slWRdJkbTZ+PjkyJnE30Uid64eHwbwa1Q25INCAYfZlK4o6ylagBy/Le9eWntqJFoFT93ikUKMv47GZ4gTwHkw==}
+  /marked/4.2.5:
+    resolution: {integrity: sha512-jPueVhumq7idETHkb203WDD4fMA3yV9emQ5vLwop58lu8bTclMghBWcYAavlDqIEMaisADinV1TooIFCfqOsYQ==}
     engines: {node: '>= 12'}
     hasBin: true
     dev: true
@@ -2135,8 +2127,8 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
-  /minimatch/5.1.0:
-    resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
+  /minimatch/5.1.2:
+    resolution: {integrity: sha512-bNH9mmM9qsJ2X4r2Nat1B//1dJVcn3+iBLa3IgqJ7EbGaDNepL9QSHOxN4ng33s52VMMhhIfgCYDk3C4ZmlDAg==}
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
@@ -2163,8 +2155,8 @@ packages:
     hasBin: true
     dev: true
 
-  /mocha/10.1.0:
-    resolution: {integrity: sha512-vUF7IYxEoN7XhQpFLxQAEMtE4W91acW4B6En9l97MwE9stL1A9gusXfoHZCLVHDUJ/7V5+lbCM6yMqzo5vNymg==}
+  /mocha/10.2.0:
+    resolution: {integrity: sha512-IDY7fl/BecMwFHzoqF2sg/SHHANeBoMMXFlS9r0OXKDssYE1M5O43wUY/9BVPeIvfH2zmEbBfseqN9gBQZzXkg==}
     engines: {node: '>= 14.0.0'}
     hasBin: true
     dependencies:
@@ -3114,7 +3106,7 @@ packages:
     resolution: {integrity: sha512-iawgk0hLP3SxGKDfnDJf8wTz4p2qImnyihM5Hh/sGvQ3K37dPi/w8sRhdNIxYA1TwFwc5mDhIJq+O0RsvXBKdQ==}
     dev: true
 
-  /ts-node/10.9.1_bspv7bpieoza2i5ctiw2ofswem:
+  /ts-node/10.9.1_awa2wsr5thmg3i7jqycphctjfq:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -3133,7 +3125,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 18.11.11
+      '@types/node': 18.11.18
       acorn: 8.7.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -3279,16 +3271,16 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc/0.23.21_typescript@4.9.4:
-    resolution: {integrity: sha512-VNE9Jv7BgclvyH9moi2mluneSviD43dCE9pY8RWkO88/DrEgJZk9KpUk7WO468c9WWs/+aG6dOnoH7ccjnErhg==}
+  /typedoc/0.23.23_typescript@4.9.4:
+    resolution: {integrity: sha512-cg1YQWj+/BU6wq74iott513U16fbrPCbyYs04PHZgvoKJIc6EY4xNobyDZh4KMfRGW8Yjv6wwIzQyoqopKOUGw==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
       typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
     dependencies:
       lunr: 2.3.9
-      marked: 4.2.3
-      minimatch: 5.1.0
+      marked: 4.2.5
+      minimatch: 5.1.2
       shiki: 0.11.1
       typescript: 4.9.4
     dev: true
