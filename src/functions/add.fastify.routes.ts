@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 
 import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
+import {Http2Server, Http2ServerRequest, Http2ServerResponse} from 'http2';
 
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
@@ -14,7 +15,10 @@ import cleanRelativePath from './clean.relative.path';
 let routesRootFolder: string;
 
 // TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
-const addFastifyRoutes = (fastify: FastifyInstance<Server, IncomingMessage, ServerResponse>, folder: string): void => {
+const addFastifyRoutes = (
+	fastify: FastifyInstance<Server, IncomingMessage, ServerResponse> | FastifyInstance<Http2Server, Http2ServerRequest, Http2ServerResponse>,
+	folder: string
+): void => {
 	if (!routesRootFolder) routesRootFolder = folder;
 
 	const fileNames = fs.readdirSync(folder);

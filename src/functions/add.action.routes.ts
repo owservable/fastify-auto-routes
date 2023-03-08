@@ -4,13 +4,18 @@ import {each, isArray} from 'lodash';
 
 import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
+import {Http2Server, Http2ServerRequest, Http2ServerResponse} from 'http2';
 
 import {ActionAsControllerInterface} from '@owservable/actions';
 import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 
 import RoutesMap from '../routes.map';
 
-export default async function addActionRoutes(fastify: FastifyInstance<Server, IncomingMessage, ServerResponse>, root: string, folderName: string) {
+export default async function addActionRoutes(
+	fastify: FastifyInstance<Server, IncomingMessage, ServerResponse> | FastifyInstance<Http2Server, Http2ServerRequest, Http2ServerResponse>,
+	root: string,
+	folderName: string
+) {
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
