@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.2.6",
+	"version": "0.2.7",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=16"
@@ -35,24 +35,24 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.1.0",
-		"@owservable/folders": "^0.1.0",
-		"@types/lodash": "^4.14.192",
-		"@types/node": "^18.15.11",
-		"fastify": "^4.15.0",
+		"@owservable/actions": "^0.1.1",
+		"@owservable/folders": "^0.1.1",
+		"@types/lodash": "^4.14.195",
+		"@types/node": "^20.2.5",
+		"fastify": "^4.17.0",
 		"lodash": "^4.17.20"
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.0.1",
-		"@faker-js/faker": "^7.6.0",
-		"@types/chai": "^4.3.4",
+		"@faker-js/faker": "^8.0.2",
+		"@types/chai": "^4.3.5",
 		"@types/mocha": "^10.0.1",
 		"@types/rewire": "^2.5.28",
 		"chai": "^4.3.7",
 		"coveralls": "^3.0.9",
 		"mocha": "^10.2.0",
 		"nyc": "^15.1.0",
-		"prettier": "^2.8.7",
+		"prettier": "^2.8.8",
 		"rewire": "^6.0.0",
 		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.16",
@@ -61,7 +61,7 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.7",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.24.1",
-		"typescript": "^5.0.4"
+		"typedoc": "^0.24.8",
+		"typescript": "^5.1.3"
 	}
 }

@@ -5,8 +5,8 @@ import {faker} from '@faker-js/faker';
 
 import RoutesMap from '../src/routes.map';
 
-const _methods = (): string[] => _.sortBy(_.map(faker.random.words(3).split(' '), _.toUpper));
-const _route = (): string => _.join(_.map(faker.random.words(_.random(2, 5)).split(' '), _.toLower), '/');
+const _methods = (): string[] => _.sortBy(_.map(faker.lorem.words(3).split(' '), _.toUpper));
+const _route = (): string => _.join(_.map(faker.lorem.words(_.random(2, 5)).split(' '), _.toLower), '/');
 const _routes = (count: number): string[] => {
 	const routes: string[] = [];
 	_.each(_.range(count), (i) => routes.push(_route()));
@@ -68,7 +68,7 @@ describe('routes.map.ts tests', () => {
 	describe('RoutesMap::getRoutes', () => {
 		it('null', () => {
 			expect(RoutesMap.getRoutes(null)).to.be.undefined;
-			expect(RoutesMap.getRoutes(faker.random.word())).to.be.undefined;
+			expect(RoutesMap.getRoutes(faker.lorem.word())).to.be.undefined;
 		});
 
 		it('not null', () => {
@@ -126,7 +126,7 @@ describe('routes.map.ts tests', () => {
 		});
 
 		it('not empty', () => {
-			(RoutesMap as any)._routes.set(faker.random.word(), _routes(3));
+			(RoutesMap as any)._routes.set(faker.lorem.word(), _routes(3));
 			expect((RoutesMap as any)._routes).to.not.be.empty;
 
 			RoutesMap.clear();
