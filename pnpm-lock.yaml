@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@owservable/actions':
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: ^0.1.2
+    version: 0.1.2
   '@owservable/folders':
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: ^0.1.2
+    version: 0.1.2
   '@types/lodash':
     specifier: ^4.14.195
     version: 4.14.195
@@ -420,20 +420,20 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.13
     dev: true
 
-  /@owservable/actions@0.1.1:
-    resolution: {integrity: sha512-Pzhjk456vzRmWuY2ppvLDiH33opnGbn5lM1PoUG/jlH5qCWCo0gQsepzepksuSdhFjcM77kSNf2EAEwbc/xVLg==}
+  /@owservable/actions@0.1.2:
+    resolution: {integrity: sha512-HMiIUMDNlWIF0zgbIlMq3uzvmk8ptgVzeGF57webgbV0IQ9+LfWpCFjay7Mq5zZYc4XDMifbLQz/Erx8NOlj3Q==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@owservable/folders': 0.1.1
+      '@owservable/folders': 0.1.2
       '@types/lodash': 4.14.195
       '@types/node': 20.2.5
       commander: 10.0.1
       lodash: 4.17.21
     dev: false
 
-  /@owservable/folders@0.1.1:
-    resolution: {integrity: sha512-zg0w5ZwtOkCxE3b/clCQIgRGRT8ErLQFBX2lQ7BxR93brs9RXr/A0Z8mnDYFfAqDAc7MocIGn+sj4kkU8krvTw==}
+  /@owservable/folders@0.1.2:
+    resolution: {integrity: sha512-7EAfqRhCKSoYJQRK+FAdUuqJCJPEDq5N9ewU3x5dIxq8OxG1cYJNHaOwHCSWoN7KB1r9A+tM9qQ9aVr4+FUbIg==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:

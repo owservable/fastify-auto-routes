@@ -19,7 +19,7 @@ export default async function addActionRoutes(
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
-		console.log('   - [@owservable/fastify-auto-routes] Initializing controller action', actionPath);
+		console.log('[@owservable/fastify-auto-routes] -> Initializing controller action', actionPath);
 		// tslint:disable-next-line:callable-types
 		const ActionClass: {new (): ActionAsControllerInterface} = require(actionPath).default;
 		const action: ActionAsControllerInterface = new ActionClass();
