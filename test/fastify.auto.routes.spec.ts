@@ -15,6 +15,11 @@ describe('fastify.auto.routes.ts tests', () => {
 	});
 
 	it('FastifyAutoRoutes::addFastifyRoutes:', () => {
+		expect(FastifyAutoRoutes.addActionRoutes).to.exist;
+		expect(FastifyAutoRoutes.addActionRoutes).to.be.a('function');
+	});
+
+	it('FastifyAutoRoutes::addFastifyRoutes:', () => {
 		expect(FastifyAutoRoutes.addFastifyRoutes).to.exist;
 		expect(FastifyAutoRoutes.addFastifyRoutes).to.be.a('function');
 	});
