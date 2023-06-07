@@ -17,4 +17,6 @@ describe('add.route.ts tests', () => {
 		expect(METHODS).to.exist;
 		expect(METHODS).to.deep.equal(['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']);
 	});
+
+	it('should be implemented');
 });

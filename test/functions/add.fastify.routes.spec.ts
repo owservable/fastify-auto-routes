@@ -9,6 +9,8 @@ describe('add.fastify.routes.ts tests', () => {
 		expect(addFastifyRoutes).to.exist;
 		expect(addFastifyRoutes).to.be.a('function');
 	});
+
+	it('should be implemented');
 });
 
 const fail =
