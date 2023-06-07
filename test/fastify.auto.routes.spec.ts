@@ -1,3 +1,5 @@
+'use strict';
+
 import {expect} from 'chai';
 
 import * as FastifyAutoRoutes from '../src/fastify.auto.routes';

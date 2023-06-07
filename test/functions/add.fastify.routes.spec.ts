@@ -1,3 +1,5 @@
+'use strict';
+
 import {expect} from 'chai';
 
 import addFastifyRoutes from '../../src/functions/add.fastify.routes';

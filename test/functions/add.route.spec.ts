@@ -1,3 +1,5 @@
+'use strict';
+
 import {expect} from 'chai';
 import addRoute from '../../src/functions/add.route';
 import rewire = require('rewire');
