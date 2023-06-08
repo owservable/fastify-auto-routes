@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@owservable/actions':
-    specifier: ^0.1.2
-    version: 0.1.2
+    specifier: ^0.1.3
+    version: 0.1.3
   '@owservable/folders':
     specifier: ^0.1.2
     version: 0.1.2
@@ -426,8 +426,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.13
     dev: true
 
-  /@owservable/actions@0.1.2:
-    resolution: {integrity: sha512-HMiIUMDNlWIF0zgbIlMq3uzvmk8ptgVzeGF57webgbV0IQ9+LfWpCFjay7Mq5zZYc4XDMifbLQz/Erx8NOlj3Q==}
+  /@owservable/actions@0.1.3:
+    resolution: {integrity: sha512-f5DWrISBsQzD4Kse52b7LoOCytGYiwPpl/o6iLGF8xprAUjyzhRL2F4uHrRAw0GhNPo668QaXBZX65Wz85UrbQ==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
