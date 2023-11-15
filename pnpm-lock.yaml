@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@owservable/actions':
-    specifier: ^0.1.8
-    version: 0.1.8
+    specifier: ^0.1.81
+    version: 0.1.81
   '@owservable/folders':
-    specifier: ^0.1.8
-    version: 0.1.8
+    specifier: ^0.1.81
+    version: 0.1.81
   '@types/lodash':
     specifier: ^4.14.201
     version: 4.14.201
@@ -29,8 +29,8 @@ devDependencies:
     specifier: ^1.0.1
     version: 1.0.1
   '@faker-js/faker':
-    specifier: ^8.2.0
-    version: 8.2.0
+    specifier: ^8.3.1
+    version: 8.3.1
   '@types/chai':
     specifier: ^4.3.10
     version: 4.3.10
@@ -53,8 +53,8 @@ devDependencies:
     specifier: ^15.1.0
     version: 15.1.0
   prettier:
-    specifier: ^3.0.3
-    version: 3.0.3
+    specifier: ^3.1.0
+    version: 3.1.0
   rewire:
     specifier: ^7.0.0
     version: 7.0.0
@@ -371,8 +371,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@faker-js/faker@8.2.0:
-    resolution: {integrity: sha512-VacmzZqVxdWdf9y64lDOMZNDMM/FQdtM9IsaOPKOm2suYwEatb8VkdHqOzXcDnZbk7YDE2BmsJmy/2Hmkn563g==}
+  /@faker-js/faker@8.3.1:
+    resolution: {integrity: sha512-FdgpFxY6V6rLZE9mmIBb9hM0xpfvQOSNOLnzolzKwsE1DH+gC7lEKV1p1IbR0lAYyvYd5a4u3qWJzowUkw1bIw==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
     dev: true
 
@@ -471,20 +471,20 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@owservable/actions@0.1.8:
-    resolution: {integrity: sha512-Q5qDrOb/k0PJtbnVVDyINeQtR/lEucczVCirbW5NGLX2nMj193kC0ePW2njk0p65s4kYAXfMVegGPQ34HC1cPQ==}
+  /@owservable/actions@0.1.81:
+    resolution: {integrity: sha512-9qbf6p53ZiMZiuTZjD2g9TOXhH2vqVxWPGbX/zlq9MAMhq+TTgXXy+FqIEPuRwL1y5ODul6Nn5KakCrH+KHvHQ==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@owservable/folders': 0.1.8
+      '@owservable/folders': 0.1.81
       '@types/lodash': 4.14.201
       '@types/node': 20.9.0
       commander: 11.1.0
       lodash: 4.17.21
     dev: false
 
-  /@owservable/folders@0.1.8:
-    resolution: {integrity: sha512-mOBqbajOcg97Xd3yVaX7TFBfVsnq6orVgNFp6DBdtzh2ZSm759p+4Iy7ZCRKUQsNydvGFaVaXV5d+opqiQxIdw==}
+  /@owservable/folders@0.1.81:
+    resolution: {integrity: sha512-AjBIxRtL5wbFvOU+APDmT/w9DndlCRFo3ENqcE/r7SVSF8P9wIJW0/RzhsxuG5K6mRfoG8HaM+8PlGdKRFlbwQ==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
@@ -2678,8 +2678,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier@3.0.3:
-    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+  /prettier@3.1.0:
+    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
