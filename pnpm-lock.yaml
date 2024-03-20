@@ -18,20 +18,20 @@ overrides:
 
 dependencies:
   '@owservable/actions':
-    specifier: ^0.1.90
-    version: 0.1.90
+    specifier: ^0.1.91
+    version: 0.1.91
   '@owservable/folders':
-    specifier: ^0.1.90
-    version: 0.1.90
+    specifier: ^0.1.91
+    version: 0.1.91
   '@types/lodash':
-    specifier: ^4.14.202
-    version: 4.14.202
+    specifier: ^4.17.0
+    version: 4.17.0
   '@types/node':
-    specifier: ^20.11.20
-    version: 20.11.20
+    specifier: ^20.11.30
+    version: 20.11.30
   fastify:
-    specifier: ^4.26.1
-    version: 4.26.1
+    specifier: ^4.26.2
+    version: 4.26.2
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -44,8 +44,8 @@ devDependencies:
     specifier: ^8.4.1
     version: 8.4.1
   '@types/chai':
-    specifier: ^4.3.12
-    version: 4.3.12
+    specifier: ^4.3.13
+    version: 4.3.13
   '@types/mocha':
     specifier: ^10.0.6
     version: 10.0.6
@@ -84,25 +84,25 @@ devDependencies:
     version: 0.2.6
   ts-node:
     specifier: ^10.9.2
-    version: 10.9.2(@types/node@20.11.20)(typescript@5.3.3)
+    version: 10.9.2(@types/node@20.11.30)(typescript@5.4.2)
   tslint:
     specifier: ^6.1.3
-    version: 6.1.3(typescript@5.3.3)
+    version: 6.1.3(typescript@5.4.2)
   tslint-config-prettier:
     specifier: ^1.18.0
     version: 1.18.0
   tslint-etc:
     specifier: ^1.13.10
-    version: 1.13.10(tslint@6.1.3)(typescript@5.3.3)
+    version: 1.13.10(tslint@6.1.3)(typescript@5.4.2)
   tslint-no-unused-expression-chai:
     specifier: ^0.1.4
-    version: 0.1.4(tslint@6.1.3)(typescript@5.3.3)
+    version: 0.1.4(tslint@6.1.3)(typescript@5.4.2)
   typedoc:
-    specifier: ^0.25.9
-    version: 0.25.9(typescript@5.3.3)
+    specifier: ^0.25.12
+    version: 0.25.12(typescript@5.4.2)
   typescript:
-    specifier: ^5.3.3
-    version: 5.3.3
+    specifier: ^5.4.2
+    version: 5.4.2
 
 packages:
 
@@ -380,7 +380,7 @@ packages:
   /@fastify/fast-json-stringify-compiler@4.3.0:
     resolution: {integrity: sha512-aZAXGYo6m22Fk1zZzEUKBvut/CIIQe/BapEORnxiD5Qr0kPHqqI69NtEMCme74h+at72sPhbkb4ZrLd1W3KRLA==}
     dependencies:
-      fast-json-stringify: 5.12.0
+      fast-json-stringify: 5.13.0
     dev: false
 
   /@fastify/merge-json-schemas@0.1.1:
@@ -483,35 +483,35 @@ packages:
       fastq: 1.17.1
     dev: true
 
-  /@owservable/actions@0.1.90:
-    resolution: {integrity: sha512-LU0rtBiSv+k1l8O96GpULJ4T/im3geqVxzNXOFEcZQi7OCRI5i1KOPwJwz8XxgbR08bqHHLJr5btVedUzBIbyg==}
+  /@owservable/actions@0.1.91:
+    resolution: {integrity: sha512-noPcKt6mZfyi288eDj30wpJ5NXo3RKgk4odxvQqdw+GCEg9Vvy9LU31SzVKEWsciCuPVPtaQBzVOAWJvuGUEfA==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@owservable/folders': 0.1.90
-      '@types/lodash': 4.14.202
-      '@types/node': 20.11.20
+      '@owservable/folders': 0.1.91
+      '@types/lodash': 4.17.0
+      '@types/node': 20.11.30
       commander: 12.0.0
       lodash: 4.17.21
     dev: false
 
-  /@owservable/folders@0.1.90:
-    resolution: {integrity: sha512-hZD/J0Z0p3MQVJJPr7ThCOHWObnbC8VhsRMEwkyTwZpVlVV7lTfGKNcscRRmQJb6aU4n0jcPe77iqTo7EWg6Dg==}
+  /@owservable/folders@0.1.91:
+    resolution: {integrity: sha512-uGc6esLODdyBUYtygmDGu78a060YxQsfZQLtHylOEQg0qllnQhEnlvCT7BSKHVFDk2666oCfgckJ3bTFFgIntg==}
     engines: {node: '>=16'}
     requiresBuild: true
     dependencies:
-      '@types/lodash': 4.14.202
-      '@types/node': 20.11.20
+      '@types/lodash': 4.17.0
+      '@types/node': 20.11.30
       lodash: 4.17.21
     dev: false
 
-  /@phenomnomnominal/tsquery@4.1.1(typescript@5.3.3):
+  /@phenomnomnominal/tsquery@4.1.1(typescript@5.4.2):
     resolution: {integrity: sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ==}
     peerDependencies:
       typescript: ^3 || ^4
     dependencies:
       esquery: 1.5.0
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
   /@tsconfig/node10@1.0.9:
@@ -530,8 +530,8 @@ packages:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
-  /@types/chai@4.3.12:
-    resolution: {integrity: sha512-zNKDHG/1yxm8Il6uCCVsm+dRdEsJlFoDu73X17y09bId6UwoYww+vFBsAcRzl8knM1sab3Dp1VRikFQwDOtDDw==}
+  /@types/chai@4.3.13:
+    resolution: {integrity: sha512-+LxQEbg4BDUf88utmhpUpTyYn1zHao443aGnXIAQak9ZMt9Rtsic0Oig0OS1xyIqdDXc5uMekoC6NaiUlkT/qA==}
     dev: true
 
   /@types/cli-color@2.0.6:
@@ -542,16 +542,16 @@ packages:
     resolution: {integrity: sha512-GsALrTL69mlwbAw/MHF1IPTadSLZQnsxe7a80G8l4inN/iEXCOcVeT/S7aRc6hbhqzL9qZ314kHPDQnQ3ev+HA==}
     dev: true
 
-  /@types/lodash@4.14.202:
-    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
+  /@types/lodash@4.17.0:
+    resolution: {integrity: sha512-t7dhREVv6dbNj0q17X12j7yDG4bD/DHYX7o5/DbDxobP0HnGPgpRz2Ej77aL7TZT3DSw13fqUTj8J4mMnqa7WA==}
     dev: false
 
   /@types/mocha@10.0.6:
     resolution: {integrity: sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==}
     dev: true
 
-  /@types/node@20.11.20:
-    resolution: {integrity: sha512-7/rR21OS+fq8IyHTgtLkDK949uzsa6n8BkziAKtPVpugIkO6D+/ooXMvzXxDnZrmtXVfjb1bKQafYpb8s89LOg==}
+  /@types/node@20.11.30:
+    resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}
     dependencies:
       undici-types: 5.26.5
 
@@ -1071,8 +1071,8 @@ packages:
       safe-buffer: 5.1.2
     dev: true
 
-  /cookie@0.5.0:
-    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+  /cookie@0.6.0:
+    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -1439,8 +1439,8 @@ packages:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
     dev: true
 
-  /fast-json-stringify@5.12.0:
-    resolution: {integrity: sha512-7Nnm9UPa7SfHRbHVA1kJQrGXCRzB7LMlAAqHXQFkEQqueJm1V8owm0FsE/2Do55/4CcdhwiLQERaKomOnKQkyA==}
+  /fast-json-stringify@5.13.0:
+    resolution: {integrity: sha512-XjTDWKHP3GoMQUOfnjYUbqeHeEt+PvYgvBdG2fRSmYaORILbSr8xTJvZX+w1YSAP5pw2NwKrGRmQleYueZEoxw==}
     dependencies:
       '@fastify/merge-json-schemas': 0.1.1
       ajv: 8.12.0
@@ -1461,8 +1461,8 @@ packages:
       fast-decode-uri-component: 1.0.1
     dev: false
 
-  /fast-redact@3.3.0:
-    resolution: {integrity: sha512-6T5V1QK1u4oF+ATxs1lWUmlEk6P2T9HqJG3e2DnHOdVgZy2rFJBoEnrIedcTXlkAHU/zKC+7KETJ+KGGKwxgMQ==}
+  /fast-redact@3.5.0:
+    resolution: {integrity: sha512-dwsoQlS7h9hMeYUq1W++23NDcBLV4KqONnITDV9DjfS3q1SgDGVrBdvvTLUotWtPSD7asWDV9/CmsZPy8Hf70A==}
     engines: {node: '>=6'}
     dev: false
 
@@ -1470,8 +1470,8 @@ packages:
     resolution: {integrity: sha512-eel5UKGn369gGEWOqBShmFJWfq/xSJvsgDzgLYC845GneayWvXBf0lJCBn5qTABfewy1ZDPoaR5OZCP+kssfuw==}
     dev: false
 
-  /fastify@4.26.1:
-    resolution: {integrity: sha512-tznA/G55dsxzM5XChBfcvVSloG2ejeeotfPPJSFaWmHyCDVGMpvf3nRNbsCb/JTBF9RmQFBfuujWt3Nphjesng==}
+  /fastify@4.26.2:
+    resolution: {integrity: sha512-90pjTuPGrfVKtdpLeLzND5nyC4woXZN5VadiNQCicj/iJU4viNHKhsAnb7jmv1vu2IzkLXyBiCzdWuzeXgQ5Ug==}
     dependencies:
       '@fastify/ajv-compiler': 3.5.0
       '@fastify/error': 3.4.1
@@ -1479,10 +1479,10 @@ packages:
       abstract-logging: 2.0.1
       avvio: 8.3.0
       fast-content-type-parse: 1.1.0
-      fast-json-stringify: 5.12.0
+      fast-json-stringify: 5.13.0
       find-my-way: 8.1.0
-      light-my-request: 5.11.0
-      pino: 8.18.0
+      light-my-request: 5.12.0
+      pino: 8.19.0
       process-warning: 3.0.0
       proxy-addr: 2.0.7
       rfdc: 1.3.1
@@ -2109,11 +2109,11 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /light-my-request@5.11.0:
-    resolution: {integrity: sha512-qkFCeloXCOMpmEdZ/MV91P8AT4fjwFXWaAFz3lUeStM8RcoM1ks4J/F8r1b3r6y/H4u3ACEJ1T+Gv5bopj7oDA==}
+  /light-my-request@5.12.0:
+    resolution: {integrity: sha512-P526OX6E7aeCIfw/9UyJNsAISfcFETghysaWHQAlQYayynShT08MOj4c6fBCvTWBrHXSvqBAKDp3amUPSCQI4w==}
     dependencies:
-      cookie: 0.5.0
-      process-warning: 2.3.2
+      cookie: 0.6.0
+      process-warning: 3.0.0
       set-cookie-parser: 2.6.0
     dev: false
 
@@ -2581,12 +2581,12 @@ packages:
     resolution: {integrity: sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==}
     dev: false
 
-  /pino@8.18.0:
-    resolution: {integrity: sha512-Mz/gKiRyuXu4HnpHgi1YWdHQCoWMufapzooisvFn78zl4dZciAxS+YeRkUxXl1ee/SzU80YCz1zpECCh4oC6Aw==}
+  /pino@8.19.0:
+    resolution: {integrity: sha512-oswmokxkav9bADfJ2ifrvfHUwad6MLp73Uat0IkQWY3iAw5xTRoznXbXksZs8oaOUMpmhVWD+PZogNzllWpJaA==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0
-      fast-redact: 3.3.0
+      fast-redact: 3.5.0
       on-exit-leak-free: 2.1.2
       pino-abstract-transport: 1.1.0
       pino-std-serializers: 6.2.2
@@ -2626,10 +2626,6 @@ packages:
     dependencies:
       fromentries: 1.3.2
     dev: true
-
-  /process-warning@2.3.2:
-    resolution: {integrity: sha512-n9wh8tvBe5sFmsqlg+XQhaQLumwpqoAUruLwjCopgTmUBjJ/fjtBsJzKleCaIGBOMXYEhp1YfKl4d7rJ5ZKJGA==}
-    dev: false
 
   /process-warning@3.0.0:
     resolution: {integrity: sha512-mqn0kFRl0EoqhnL0GQ0veqFHyIN1yig9RHh/InzORTUiZHFRAur+aMtRkELNwGs9aNwKS6tg/An4NYBPGwvtzQ==}
@@ -3231,7 +3227,7 @@ packages:
     resolution: {integrity: sha512-iawgk0hLP3SxGKDfnDJf8wTz4p2qImnyihM5Hh/sGvQ3K37dPi/w8sRhdNIxYA1TwFwc5mDhIJq+O0RsvXBKdQ==}
     dev: true
 
-  /ts-node@10.9.2(@types/node@20.11.20)(typescript@5.3.3):
+  /ts-node@10.9.2(@types/node@20.11.30)(typescript@5.4.2):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -3250,14 +3246,14 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.11.20
+      '@types/node': 20.11.30
       acorn: 8.11.3
       acorn-walk: 8.3.1
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.3.3
+      typescript: 5.4.2
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -3276,33 +3272,33 @@ packages:
     hasBin: true
     dev: true
 
-  /tslint-etc@1.13.10(tslint@6.1.3)(typescript@5.3.3):
+  /tslint-etc@1.13.10(tslint@6.1.3)(typescript@5.4.2):
     resolution: {integrity: sha512-6Rt6zaE9jw4iBkrnpVTlnbnjax/4LyTRrXkm/+nLuuJ6HQzZ/+TmHDAtA6C/VOkSqeOHRXCIen3B38hmIMlxow==}
     peerDependencies:
       tslint: ^5.0.0 || ^6.0.0
       typescript: ^2.3.0 || ^3.0.0 || ^4.0.0
     dependencies:
-      '@phenomnomnominal/tsquery': 4.1.1(typescript@5.3.3)
+      '@phenomnomnominal/tsquery': 4.1.1(typescript@5.4.2)
       tslib: 2.3.1
-      tslint: 6.1.3(typescript@5.3.3)
-      tsutils: 3.21.0(typescript@5.3.3)
-      tsutils-etc: 1.4.1(tsutils@3.21.0)(typescript@5.3.3)
-      typescript: 5.3.3
+      tslint: 6.1.3(typescript@5.4.2)
+      tsutils: 3.21.0(typescript@5.4.2)
+      tsutils-etc: 1.4.1(tsutils@3.21.0)(typescript@5.4.2)
+      typescript: 5.4.2
     dev: true
 
-  /tslint-no-unused-expression-chai@0.1.4(tslint@6.1.3)(typescript@5.3.3):
+  /tslint-no-unused-expression-chai@0.1.4(tslint@6.1.3)(typescript@5.4.2):
     resolution: {integrity: sha512-frEWKNTcq7VsaWKgUxMDOB2N/cmQadVkUtUGIut+2K4nv/uFXPfgJyPjuNC/cHyfUVqIkHMAvHOCL+d/McU3nQ==}
     engines: {node: '>=4'}
     peerDependencies:
       tslint: '>=5.1.0'
     dependencies:
-      tslint: 6.1.3(typescript@5.3.3)
-      tsutils: 3.21.0(typescript@5.3.3)
+      tslint: 6.1.3(typescript@5.4.2)
+      tsutils: 3.21.0(typescript@5.4.2)
     transitivePeerDependencies:
       - typescript
     dev: true
 
-  /tslint@6.1.3(typescript@5.3.3):
+  /tslint@6.1.3(typescript@5.4.2):
     resolution: {integrity: sha512-IbR4nkT96EQOvKE2PW/djGz8iGNeJ4rF2mBfiYaR/nvUWYKJhLwimoJKgjIFEIDibBtOevj7BqCRL4oHeWWUCg==}
     engines: {node: '>=4.8.0'}
     deprecated: TSLint has been deprecated in favor of ESLint. Please see https://github.com/palantir/tslint/issues/4534 for more information.
@@ -3322,11 +3318,11 @@ packages:
       resolve: 1.22.1
       semver: 7.6.0
       tslib: 1.14.1
-      tsutils: 2.29.0(typescript@5.3.3)
-      typescript: 5.3.3
+      tsutils: 2.29.0(typescript@5.4.2)
+      typescript: 5.4.2
     dev: true
 
-  /tsutils-etc@1.4.1(tsutils@3.21.0)(typescript@5.3.3):
+  /tsutils-etc@1.4.1(tsutils@3.21.0)(typescript@5.4.2):
     resolution: {integrity: sha512-6UPYgc7OXcIW5tFxlsZF3OVSBvDInl/BkS3Xsu64YITXk7WrnWTVByKWPCThFDBp5gl5IGHOzGMdQuDCE7OL4g==}
     hasBin: true
     peerDependencies:
@@ -3334,28 +3330,28 @@ packages:
       typescript: ^4.0.0
     dependencies:
       '@types/yargs': 17.0.7
-      tsutils: 3.21.0(typescript@5.3.3)
-      typescript: 5.3.3
+      tsutils: 3.21.0(typescript@5.4.2)
+      typescript: 5.4.2
       yargs: 17.6.2
     dev: true
 
-  /tsutils@2.29.0(typescript@5.3.3):
+  /tsutils@2.29.0(typescript@5.4.2):
     resolution: {integrity: sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==}
     peerDependencies:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev'
     dependencies:
       tslib: 1.14.1
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
-  /tsutils@3.21.0(typescript@5.3.3):
+  /tsutils@3.21.0(typescript@5.4.2):
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
   /tunnel-agent@0.6.0:
@@ -3404,22 +3400,22 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc@0.25.9(typescript@5.3.3):
-    resolution: {integrity: sha512-jVoGmfNw848iW0L313+jqHbsknepwDV6F9nzk1H30oWhKXkw65uaENgR6QtTw9a5KqRWEb6nwNd54KxffBJyWw==}
+  /typedoc@0.25.12(typescript@5.4.2):
+    resolution: {integrity: sha512-F+qhkK2VoTweDXd1c42GS/By2DvI2uDF4/EpG424dTexSHdtCH52C6IcAvMA6jR3DzAWZjHpUOW+E02kyPNUNw==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
-      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x
     dependencies:
       lunr: 2.3.9
       marked: 4.3.0
       minimatch: 9.0.3
       shiki: 0.14.7
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
-  /typescript@5.3.3:
-    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
+  /typescript@5.4.2:
+    resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true

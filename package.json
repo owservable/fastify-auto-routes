@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.4.50",
+	"version": "0.4.51",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=16"
@@ -34,17 +34,17 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.1.90",
-		"@owservable/folders": "^0.1.90",
-		"@types/lodash": "^4.14.202",
-		"@types/node": "^20.11.20",
-		"fastify": "^4.26.1",
+		"@owservable/actions": "^0.1.91",
+		"@owservable/folders": "^0.1.91",
+		"@types/lodash": "^4.17.0",
+		"@types/node": "^20.11.30",
+		"fastify": "^4.26.2",
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.1.0",
 		"@faker-js/faker": "^8.4.1",
-		"@types/chai": "^4.3.12",
+		"@types/chai": "^4.3.13",
 		"@types/mocha": "^10.0.6",
 		"@types/rewire": "^2.5.30",
 		"chai": "4.4.0",
@@ -62,8 +62,8 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.10",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.25.9",
-		"typescript": "^5.3.3"
+		"typedoc": "^0.25.12",
+		"typescript": "^5.4.2"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
