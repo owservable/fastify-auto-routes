@@ -21,21 +21,29 @@ const addFastifyRoutes = (
 ): void => {
 	if (!routesRootFolder) routesRootFolder = folder;
 
-	const fileNames = fs.readdirSync(folder);
-	const files = _.filter(fileNames, (name) => !fs.lstatSync(path.join(folder, name)).isDirectory());
-	_.each(files, (file: string) => {
-		const ext = path.extname(file);
+	const fileNames: string[] = fs.readdirSync(folder);
+	const files: string[] = _.filter(fileNames, (name) => !fs.lstatSync(path.join(folder, name)).isDirectory());
+
+	for (const file of files) {
+		const ext: string = path.extname(file);
 		if (ext !== '.ts' && ext !== '.js') return;
 
-		const absoluteFilePath = path.join(folder, file);
-		const relativeFilePath = cleanRelativePath(routesRootFolder, absoluteFilePath, ext);
+		const absoluteFilePath: string = path.join(folder, file);
+		const relativeFilePath: string = cleanRelativePath(routesRootFolder, absoluteFilePath, ext);
 
-		const route = require(absoluteFilePath);
-		if (_.isArray(route)) _.each(route, (r: any) => addRoute(fastify, r, relativeFilePath));
-		else addRoute(fastify, route, relativeFilePath);
-	});
+		const routes = require(absoluteFilePath);
+		if (_.isArray(routes)) {
+			for (const route of routes) {
+				addRoute(fastify, route, relativeFilePath);
+			}
+		} else {
+			addRoute(fastify, routes, relativeFilePath);
+		}
+	}
 
-	const folders = _.filter(fileNames, (name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
-	_.each(folders, (sub: string) => addFastifyRoutes(fastify, path.join(folder, sub)));
+	const folders: string[] = _.filter(fileNames, (name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
+	for (const sub of folders) {
+		addFastifyRoutes(fastify, path.join(folder, sub));
+	}
 };
 export default addFastifyRoutes;
