@@ -4,9 +4,9 @@ import * as _ from 'lodash';
 import fixUrl from './fix.url';
 import RoutesMap from '../routes.map';
 
-const METHODS = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'];
+const METHODS: string[] = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'];
 
-const addRoute = (fastify: any, route: any, relativeFilePath: string): void => {
+const addRoute = (fastify: any, route: any, relativeFilePath: string, verbose: boolean = false): void => {
 	if (!_.has(route, 'url')) route.url = '/';
 
 	const {url} = route;
@@ -16,6 +16,8 @@ const addRoute = (fastify: any, route: any, relativeFilePath: string): void => {
 	else route.method = 'GET';
 
 	if (_.isPlainObject(route) && METHODS.includes(route.method)) {
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> Initializing route', route.url);
+
 		fastify.route(route);
 		RoutesMap.add(route.method, route.url);
 	}

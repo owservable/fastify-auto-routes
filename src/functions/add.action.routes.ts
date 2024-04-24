@@ -14,12 +14,14 @@ import RoutesMap from '../routes.map';
 export default async function addActionRoutes(
 	fastify: FastifyInstance<Server, IncomingMessage, ServerResponse> | FastifyInstance<Http2Server, Http2ServerRequest, Http2ServerResponse>,
 	root: string,
-	folderName: string
-) {
+	folderName: string,
+	verbose: boolean = false
+): Promise<void> {
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
-		console.log('[@owservable/fastify-auto-routes] -> Initializing controller action', actionPath);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> Initializing route', actionPath);
+
 		// tslint:disable-next-line:callable-types
 		const ActionClass: {new (): ActionAsControllerInterface} = require(actionPath).default;
 		const action: ActionAsControllerInterface = new ActionClass();

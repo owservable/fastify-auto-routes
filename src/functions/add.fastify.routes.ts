@@ -17,7 +17,8 @@ let routesRootFolder: string;
 // TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
 const addFastifyRoutes = (
 	fastify: FastifyInstance<Server, IncomingMessage, ServerResponse> | FastifyInstance<Http2Server, Http2ServerRequest, Http2ServerResponse>,
-	folder: string
+	folder: string,
+	verbose: boolean = false
 ): void => {
 	if (!routesRootFolder) routesRootFolder = folder;
 
@@ -34,10 +35,10 @@ const addFastifyRoutes = (
 		const routes = require(absoluteFilePath);
 		if (_.isArray(routes)) {
 			for (const route of routes) {
-				addRoute(fastify, route, relativeFilePath);
+				addRoute(fastify, route, relativeFilePath, verbose);
 			}
 		} else {
-			addRoute(fastify, routes, relativeFilePath);
+			addRoute(fastify, routes, relativeFilePath, verbose);
 		}
 	}
 
