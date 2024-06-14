@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.4.55",
+	"version": "0.4.56",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=16"
@@ -24,6 +24,7 @@
 		"clean": "tslint --config tslint-imports.json --fix --project .",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"docs": "typedoc --readme none --out docs ./src/fastify.auto.routes.ts",
+		"sync": "git pull & git fetch origin & git merge origin/main & pnpm i & git branch",
 		"test": "nyc --all --reporter=lcov --reporter=html mocha -r ts-node/register test/**/*.spec.ts --code-coverage",
 		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
 		"sonar": "sonarjs -e .sonarlint/**,node_modules/**,coverage/**,.nyc_output/**",
@@ -34,11 +35,11 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.1.93",
-		"@owservable/folders": "^0.1.93",
-		"@types/lodash": "^4.17.4",
-		"@types/node": "^20.12.13",
-		"fastify": "^4.27.0",
+		"@owservable/actions": "^0.1.94",
+		"@owservable/folders": "^0.1.94",
+		"@types/lodash": "^4.17.5",
+		"@types/node": "^20.14.2",
+		"fastify": "^4.28.0",
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
@@ -50,8 +51,8 @@
 		"chai": "4.4.0",
 		"coveralls": "^3.1.1",
 		"mocha": "^10.4.0",
-		"nyc": "^15.1.0",
-		"prettier": "^3.2.5",
+		"nyc": "^17.0.0",
+		"prettier": "^3.3.2",
 		"rewire": "^7.0.0",
 		"skeletest": "^0.5.2",
 		"sonarjs": "^1.0.0",
