@@ -21,11 +21,11 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^0.1.97
-        version: 0.1.97
+        specifier: ^0.1.98
+        version: 0.1.98
       '@owservable/folders':
-        specifier: ^0.1.97
-        version: 0.1.97
+        specifier: ^0.1.98
+        version: 0.1.98
       '@types/lodash':
         specifier: ^4.17.7
         version: 4.17.7
@@ -46,8 +46,8 @@ importers:
         specifier: ^8.4.1
         version: 8.4.1
       '@types/chai':
-        specifier: ^4.3.16
-        version: 4.3.16
+        specifier: ^4.3.17
+        version: 4.3.17
       '@types/mocha':
         specifier: ^10.0.7
         version: 10.0.7
@@ -61,8 +61,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
       mocha:
-        specifier: ^10.7.0
-        version: 10.7.0
+        specifier: ^10.7.3
+        version: 10.7.3
       nyc:
         specifier: ^17.0.0
         version: 17.0.0
@@ -299,13 +299,13 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owservable/actions@0.1.97':
-    resolution: {integrity: sha512-DJb2WWaEZQKoEpUNgH5dQrEgZRn1z8jA2PPneT09t3rKXdx5JcyDAqbvmlR8yIyfE7EH649XzEQs2dTSCZK+IA==}
-    engines: {node: '>=16'}
+  '@owservable/actions@0.1.98':
+    resolution: {integrity: sha512-ZMwFpDRVCYLyzRw8L+oF5R+dq6tVtIxxABjuj9RsBr8ypKgeekDY+EkdAVD5DbOfu8E3Xp9hieEnGDRgOws58w==}
+    engines: {node: '>=20'}
 
-  '@owservable/folders@0.1.97':
-    resolution: {integrity: sha512-Drm1QAgS2HqDwla8HeieMKZbH8abJDRcN+bdg9FiQxu6GLmUO5IX2BgPowcpxgBxk5lAAsDqktXEyjvCVBX8aQ==}
-    engines: {node: '>=16'}
+  '@owservable/folders@0.1.98':
+    resolution: {integrity: sha512-JqEX0/GgG7HU73Ppb+1/vekFCEAWObQbQAScQQW/Yu9LxSYydbOLXiqTJOAH4f03OhIHW3oqEhlOzIh9kN399w==}
+    engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.1.1':
     resolution: {integrity: sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ==}
@@ -327,8 +327,8 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@types/chai@4.3.16':
-    resolution: {integrity: sha512-PatH4iOdyh3MyWtmHVFXLWCCIhUbopaltqddG9BzB+gMIzee2MJrvd+jouii9Z3wzQJruGWAm7WOMjgfG8hQlQ==}
+  '@types/chai@4.3.17':
+    resolution: {integrity: sha512-zmZ21EWzR71B4Sscphjief5djsLre50M6lI622OSySTmn9DB3j+C3kWroHfBQWXbOBwbgg/M8CG/hUxDLIloow==}
 
   '@types/cli-color@2.0.6':
     resolution: {integrity: sha512-uLK0/0dOYdkX8hNsezpYh1gc8eerbhf9bOKZ3e24sP67703mw9S14/yW6mSTatiaKO9v+mU/a1EVy4rOXXeZTA==}
@@ -687,8 +687,8 @@ packages:
     resolution: {integrity: sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g==}
     engines: {node: '>=0.10'}
 
-  debug@4.3.5:
-    resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
+  debug@4.3.6:
+    resolution: {integrity: sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -1369,8 +1369,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mocha@10.7.0:
-    resolution: {integrity: sha512-v8/rBWr2VO5YkspYINnvu81inSz2y3ODJrhO175/Exzor1RcEZZkizgE2A+w/CAXXoESS8Kys5E62dOHGHzULA==}
+  mocha@10.7.3:
+    resolution: {integrity: sha512-uQWxAu44wwiACGqjbPYmjo7Lg8sFrS3dQe7PP2FQI+woptP4vZXSMcfMyFL/e1yFEeEpV4RtyTpZROOKmxis+A==}
     engines: {node: '>= 14.0.0'}
     hasBin: true
 
@@ -2162,7 +2162,7 @@ snapshots:
       '@babel/traverse': 7.24.7
       '@babel/types': 7.24.7
       convert-source-map: 2.0.0
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -2264,7 +2264,7 @@ snapshots:
       '@babel/helper-split-export-declaration': 7.24.7
       '@babel/parser': 7.24.7
       '@babel/types': 7.24.7
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -2283,7 +2283,7 @@ snapshots:
     dependencies:
       lodash: 4.17.21
       mkdirp: 3.0.1
-      mocha: 10.7.0
+      mocha: 10.7.3
       xml-js: 1.6.11
 
   '@eslint-community/eslint-utils@4.4.0(eslint@8.47.0)':
@@ -2296,7 +2296,7 @@ snapshots:
   '@eslint/eslintrc@2.1.2':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       espree: 9.6.1
       globals: 13.21.0
       ignore: 5.2.4
@@ -2330,7 +2330,7 @@ snapshots:
   '@humanwhocodes/config-array@0.11.10':
     dependencies:
       '@humanwhocodes/object-schema': 1.2.1
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -2383,15 +2383,15 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@owservable/actions@0.1.97':
+  '@owservable/actions@0.1.98':
     dependencies:
-      '@owservable/folders': 0.1.97
+      '@owservable/folders': 0.1.98
       '@types/lodash': 4.17.7
       '@types/node': 20.14.11
       commander: 12.1.0
       lodash: 4.17.21
 
-  '@owservable/folders@0.1.97':
+  '@owservable/folders@0.1.98':
     dependencies:
       '@types/lodash': 4.17.7
       '@types/node': 20.14.11
@@ -2414,7 +2414,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@types/chai@4.3.16': {}
+  '@types/chai@4.3.17': {}
 
   '@types/cli-color@2.0.6': {}
 
@@ -2774,7 +2774,7 @@ snapshots:
     dependencies:
       assert-plus: 1.0.0
 
-  debug@4.3.5(supports-color@8.1.1):
+  debug@4.3.6(supports-color@8.1.1):
     dependencies:
       ms: 2.1.2
     optionalDependencies:
@@ -2876,7 +2876,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.2
@@ -3282,7 +3282,7 @@ snapshots:
 
   istanbul-lib-source-maps@4.0.1:
     dependencies:
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       istanbul-lib-coverage: 3.2.2
       source-map: 0.6.1
     transitivePeerDependencies:
@@ -3466,12 +3466,12 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  mocha@10.7.0:
+  mocha@10.7.3:
     dependencies:
       ansi-colors: 4.1.3
       browser-stdout: 1.3.1
       chokidar: 3.6.0
-      debug: 4.3.5(supports-color@8.1.1)
+      debug: 4.3.6(supports-color@8.1.1)
       diff: 5.2.0
       escape-string-regexp: 4.0.0
       find-up: 5.0.0

@@ -1,9 +1,9 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.4.59",
+	"version": "0.4.60",
 	"description": "fastify auto routes",
 	"engines": {
-		"node": ">=16"
+		"node": ">=20"
 	},
 	"main": "./lib/fastify.auto.routes.js",
 	"types": "./lib/fastify.auto.routes.d.ts",
@@ -35,8 +35,8 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.1.97",
-		"@owservable/folders": "^0.1.97",
+		"@owservable/actions": "^0.1.98",
+		"@owservable/folders": "^0.1.98",
 		"@types/lodash": "^4.17.7",
 		"@types/node": "^20.14.11",
 		"fastify": "^4.28.1",
@@ -45,12 +45,12 @@
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.1.0",
 		"@faker-js/faker": "^8.4.1",
-		"@types/chai": "^4.3.16",
+		"@types/chai": "^4.3.17",
 		"@types/mocha": "^10.0.7",
 		"@types/rewire": "^2.5.30",
 		"chai": "4.4.0",
 		"coveralls": "^3.1.1",
-		"mocha": "^10.7.0",
+		"mocha": "^10.7.3",
 		"nyc": "^17.0.0",
 		"prettier": "^3.3.3",
 		"rewire": "^7.0.0",
