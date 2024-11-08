@@ -5,9 +5,8 @@ import * as path from 'path';
 
 import * as _ from 'lodash';
 
-import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
-import {Http2Server, Http2ServerRequest, Http2ServerResponse} from 'http2';
+import {FastifyBaseLogger, FastifyInstance, FastifyTypeProviderDefault} from 'fastify';
 
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
@@ -16,7 +15,7 @@ let routesRootFolder: string;
 
 // TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
 const addFastifyRoutes = (
-	fastify: FastifyInstance<Server, IncomingMessage, ServerResponse> | FastifyInstance<Http2Server, Http2ServerRequest, Http2ServerResponse>,
+	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>,
 	folder: string,
 	verbose: boolean = false
 ): void => {

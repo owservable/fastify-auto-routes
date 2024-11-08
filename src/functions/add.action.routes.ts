@@ -2,28 +2,27 @@
 
 import {each, isArray} from 'lodash';
 
-import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
-import {Http2Server, Http2ServerRequest, Http2ServerResponse} from 'http2';
+import {FastifyBaseLogger, FastifyInstance, FastifyTypeProviderDefault} from 'fastify';
 
 import {ActionAsControllerInterface} from '@owservable/actions';
 import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 
 import RoutesMap from '../routes.map';
 
-export default async function addActionRoutes(
-	fastify: FastifyInstance<Server, IncomingMessage, ServerResponse> | FastifyInstance<Http2Server, Http2ServerRequest, Http2ServerResponse>,
+const addActionRoutes = async (
+	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>,
 	root: string,
 	folderName: string,
 	verbose: boolean = false
-): Promise<void> {
+): Promise<void> => {
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> Initializing route', actionPath);
 
 		// tslint:disable-next-line:callable-types
-		const ActionClass: {new (): ActionAsControllerInterface} = require(actionPath).default;
+		const ActionClass: new () => ActionAsControllerInterface = require(actionPath).default;
 		const action: ActionAsControllerInterface = new ActionClass();
 
 		if (typeof action.routes === 'function' && typeof action.asController === 'function') {
@@ -41,4 +40,5 @@ export default async function addActionRoutes(
 			}
 		}
 	}
-}
+};
+export default addActionRoutes;

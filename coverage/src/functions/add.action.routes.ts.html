@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.04% </span>
+                <span class="strong">22.72% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/21</span>
+                <span class='fraction'>5/22</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">23.8% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/20</span>
+                <span class='fraction'>5/21</span>
             </div>
         
             
@@ -115,21 +115,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -137,6 +129,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -151,32 +150,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
 import {each, isArray} from 'lodash';
 &nbsp;
-import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
-import {Http2Server, Http2ServerRequest, Http2ServerResponse} from 'http2';
+import {FastifyBaseLogger, FastifyInstance, FastifyTypeProviderDefault} from 'fastify';
 &nbsp;
 import {ActionAsControllerInterface} from '@owservable/actions';
 import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 &nbsp;
 import RoutesMap from '../routes.map';
 &nbsp;
-export default async function <span class="fstat-no" title="function not covered" >addActionRoutes(</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >	fastify: FastifyInstance&lt;Server, IncomingMessage, ServerResponse&gt; | FastifyInstance&lt;Http2Server, Http2ServerRequest, Http2ServerResponse&gt;,</span></span>
+const addActionRoutes = <span class="fstat-no" title="function not covered" >async (</span>
+	fastify: FastifyInstance&lt;Server&lt;typeof IncomingMessage, typeof ServerResponse&gt;, IncomingMessage, ServerResponse&lt;IncomingMessage&gt;, FastifyBaseLogger, FastifyTypeProviderDefault&gt;,
 	root: string,
 	folderName: string,
 	verbose: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false</span>
-): Promise&lt;void&gt; {
+): Promise&lt;void&gt; =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span>
 	const actionPaths: string[] = <span class="cstat-no" title="statement not covered" >listSubfoldersFilesByFolderName(root, folderName);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >	for (const actionPath of actionPaths) {</span>
 <span class="cstat-no" title="statement not covered" >		<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; Initializing route', actionPath);</span></span>
 &nbsp;
 		// tslint:disable-next-line:callable-types
-		const ActionClass: {new (): ActionAsControllerInterface} = <span class="cstat-no" title="statement not covered" >require(actionPath).default;</span>
+		const ActionClass: new () =&gt; ActionAsControllerInterface = <span class="cstat-no" title="statement not covered" >require(actionPath).default;</span>
 		const action: ActionAsControllerInterface = <span class="cstat-no" title="statement not covered" >new ActionClass();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >		<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof action.routes === 'function' &amp;&amp; typeof action.asController === 'function') {</span>
@@ -194,7 +193,8 @@ export default async function <span class="fstat-no" title="function not covered
 			}
 		}
 	}
-}
+};
+export default addActionRoutes;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -202,7 +202,7 @@ export default async function <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-06T11:13:57.279Z
+                at 2024-11-08T10:02:16.026Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
