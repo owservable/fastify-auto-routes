@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.5.0",
+	"version": "0.5.1",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
@@ -35,10 +35,10 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.2.0",
-		"@owservable/folders": "^0.2.0",
+		"@owservable/actions": "^0.2.1",
+		"@owservable/folders": "^0.2.1",
 		"@types/lodash": "^4.17.13",
-		"@types/node": "^22.9.0",
+		"@types/node": "^22.10.1",
 		"fastify": "^5.1.0",
 		"lodash": "^4.17.21"
 	},
@@ -46,13 +46,13 @@
 		"@danmasta/mocha-sonar": "^1.1.0",
 		"@faker-js/faker": "^9.2.0",
 		"@types/chai": "^4.3.18",
-		"@types/mocha": "^10.0.9",
+		"@types/mocha": "^10.0.10",
 		"@types/rewire": "^2.5.30",
 		"chai": "4.4.0",
 		"coveralls": "^3.1.1",
 		"mocha": "^10.8.2",
 		"nyc": "^17.1.0",
-		"prettier": "^3.3.3",
+		"prettier": "^3.4.1",
 		"rewire": "^7.0.0",
 		"skeletest": "^0.5.3",
 		"sonarjs": "^1.0.0",
@@ -63,8 +63,8 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.10",
 		"tslint-no-unused-expression-chai": "^0.1.4",
-		"typedoc": "^0.26.11",
-		"typescript": "^5.6.3"
+		"typedoc": "^0.27.2",
+		"typescript": "^5.7.2"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
