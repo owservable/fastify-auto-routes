@@ -2,7 +2,6 @@
 
 import * as _ from 'lodash';
 
-// TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
 export default class RoutesMap {
 	public static add(method: string, route: string): void {
 		method = _.toUpper(method);

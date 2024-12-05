@@ -13,7 +13,6 @@ import cleanRelativePath from './clean.relative.path';
 
 let routesRootFolder: string;
 
-// TODO: convert to a fastify plugin! See: https://github.com/fastify/fastify-routes
 const addFastifyRoutes = (
 	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>,
 	folder: string,
