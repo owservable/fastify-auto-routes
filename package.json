@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
@@ -35,8 +35,8 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.2.2",
-		"@owservable/folders": "^0.2.2",
+		"@owservable/actions": "^0.2.3",
+		"@owservable/folders": "^0.2.3",
 		"@types/lodash": "^4.17.13",
 		"@types/node": "^22.10.1",
 		"fastify": "^5.1.0",

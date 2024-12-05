@@ -21,11 +21,11 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^0.2.2
-        version: 0.2.2
+        specifier: ^0.2.3
+        version: 0.2.3
       '@owservable/folders':
-        specifier: ^0.2.2
-        version: 0.2.2
+        specifier: ^0.2.3
+        version: 0.2.3
       '@types/lodash':
         specifier: ^4.17.13
         version: 4.17.13
@@ -290,12 +290,12 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owservable/actions@0.2.2':
-    resolution: {integrity: sha512-n2ey2YDuc6oG+gZW4O/7z1uELLC3CftJPbNfZUysUJFzD9MzlQC3eb/nWPfA1DO44irEDZqLnBa+Sf4AjoIOMg==}
+  '@owservable/actions@0.2.3':
+    resolution: {integrity: sha512-fYCBL4aBaLFIGygJYwv/ykm/VE2MAG3y2fZrKy2Wa2C4ibb6djS35BL5j/uZFIcQad1n5bDqEMTaR837gkBpfw==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@0.2.2':
-    resolution: {integrity: sha512-BXo4Owb2+PIK85eZdVzdFp3pGvGjQFQo2b30fxFSvkjGWj5SOgxY5T2xrqYRG0Bys3xad8FFuVh4iVEEB/ax2w==}
+  '@owservable/folders@0.2.3':
+    resolution: {integrity: sha512-+UkaReQFgB7fex2VEJlZ6ElVio8XaqyccFD2wHiWwuO9W6rzC2A6gHEcWG/dhkMG4UWjd6FA00wM2+PvdLBwFw==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.1.1':
@@ -2398,15 +2398,15 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@owservable/actions@0.2.2':
+  '@owservable/actions@0.2.3':
     dependencies:
-      '@owservable/folders': 0.2.2
+      '@owservable/folders': 0.2.3
       '@types/lodash': 4.17.13
       '@types/node': 22.10.1
       commander: 12.1.0
       lodash: 4.17.21
 
-  '@owservable/folders@0.2.2':
+  '@owservable/folders@0.2.3':
     dependencies:
       '@types/lodash': 4.17.13
       '@types/node': 22.10.1
