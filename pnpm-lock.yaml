@@ -21,8 +21,8 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^0.2.4
-        version: 0.2.4
+        specifier: ^0.2.41
+        version: 0.2.41
       '@owservable/folders':
         specifier: ^0.2.4
         version: 0.2.4
@@ -296,8 +296,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owservable/actions@0.2.4':
-    resolution: {integrity: sha512-yIWmKbmhyaKE63ZJimXto9dmMqdHd9f9PUz3r6AgeBvAudsmeiecMYABAbui9pDNc9ga3jrRsDkno5cqOGLorQ==}
+  '@owservable/actions@0.2.41':
+    resolution: {integrity: sha512-HEtjRM7gW2ODaIjXLVW9X+lm/bHq2M87BXTFBE5f82eXY7yEjVjt0X1q+gj751WerjY8YpjpLyIK7/3DB+Jf7Q==}
     engines: {node: '>=20'}
 
   '@owservable/folders@0.2.4':
@@ -2403,7 +2403,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.18.0
 
-  '@owservable/actions@0.2.4':
+  '@owservable/actions@0.2.41':
     dependencies:
       '@owservable/folders': 0.2.4
       '@types/lodash': 4.17.14
