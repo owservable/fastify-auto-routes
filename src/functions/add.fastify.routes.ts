@@ -42,7 +42,7 @@ const addFastifyRoutes = (
 
 	const folders: string[] = _.filter(fileNames, (name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
 	for (const sub of folders) {
-		addFastifyRoutes(fastify, path.join(folder, sub));
+		addFastifyRoutes(fastify, path.join(folder, sub), verbose);
 	}
 };
 export default addFastifyRoutes;

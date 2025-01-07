@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.5.41",
+	"version": "0.5.42",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
