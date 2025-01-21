@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "0.5.42",
+	"version": "0.5.43",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
@@ -35,16 +35,16 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^0.2.41",
-		"@owservable/folders": "^0.2.4",
+		"@owservable/actions": "^0.2.42",
+		"@owservable/folders": "^0.2.42",
 		"@types/lodash": "^4.17.14",
-		"@types/node": "^22.10.5",
+		"@types/node": "^22.10.7",
 		"fastify": "^5.2.1",
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
 		"@danmasta/mocha-sonar": "^1.1.0",
-		"@faker-js/faker": "^9.3.0",
+		"@faker-js/faker": "^9.4.0",
 		"@types/chai": "^4.3.18",
 		"@types/mocha": "^10.0.10",
 		"@types/rewire": "^2.5.30",
@@ -64,7 +64,7 @@
 		"tslint-etc": "^1.13.10",
 		"tslint-no-unused-expression-chai": "^0.1.4",
 		"typedoc": "^0.27.6",
-		"typescript": "^5.7.2"
+		"typescript": "^5.7.3"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
