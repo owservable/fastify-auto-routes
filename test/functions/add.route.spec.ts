@@ -5,7 +5,7 @@ import addRoute from '../../src/functions/add.route';
 import rewire = require('rewire');
 
 const addRouteModule = rewire('../../src/functions/add.route');
-const METHODS = addRouteModule.__get__('METHODS');
+const ALLOWED_METHODS = addRouteModule.__get__('ALLOWED_METHODS');
 
 describe('add.route.ts tests', () => {
 	it('addRoute exists', () => {
@@ -13,9 +13,9 @@ describe('add.route.ts tests', () => {
 		expect(addRoute).to.be.a('function');
 	});
 
-	it('METHODS', () => {
-		expect(METHODS).to.exist;
-		expect(METHODS).to.deep.equal(['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']);
+	it('ALLOWED_METHODS', () => {
+		expect(ALLOWED_METHODS).to.exist;
+		expect(ALLOWED_METHODS).to.deep.equal(['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']);
 	});
 
 	it('should be implemented');

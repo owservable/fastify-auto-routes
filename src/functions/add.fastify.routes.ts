@@ -18,10 +18,12 @@ const addFastifyRoutes = (
 	folder: string,
 	verbose: boolean = false
 ): void => {
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder);
 	if (!routesRootFolder) routesRootFolder = folder;
 
 	const fileNames: string[] = fs.readdirSync(folder);
 	const files: string[] = _.filter(fileNames, (name) => !fs.lstatSync(path.join(folder, name)).isDirectory());
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, `, ${files.length} files`);
 
 	for (const file of files) {
 		const ext: string = path.extname(file);
@@ -32,15 +34,18 @@ const addFastifyRoutes = (
 
 		const routes = require(absoluteFilePath);
 		if (_.isArray(routes)) {
+			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, file, `, ${routes.length} routes`);
 			for (const route of routes) {
 				addRoute(fastify, route, relativeFilePath, verbose);
 			}
 		} else {
+			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, file, ', 1 route');
 			addRoute(fastify, routes, relativeFilePath, verbose);
 		}
 	}
 
 	const folders: string[] = _.filter(fileNames, (name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, ', subfolders:', `, ${folders.length} routes`);
 	for (const sub of folders) {
 		addFastifyRoutes(fastify, path.join(folder, sub), verbose);
 	}

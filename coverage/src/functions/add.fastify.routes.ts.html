@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25.92% </span>
+                <span class="strong">18.91% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/27</span>
+                <span class='fraction'>7/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.43% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/23</span>
+                <span class='fraction'>7/28</span>
             </div>
         
             
@@ -111,7 +111,12 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -132,8 +137,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -142,17 +145,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -179,10 +189,12 @@ const addFastifyRoutes = <span class="fstat-no" title="function not covered" >(<
 	folder: string,
 	verbose: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false</span>
 ): void =&gt; {
+<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder);</span></span>
 <span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (!routesRootFolder) <span class="cstat-no" title="statement not covered" >routesRootFolder = folder;</span></span>
 &nbsp;
 	const fileNames: string[] = <span class="cstat-no" title="statement not covered" >fs.readdirSync(folder);</span>
 	const files: string[] = <span class="cstat-no" title="statement not covered" >_.filter(fileNames, <span class="fstat-no" title="function not covered" >(n</span>ame) =&gt; <span class="cstat-no" title="statement not covered" >!fs.lstatSync(path.join(folder, name)).isDirectory())</span>;</span>
+<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder, `, ${files.length} files`);</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >	for (const file of files) {</span>
 		const ext: string = <span class="cstat-no" title="statement not covered" >path.extname(file);</span>
@@ -193,15 +205,18 @@ const addFastifyRoutes = <span class="fstat-no" title="function not covered" >(<
 &nbsp;
 		const routes = <span class="cstat-no" title="statement not covered" >require(absoluteFilePath);</span>
 <span class="cstat-no" title="statement not covered" >		if (_.isArray(routes)) {</span>
+<span class="cstat-no" title="statement not covered" >			<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder, file, `, ${routes.length} routes`);</span></span>
 <span class="cstat-no" title="statement not covered" >			for (const route of routes) {</span>
 <span class="cstat-no" title="statement not covered" >				addRoute(fastify, route, relativeFilePath, verbose);</span>
 			}
 		} else {
+<span class="cstat-no" title="statement not covered" >			<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder, file, ', 1 route');</span></span>
 <span class="cstat-no" title="statement not covered" >			addRoute(fastify, routes, relativeFilePath, verbose);</span>
 		}
 	}
 &nbsp;
 	const folders: string[] = <span class="cstat-no" title="statement not covered" >_.filter(fileNames, <span class="fstat-no" title="function not covered" >(n</span>ame: string) =&gt; <span class="cstat-no" title="statement not covered" >fs.lstatSync(path.join(folder, name)).isDirectory())</span>;</span>
+<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder, ', subfolders:', `, ${folders.length} routes`);</span></span>
 <span class="cstat-no" title="statement not covered" >	for (const sub of folders) {</span>
 <span class="cstat-no" title="statement not covered" >		addFastifyRoutes(fastify, path.join(folder, sub), verbose);</span>
 	}
@@ -214,7 +229,7 @@ export default addFastifyRoutes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-03T09:49:50.008Z
+                at 2025-02-06T08:28:44.165Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
