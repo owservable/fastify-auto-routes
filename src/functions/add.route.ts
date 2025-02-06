@@ -25,10 +25,7 @@ const addRoute = (fastify: any, route: any, relativeFilePath: string, verbose: b
 	}
 
 	const {url} = route;
-	if (!_.startsWith(_.toLower(url), relativeFilePath)) {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: BAD URL WARNING', relativeFilePath, route.url);
-		_.set(route, 'url', fixUrl(url, relativeFilePath));
-	}
+	if (!_.startsWith(_.toLower(url), relativeFilePath)) _.set(route, 'url', fixUrl(url, relativeFilePath));
 
 	fastify.route(route);
 	RoutesMap.add(route.method, route.url);
