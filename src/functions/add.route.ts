@@ -20,18 +20,18 @@ const addRoute = (fastify: any, route: any, relativeFilePath: string, verbose: b
 	}
 
 	if (!_.has(route, 'url')) {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: MISSING URL WARNING', relativeFilePath, route);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: MISSING URL WARNING', relativeFilePath);
 		_.set(route, 'url', '/');
 	}
 
 	const {url} = route;
 	if (!_.startsWith(_.toLower(url), relativeFilePath)) {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: BAD URL WARNING', relativeFilePath, route);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: BAD URL WARNING', relativeFilePath, route.url);
 		_.set(route, 'url', fixUrl(url, relativeFilePath));
 	}
 
 	fastify.route(route);
 	RoutesMap.add(route.method, route.url);
-	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: Added route', relativeFilePath, route.method, route.url);
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: Added route', relativeFilePath, route.method, route.url, '\n');
 };
 export default addRoute;
