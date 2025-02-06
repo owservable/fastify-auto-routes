@@ -33,7 +33,9 @@ const addFastifyRoutes = (
 		const absoluteFilePath: string = path.join(folder, file);
 		const relativeFilePath: string = cleanRelativePath(routesRootFolder, absoluteFilePath, ext);
 
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loading file...', folder, file, relativeFilePath, absoluteFilePath);
 		const routes = require(absoluteFilePath);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', folder, file);
 		if (_.isArray(routes)) {
 			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, file, `${routes.length} routes`);
 			for (const route of routes) {
