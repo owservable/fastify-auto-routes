@@ -2,6 +2,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import {hrtime} from 'node:process';
 
 import * as _ from 'lodash';
 
@@ -12,6 +13,8 @@ import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
 
 let routesRootFolder: string;
+
+const NS_PER_SEC: number = 1e9;
 
 const addFastifyRoutes = (
 	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>,
@@ -26,23 +29,26 @@ const addFastifyRoutes = (
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, `${files.length} files`);
 
 	for (const file of files) {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: processing...', folder, file);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: processing...', `${folder}/${file}`);
 		const ext: string = path.extname(file);
 		if (ext !== '.ts' && ext !== '.js') return;
 
 		const absoluteFilePath: string = path.join(folder, file);
 		const relativeFilePath: string = cleanRelativePath(routesRootFolder, absoluteFilePath, ext);
 
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loading file...', folder, file, relativeFilePath, absoluteFilePath);
+		const start: number = Number(hrtime.bigint());
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loading file...', absoluteFilePath);
 		const routes = require(absoluteFilePath);
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', folder, file);
+
+		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
+		console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file}`);
 		if (_.isArray(routes)) {
-			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, file, `${routes.length} routes`);
+			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', absoluteFilePath, `${routes.length} routes`);
 			for (const route of routes) {
 				addRoute(fastify, route, relativeFilePath, verbose);
 			}
 		} else {
-			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, file, '1 route');
+			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', absoluteFilePath, '1 route');
 			addRoute(fastify, routes, relativeFilePath, verbose);
 		}
 	}

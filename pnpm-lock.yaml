@@ -21,17 +21,17 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^1.3.8
-        version: 1.3.8
+        specifier: ^1.3.9
+        version: 1.3.9
       '@owservable/folders':
-        specifier: ^1.3.8
-        version: 1.3.8
+        specifier: ^1.3.9
+        version: 1.3.9
       '@types/lodash':
-        specifier: ^4.17.15
-        version: 4.17.15
+        specifier: ^4.17.16
+        version: 4.17.16
       '@types/node':
-        specifier: ^22.13.5
-        version: 22.13.5
+        specifier: ^22.13.9
+        version: 22.13.9
       fastify:
         specifier: ^5.2.1
         version: 5.2.1
@@ -43,8 +43,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       '@faker-js/faker':
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^9.5.1
+        version: 9.5.1
       '@types/chai':
         specifier: ^4.3.18
         version: 4.3.20
@@ -67,8 +67,8 @@ importers:
         specifier: ^17.1.0
         version: 17.1.0
       prettier:
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.3
+        version: 3.5.3
       rewire:
         specifier: ^7.0.0
         version: 7.0.0
@@ -86,25 +86,25 @@ importers:
         version: 0.2.7
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.13.5)(typescript@5.7.3)
+        version: 10.9.2(@types/node@22.13.9)(typescript@5.8.2)
       tslint:
         specifier: ^6.1.3
-        version: 6.1.3(typescript@5.7.3)
+        version: 6.1.3(typescript@5.8.2)
       tslint-config-prettier:
         specifier: ^1.18.0
         version: 1.18.0
       tslint-etc:
         specifier: ^1.13.10
-        version: 1.13.10(tslint@6.1.3(typescript@5.7.3))(typescript@5.7.3)
+        version: 1.13.10(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2)
       tslint-no-unused-expression-chai:
         specifier: ^0.1.4
-        version: 0.1.4(tslint@6.1.3(typescript@5.7.3))(typescript@5.7.3)
+        version: 0.1.4(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2)
       typedoc:
         specifier: ^0.27.9
-        version: 0.27.9(typescript@5.7.3)
+        version: 0.27.9(typescript@5.8.2)
       typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
+        specifier: ^5.8.2
+        version: 5.8.2
 
 packages:
 
@@ -201,8 +201,8 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@faker-js/faker@9.5.0':
-    resolution: {integrity: sha512-3qbjLv+fzuuCg3umxc9/7YjrEXNaKwHgmig949nfyaTx8eL4FAsvFbu+1JcFUj1YAXofhaDn6JdEUBTYuk0Ssw==}
+  '@faker-js/faker@9.5.1':
+    resolution: {integrity: sha512-0fzMEDxkExR2cn731kpDaCCnBGBUOIXEi2S1N5l8Hltp6aPf4soTMJ+g4k8r2sI5oB+rpwIW8Uy/6jkwGpnWPg==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@fastify/ajv-compiler@4.0.2':
@@ -284,12 +284,12 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owservable/actions@1.3.8':
-    resolution: {integrity: sha512-AXoZcvltMG4j7lEzrgojcU3eDomfiM5L0Srq5fPgqLGjrB/PSrlKnDBhSEjY7gqX3kmkBI2Nu/d5TAe7B+ERxw==}
+  '@owservable/actions@1.3.9':
+    resolution: {integrity: sha512-OlT7h/4ArubzA8AnmaSNiRRgInH3wJYsanyKfpayE2yWe590EcP8K9dyY41GcQc/NT5wQehSfr/FKArJ3igQRg==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.3.8':
-    resolution: {integrity: sha512-xAJ+5Dos5FCY/k1+EgtuQHLlcJe+GSrxPnVVN5AAAPxOv3a2jevUvCTjMkFDROLmkJvA1YOPxWW6rRtCfJo8Pg==}
+  '@owservable/folders@1.3.9':
+    resolution: {integrity: sha512-Yxovvf6aSU3lTiX5RWdlTxRtJdF26lNvo+LQ6RfdpqeR4h8md2Ic/zZKYtma2JJzUARkwi7KZpaF4aanhI2qpQ==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -334,14 +334,14 @@ packages:
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
-  '@types/lodash@4.17.15':
-    resolution: {integrity: sha512-w/P33JFeySuhN6JLkysYUK2gEmy9kHHFN7E8ro0tkfmlDOgxBDzWEZ/J8cWA+fHqFevpswDTFZnDx+R9lbL6xw==}
+  '@types/lodash@4.17.16':
+    resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
 
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@22.13.5':
-    resolution: {integrity: sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==}
+  '@types/node@22.13.9':
+    resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
 
   '@types/rewire@2.5.30':
     resolution: {integrity: sha512-CSyzr7TF1EUm85as2noToMtLaBBN/rKKlo5ZDdXedQ64cUiHT25LCNo1J1cI4QghBlGmTymElW/2h3TiWYOsZw==}
@@ -1576,8 +1576,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.5.2:
-    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2018,8 +2018,8 @@ packages:
     peerDependencies:
       typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x
 
-  typescript@5.7.3:
-    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
+  typescript@5.8.2:
+    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2308,7 +2308,7 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@faker-js/faker@9.5.0': {}
+  '@faker-js/faker@9.5.1': {}
 
   '@fastify/ajv-compiler@4.0.2':
     dependencies:
@@ -2404,24 +2404,24 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.0
 
-  '@owservable/actions@1.3.8':
+  '@owservable/actions@1.3.9':
     dependencies:
-      '@owservable/folders': 1.3.8
-      '@types/lodash': 4.17.15
-      '@types/node': 22.13.5
+      '@owservable/folders': 1.3.9
+      '@types/lodash': 4.17.16
+      '@types/node': 22.13.9
       commander: 13.1.0
       lodash: 4.17.21
 
-  '@owservable/folders@1.3.8':
+  '@owservable/folders@1.3.9':
     dependencies:
-      '@types/lodash': 4.17.15
-      '@types/node': 22.13.5
+      '@types/lodash': 4.17.16
+      '@types/node': 22.13.9
       lodash: 4.17.21
 
-  '@phenomnomnominal/tsquery@4.2.0(typescript@5.7.3)':
+  '@phenomnomnominal/tsquery@4.2.0(typescript@5.8.2)':
     dependencies:
       esquery: 1.6.0
-      typescript: 5.7.3
+      typescript: 5.8.2
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -2456,11 +2456,11 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/lodash@4.17.15': {}
+  '@types/lodash@4.17.16': {}
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@22.13.5':
+  '@types/node@22.13.9':
     dependencies:
       undici-types: 6.20.0
 
@@ -3761,7 +3761,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.5.2: {}
+  prettier@3.5.3: {}
 
   process-nextick-args@2.0.1: {}
 
@@ -4130,21 +4130,21 @@ snapshots:
 
   traverse@0.3.9: {}
 
-  ts-node@10.9.2(@types/node@22.13.5)(typescript@5.7.3):
+  ts-node@10.9.2(@types/node@22.13.9)(typescript@5.8.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.13.5
+      '@types/node': 22.13.9
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.7.3
+      typescript: 5.8.2
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
@@ -4154,23 +4154,23 @@ snapshots:
 
   tslint-config-prettier@1.18.0: {}
 
-  tslint-etc@1.13.10(tslint@6.1.3(typescript@5.7.3))(typescript@5.7.3):
+  tslint-etc@1.13.10(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2):
     dependencies:
-      '@phenomnomnominal/tsquery': 4.2.0(typescript@5.7.3)
+      '@phenomnomnominal/tsquery': 4.2.0(typescript@5.8.2)
       tslib: 2.8.1
-      tslint: 6.1.3(typescript@5.7.3)
-      tsutils: 3.21.0(typescript@5.7.3)
-      tsutils-etc: 1.4.2(tsutils@3.21.0(typescript@5.7.3))(typescript@5.7.3)
-      typescript: 5.7.3
+      tslint: 6.1.3(typescript@5.8.2)
+      tsutils: 3.21.0(typescript@5.8.2)
+      tsutils-etc: 1.4.2(tsutils@3.21.0(typescript@5.8.2))(typescript@5.8.2)
+      typescript: 5.8.2
 
-  tslint-no-unused-expression-chai@0.1.4(tslint@6.1.3(typescript@5.7.3))(typescript@5.7.3):
+  tslint-no-unused-expression-chai@0.1.4(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2):
     dependencies:
-      tslint: 6.1.3(typescript@5.7.3)
-      tsutils: 3.21.0(typescript@5.7.3)
+      tslint: 6.1.3(typescript@5.8.2)
+      tsutils: 3.21.0(typescript@5.8.2)
     transitivePeerDependencies:
       - typescript
 
-  tslint@6.1.3(typescript@5.7.3):
+  tslint@6.1.3(typescript@5.8.2):
     dependencies:
       '@babel/code-frame': 7.26.2
       builtin-modules: 1.1.1
@@ -4184,25 +4184,25 @@ snapshots:
       resolve: 1.22.10
       semver: 7.7.1
       tslib: 1.14.1
-      tsutils: 2.29.0(typescript@5.7.3)
-      typescript: 5.7.3
+      tsutils: 2.29.0(typescript@5.8.2)
+      typescript: 5.8.2
 
-  tsutils-etc@1.4.2(tsutils@3.21.0(typescript@5.7.3))(typescript@5.7.3):
+  tsutils-etc@1.4.2(tsutils@3.21.0(typescript@5.8.2))(typescript@5.8.2):
     dependencies:
       '@types/yargs': 17.0.33
-      tsutils: 3.21.0(typescript@5.7.3)
-      typescript: 5.7.3
+      tsutils: 3.21.0(typescript@5.8.2)
+      typescript: 5.8.2
       yargs: 17.7.2
 
-  tsutils@2.29.0(typescript@5.7.3):
+  tsutils@2.29.0(typescript@5.8.2):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.7.3
+      typescript: 5.8.2
 
-  tsutils@3.21.0(typescript@5.7.3):
+  tsutils@3.21.0(typescript@5.8.2):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.7.3
+      typescript: 5.8.2
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -4226,16 +4226,16 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedoc@0.27.9(typescript@5.7.3):
+  typedoc@0.27.9(typescript@5.8.2):
     dependencies:
       '@gerrit0/mini-shiki': 1.27.2
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
-      typescript: 5.7.3
+      typescript: 5.8.2
       yaml: 2.7.0
 
-  typescript@5.7.3: {}
+  typescript@5.8.2: {}
 
   uc.micro@2.1.0: {}
 
