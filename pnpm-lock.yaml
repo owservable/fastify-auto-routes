@@ -21,17 +21,17 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^1.3.92
-        version: 1.3.92
+        specifier: ^1.3.93
+        version: 1.3.93
       '@owservable/folders':
-        specifier: ^1.3.92
-        version: 1.3.92
+        specifier: ^1.3.93
+        version: 1.3.93
       '@types/lodash':
         specifier: ^4.17.16
         version: 4.17.16
       '@types/node':
-        specifier: ^22.13.13
-        version: 22.13.13
+        specifier: ^22.14.0
+        version: 22.14.0
       fastify:
         specifier: ^5.2.2
         version: 5.2.2
@@ -86,25 +86,25 @@ importers:
         version: 0.2.7
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.13.13)(typescript@5.8.2)
+        version: 10.9.2(@types/node@22.14.0)(typescript@5.8.3)
       tslint:
         specifier: ^6.1.3
-        version: 6.1.3(typescript@5.8.2)
+        version: 6.1.3(typescript@5.8.3)
       tslint-config-prettier:
         specifier: ^1.18.0
         version: 1.18.0
       tslint-etc:
         specifier: ^1.13.10
-        version: 1.13.10(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2)
+        version: 1.13.10(tslint@6.1.3(typescript@5.8.3))(typescript@5.8.3)
       tslint-no-unused-expression-chai:
         specifier: ^0.1.4
-        version: 0.1.4(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2)
+        version: 0.1.4(tslint@6.1.3(typescript@5.8.3))(typescript@5.8.3)
       typedoc:
-        specifier: ^0.28.1
-        version: 0.28.1(typescript@5.8.2)
+        specifier: ^0.28.2
+        version: 0.28.2(typescript@5.8.3)
       typescript:
-        specifier: ^5.8.2
-        version: 5.8.2
+        specifier: ^5.8.3
+        version: 5.8.3
 
 packages:
 
@@ -223,8 +223,8 @@ packages:
   '@fastify/proxy-addr@5.0.0':
     resolution: {integrity: sha512-37qVVA1qZ5sgH7KpHkkC4z9SK6StIsIcOmpjvMPXNb3vx2GQxhZocogVYbr2PbbeLCQxYIPDok307xEvRZOzGA==}
 
-  '@gerrit0/mini-shiki@3.2.1':
-    resolution: {integrity: sha512-HbzRC6MKB6U8kQhczz0APKPIzFHTrcqhaC7es2EXInq1SpjPVnpVSIsBe6hNoLWqqCx1n5VKiPXq6PfXnHZKOQ==}
+  '@gerrit0/mini-shiki@3.2.2':
+    resolution: {integrity: sha512-vaZNGhGLKMY14HbF53xxHNgFO9Wz+t5lTlGNpl2N9xFiKQ0I5oIe0vKjU9dh7Nb3Dw6lZ7wqUE0ri+zcdpnK+Q==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -284,12 +284,12 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owservable/actions@1.3.92':
-    resolution: {integrity: sha512-7W79P3adnL0LpgpGoKGylMgtTJtD2dbZ6y75PvrcsZfVU8ZuuGWWo5XJjScxITHpfNqBwhdVoyl2FqJpHH0/OA==}
+  '@owservable/actions@1.3.93':
+    resolution: {integrity: sha512-z5eSmwmXwwLaYO5GRG5c6zV1Ww95snJClwClwMdLFFoR+SMuaaCjZ+ytEYT5y0HnAMrxUkv5WBMzIdXQHplGdg==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.3.92':
-    resolution: {integrity: sha512-m6gRzaWPe61xU5d+5p+I2clChyWifD5g71NzKY4pMwmtN57Nw//eDkn0Bn1ZAcOQDE9H3JLWGFC5NvJPuCb7UQ==}
+  '@owservable/folders@1.3.93':
+    resolution: {integrity: sha512-SvYSeYD2fSBLHKqowVBSwUlidnewbbo+sKhE+OfzCjXh+ZSei5Gx6kcv93H6B/rLVJTGYBGgZnguJv1JwCsy4A==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -303,6 +303,12 @@ packages:
 
   '@shikijs/engine-oniguruma@3.2.1':
     resolution: {integrity: sha512-wZZAkayEn6qu2+YjenEoFqj0OyQI64EWsNR6/71d1EkG4sxEOFooowKivsWPpaWNBu3sxAG+zPz5kzBL/SsreQ==}
+
+  '@shikijs/langs@3.2.1':
+    resolution: {integrity: sha512-If0iDHYRSGbihiA8+7uRsgb1er1Yj11pwpX1c6HLYnizDsKAw5iaT3JXj5ZpaimXSWky/IhxTm7C6nkiYVym+A==}
+
+  '@shikijs/themes@3.2.1':
+    resolution: {integrity: sha512-k5DKJUT8IldBvAm8WcrDT5+7GA7se6lLksR+2E3SvyqGTyFMzU2F9Gb7rmD+t+Pga1MKrYFxDIeyWjMZWM6uBQ==}
 
   '@shikijs/types@3.2.1':
     resolution: {integrity: sha512-/NTWAk4KE2M8uac0RhOsIhYQf4pdU0OywQuYDGIGAJ6Mjunxl2cGiuLkvu4HLCMn+OTTLRWkjZITp+aYJv60yA==}
@@ -340,8 +346,8 @@ packages:
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@22.13.13':
-    resolution: {integrity: sha512-ClsL5nMwKaBRwPcCvH8E7+nU4GxHVx1axNvMZTFHMEfNI7oahimt26P5zjVCRrjiIWj6YFXfE1v3dEp94wLcGQ==}
+  '@types/node@22.14.0':
+    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
 
   '@types/rewire@2.5.30':
     resolution: {integrity: sha512-CSyzr7TF1EUm85as2noToMtLaBBN/rKKlo5ZDdXedQ64cUiHT25LCNo1J1cI4QghBlGmTymElW/2h3TiWYOsZw==}
@@ -2011,23 +2017,23 @@ packages:
   typedarray-to-buffer@3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
 
-  typedoc@0.28.1:
-    resolution: {integrity: sha512-Mn2VPNMaxoe/hlBiLriG4U55oyAa3Xo+8HbtEwV7F5WEOPXqtxzGuMZhJYHaqFJpajeQ6ZDUC2c990NAtTbdgw==}
+  typedoc@0.28.2:
+    resolution: {integrity: sha512-9Giuv+eppFKnJ0oi+vxqLM817b/IrIsEMYgy3jj6zdvppAfDqV3d6DXL2vXUg2TnlL62V48th25Zf/tcQKAJdg==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
       typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x
 
-  typescript@5.8.2:
-    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
-  undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   unzip-stream@0.2.3:
     resolution: {integrity: sha512-nB0twr7OWWjTeGtZlalqa8RuMgn3uAgsCSCKPKOuqkQso5c1JJW8kORiVbGTroAESGDCJq9wrmv+QVrZjVvvng==}
@@ -2125,8 +2131,8 @@ packages:
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
-  yaml@2.7.0:
-    resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
+  yaml@2.7.1:
+    resolution: {integrity: sha512-10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -2333,9 +2339,11 @@ snapshots:
       '@fastify/forwarded': 3.0.0
       ipaddr.js: 2.2.0
 
-  '@gerrit0/mini-shiki@3.2.1':
+  '@gerrit0/mini-shiki@3.2.2':
     dependencies:
       '@shikijs/engine-oniguruma': 3.2.1
+      '@shikijs/langs': 3.2.1
+      '@shikijs/themes': 3.2.1
       '@shikijs/types': 3.2.1
       '@shikijs/vscode-textmate': 10.0.2
 
@@ -2404,24 +2412,24 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@owservable/actions@1.3.92':
+  '@owservable/actions@1.3.93':
     dependencies:
-      '@owservable/folders': 1.3.92
+      '@owservable/folders': 1.3.93
       '@types/lodash': 4.17.16
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       commander: 13.1.0
       lodash: 4.17.21
 
-  '@owservable/folders@1.3.92':
+  '@owservable/folders@1.3.93':
     dependencies:
       '@types/lodash': 4.17.16
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       lodash: 4.17.21
 
-  '@phenomnomnominal/tsquery@4.2.0(typescript@5.8.2)':
+  '@phenomnomnominal/tsquery@4.2.0(typescript@5.8.3)':
     dependencies:
       esquery: 1.6.0
-      typescript: 5.8.2
+      typescript: 5.8.3
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -2430,6 +2438,14 @@ snapshots:
     dependencies:
       '@shikijs/types': 3.2.1
       '@shikijs/vscode-textmate': 10.0.2
+
+  '@shikijs/langs@3.2.1':
+    dependencies:
+      '@shikijs/types': 3.2.1
+
+  '@shikijs/themes@3.2.1':
+    dependencies:
+      '@shikijs/types': 3.2.1
 
   '@shikijs/types@3.2.1':
     dependencies:
@@ -2460,9 +2476,9 @@ snapshots:
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@22.13.13':
+  '@types/node@22.14.0':
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 6.21.0
 
   '@types/rewire@2.5.30': {}
 
@@ -4130,21 +4146,21 @@ snapshots:
 
   traverse@0.3.9: {}
 
-  ts-node@10.9.2(@types/node@22.13.13)(typescript@5.8.2):
+  ts-node@10.9.2(@types/node@22.14.0)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.8.2
+      typescript: 5.8.3
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
@@ -4154,23 +4170,23 @@ snapshots:
 
   tslint-config-prettier@1.18.0: {}
 
-  tslint-etc@1.13.10(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2):
+  tslint-etc@1.13.10(tslint@6.1.3(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
-      '@phenomnomnominal/tsquery': 4.2.0(typescript@5.8.2)
+      '@phenomnomnominal/tsquery': 4.2.0(typescript@5.8.3)
       tslib: 2.8.1
-      tslint: 6.1.3(typescript@5.8.2)
-      tsutils: 3.21.0(typescript@5.8.2)
-      tsutils-etc: 1.4.2(tsutils@3.21.0(typescript@5.8.2))(typescript@5.8.2)
-      typescript: 5.8.2
+      tslint: 6.1.3(typescript@5.8.3)
+      tsutils: 3.21.0(typescript@5.8.3)
+      tsutils-etc: 1.4.2(tsutils@3.21.0(typescript@5.8.3))(typescript@5.8.3)
+      typescript: 5.8.3
 
-  tslint-no-unused-expression-chai@0.1.4(tslint@6.1.3(typescript@5.8.2))(typescript@5.8.2):
+  tslint-no-unused-expression-chai@0.1.4(tslint@6.1.3(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
-      tslint: 6.1.3(typescript@5.8.2)
-      tsutils: 3.21.0(typescript@5.8.2)
+      tslint: 6.1.3(typescript@5.8.3)
+      tsutils: 3.21.0(typescript@5.8.3)
     transitivePeerDependencies:
       - typescript
 
-  tslint@6.1.3(typescript@5.8.2):
+  tslint@6.1.3(typescript@5.8.3):
     dependencies:
       '@babel/code-frame': 7.26.2
       builtin-modules: 1.1.1
@@ -4184,25 +4200,25 @@ snapshots:
       resolve: 1.22.10
       semver: 7.7.1
       tslib: 1.14.1
-      tsutils: 2.29.0(typescript@5.8.2)
-      typescript: 5.8.2
+      tsutils: 2.29.0(typescript@5.8.3)
+      typescript: 5.8.3
 
-  tsutils-etc@1.4.2(tsutils@3.21.0(typescript@5.8.2))(typescript@5.8.2):
+  tsutils-etc@1.4.2(tsutils@3.21.0(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@types/yargs': 17.0.33
-      tsutils: 3.21.0(typescript@5.8.2)
-      typescript: 5.8.2
+      tsutils: 3.21.0(typescript@5.8.3)
+      typescript: 5.8.3
       yargs: 17.7.2
 
-  tsutils@2.29.0(typescript@5.8.2):
+  tsutils@2.29.0(typescript@5.8.3):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.8.2
+      typescript: 5.8.3
 
-  tsutils@3.21.0(typescript@5.8.2):
+  tsutils@3.21.0(typescript@5.8.3):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.8.2
+      typescript: 5.8.3
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -4226,20 +4242,20 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedoc@0.28.1(typescript@5.8.2):
+  typedoc@0.28.2(typescript@5.8.3):
     dependencies:
-      '@gerrit0/mini-shiki': 3.2.1
+      '@gerrit0/mini-shiki': 3.2.2
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
-      typescript: 5.8.2
-      yaml: 2.7.0
+      typescript: 5.8.3
+      yaml: 2.7.1
 
-  typescript@5.8.2: {}
+  typescript@5.8.3: {}
 
   uc.micro@2.1.0: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.21.0: {}
 
   unzip-stream@0.2.3:
     dependencies:
@@ -4332,7 +4348,7 @@ snapshots:
 
   yallist@3.1.1: {}
 
-  yaml@2.7.0: {}
+  yaml@2.7.1: {}
 
   yargs-parser@18.1.3:
     dependencies:
