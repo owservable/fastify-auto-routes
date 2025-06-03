@@ -24,17 +24,17 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^1.5.2
-        version: 1.5.2
+        specifier: ^1.5.3
+        version: 1.5.3
       '@owservable/folders':
-        specifier: ^1.5.2
-        version: 1.5.2
+        specifier: ^1.5.3
+        version: 1.5.3
       '@types/lodash':
         specifier: ^4.17.17
         version: 4.17.17
       '@types/node':
-        specifier: ^22.15.21
-        version: 22.15.21
+        specifier: ^22.15.29
+        version: 22.15.29
       fastify:
         specifier: ^5.3.3
         version: 5.3.3
@@ -89,7 +89,7 @@ importers:
         version: 0.2.8
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.15.21)(typescript@5.8.3)
+        version: 10.9.2(@types/node@22.15.29)(typescript@5.8.3)
       tslint:
         specifier: ^6.1.3
         version: 6.1.3(typescript@5.8.3)
@@ -287,12 +287,12 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@owservable/actions@1.5.2':
-    resolution: {integrity: sha512-X0QVvHZz1B41171qCWkn3MWmqCHLmRjeCkd5QJ84e4TAD/xj2WM0ZhOAo0KcsCA1Nm801z4fvNRUvfaQAS4LRQ==}
+  '@owservable/actions@1.5.3':
+    resolution: {integrity: sha512-zbbScB6/MdADAqSpODrXKQTe5nSkvWzUmU87YM3urutQONLl0w1ueVKBwAF3w74I0BsL97pG1S/QIZufl+jrew==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.5.2':
-    resolution: {integrity: sha512-HOZ2C3/2AfRSe099vsPNR+p6U+y4ElavhjaoNkDIYE+Bb6qzaF1O8itHMVVimE+gznLCjGHGj4+u3M/etsXJug==}
+  '@owservable/folders@1.5.3':
+    resolution: {integrity: sha512-GvlgKYUDLuWJXBp1GATVJBoY/rDyEpXgs1xxTiR8JjSNL/oPAdiTeZ5ySOl931HSPVLDmELVgMwa2Rua9Pp8Eg==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -349,8 +349,8 @@ packages:
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@22.15.21':
-    resolution: {integrity: sha512-EV/37Td6c+MgKAbkcLG6vqZ2zEYHD7bvSrzqqs2RIhbA6w3x+Dqz8MZM3sP6kGTeLrdoOgKZe+Xja7tUB2DNkQ==}
+  '@types/node@22.15.29':
+    resolution: {integrity: sha512-LNdjOkUDlU1RZb8e1kOIUpN1qQUlzGkEtbVNo53vbrwDg5om6oduhm4SiUaPW5ASTXhAiP0jInWG8Qx9fVlOeQ==}
 
   '@types/rewire@2.5.30':
     resolution: {integrity: sha512-CSyzr7TF1EUm85as2noToMtLaBBN/rKKlo5ZDdXedQ64cUiHT25LCNo1J1cI4QghBlGmTymElW/2h3TiWYOsZw==}
@@ -2406,18 +2406,18 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@owservable/actions@1.5.2':
+  '@owservable/actions@1.5.3':
     dependencies:
-      '@owservable/folders': 1.5.2
+      '@owservable/folders': 1.5.3
       '@types/lodash': 4.17.17
-      '@types/node': 22.15.21
+      '@types/node': 22.15.29
       commander: 14.0.0
       lodash: 4.17.21
 
-  '@owservable/folders@1.5.2':
+  '@owservable/folders@1.5.3':
     dependencies:
       '@types/lodash': 4.17.17
-      '@types/node': 22.15.21
+      '@types/node': 22.15.29
       lodash: 4.17.21
 
   '@phenomnomnominal/tsquery@4.2.0(typescript@5.8.3)':
@@ -2470,7 +2470,7 @@ snapshots:
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@22.15.21':
+  '@types/node@22.15.29':
     dependencies:
       undici-types: 6.21.0
 
@@ -4131,14 +4131,14 @@ snapshots:
 
   traverse@0.3.9: {}
 
-  ts-node@10.9.2(@types/node@22.15.21)(typescript@5.8.3):
+  ts-node@10.9.2(@types/node@22.15.29)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.15.21
+      '@types/node': 22.15.29
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
