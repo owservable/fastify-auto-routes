@@ -24,5 +24,6 @@ const addActionRoute: Function = (
 
 	fastify.route(config);
 	RoutesMap.add(config.method, config.url);
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addActionRoute: Added route', config.method, config.url, '\n');
 };
 export default addActionRoute;

@@ -16,6 +16,7 @@ const addActionRoutes: Function = async (
 	folderName: string,
 	verbose: boolean = false
 ): Promise<void> => {
+	if (verbose) console.log('\n[@owservable/fastify-auto-routes] -> addActionRoutes:', folderName);
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
@@ -29,10 +30,10 @@ const addActionRoutes: Function = async (
 			const config = await action.routes();
 			if (_.isArray(config)) {
 				_.each(config, (conf) => {
-					addActionRoute(fastify, conf, actionPath, verbose);
+					addActionRoute(fastify, action, conf, verbose);
 				});
 			} else {
-				addActionRoute(fastify, config, actionPath, verbose);
+				addActionRoute(fastify, action, config, verbose);
 			}
 		}
 	}
