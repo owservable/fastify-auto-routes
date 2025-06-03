@@ -1,23 +1,18 @@
 'use strict';
 
 import * as _ from 'lodash';
+
 import fixUrl from './fix.url';
 import RoutesMap from '../routes.map';
+import fixRouteMethod from './fix.route.method';
 
-const ALLOWED_METHODS: string[] = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'];
-
-const addRoute = (fastify: any, route: any, relativeFilePath: string, verbose: boolean = false): void => {
+const addRoute: Function = (fastify: any, route: any, relativeFilePath: string, verbose: boolean = false): void => {
 	if (!_.isPlainObject(route)) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: ROUTE PROBLEM', relativeFilePath, route);
 		return;
 	}
 
-	if (_.has(route, 'method')) route.method = _.toUpper(route.method);
-	else _.set(route, 'method', 'GET');
-	if (!ALLOWED_METHODS.includes(route.method)) {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: METHOD PROBLEM', relativeFilePath, route);
-		return;
-	}
+	route.method = fixRouteMethod(route, verbose);
 
 	if (!_.has(route, 'url')) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: MISSING URL WARNING', relativeFilePath);
@@ -27,7 +22,7 @@ const addRoute = (fastify: any, route: any, relativeFilePath: string, verbose: b
 	const {url} = route;
 	if (!_.startsWith(_.toLower(url), relativeFilePath)) _.set(route, 'url', fixUrl(url, relativeFilePath));
 
-	fastify[route.method] = route;
+	fastify.route(route);
 	RoutesMap.add(route.method, route.url);
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: Added route', route.method, route.url, '\n');
 };

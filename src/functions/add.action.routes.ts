@@ -3,15 +3,16 @@
 import {each, isArray} from 'lodash';
 
 import {IncomingMessage, Server, ServerResponse} from 'http';
-import {FastifyBaseLogger, FastifyInstance, FastifyTypeProviderDefault} from 'fastify';
+import {FastifyInstance} from 'fastify';
 
 import {ActionAsControllerInterface} from '@owservable/actions';
 import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 
 import RoutesMap from '../routes.map';
+import fixRouteMethod from './fix.route.method';
 
-const addActionRoutes = async (
-	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>,
+const addActionRoutes: Function = async (
+	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>>,
 	root: string,
 	folderName: string,
 	verbose: boolean = false
@@ -29,11 +30,13 @@ const addActionRoutes = async (
 			const config = await action.routes();
 			if (isArray(config)) {
 				each(config, (conf) => {
+					conf.method = fixRouteMethod(conf, verbose);
 					conf.handler = action.asController;
 					fastify.route(conf);
 					RoutesMap.add(conf.method, conf.url);
 				});
 			} else {
+				config.method = fixRouteMethod(config, verbose);
 				config.handler = action.asController;
 				fastify.route(config);
 				RoutesMap.add(config.method, config.url);
