@@ -17,7 +17,13 @@ let routesRootFolder: string;
 const NS_PER_SEC: number = 1e9;
 
 const addFastifyRoutes = (
-	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>,
+	fastify: FastifyInstance<
+		Server<typeof IncomingMessage, typeof ServerResponse>,
+		IncomingMessage,
+		ServerResponse<IncomingMessage>,
+		FastifyBaseLogger,
+		FastifyTypeProviderDefault
+	>,
 	folder: string,
 	verbose: boolean = false
 ): void => {
@@ -41,7 +47,7 @@ const addFastifyRoutes = (
 		const routes = require(absoluteFilePath);
 
 		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
-		console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file}`);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file}`);
 		if (_.isArray(routes)) {
 			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', absoluteFilePath, `${routes.length} routes`);
 			for (const route of routes) {
