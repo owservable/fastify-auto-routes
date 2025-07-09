@@ -10,24 +10,24 @@
 		"preserveConstEnums": true,
 		"sourceMap": true,
 		"declaration": true,
-		"rootDir": "./src",
+		"rootDir": ".",
 		"outDir": "./lib",
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"noImplicitAny": true,
 		"strict": true,
-		"strictNullChecks": false
+		"strictNullChecks": false,
+		"types": ["jest", "node"]
 	},
 	"include": [
-		"./src/**/*"
+		"./src/**/*",
+		"./test/**/*"
 	],
 	"exclude": [
 		".idea",
 		".sonarlint",
-		".nyc_output",
 		"coverage",
 		"docs",
-		"node_modules",
-		"test"
+		"node_modules"
 	]
 }

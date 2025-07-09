@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,28 +99,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
 import {FastifyInstance} from 'fastify';
@@ -134,20 +134,20 @@ import fixTags from './fix.tags';
 import fixSchema from './fix.schema';
 import fixRouteMethod from './fix.route.method';
 &nbsp;
-const addActionRoute: Function = <span class="fstat-no" title="function not covered" >(</span>
+const addActionRoute: Function = (
 	fastify: FastifyInstance&lt;Server&lt;typeof IncomingMessage, typeof ServerResponse&gt;, IncomingMessage, ServerResponse&lt;IncomingMessage&gt;&gt;,
 	action: ActionAsControllerInterface,
 	config: any,
-	verbose: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false</span>
+	verbose: boolean = false
 ): void =&gt; {
-<span class="cstat-no" title="statement not covered" >	config.method = fixRouteMethod(config, verbose);</span>
-<span class="cstat-no" title="statement not covered" >	config.schema = fixSchema(config);</span>
-<span class="cstat-no" title="statement not covered" >	config.schema.tags = fixTags(config, 'action');</span>
-<span class="cstat-no" title="statement not covered" >	config.handler = action.asController;</span>
+	config.method = fixRouteMethod(config, verbose);
+	config.schema = fixSchema(config);
+	config.schema.tags = fixTags(config, 'action');
+	config.handler = action.asController;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	fastify.route(config);</span>
-<span class="cstat-no" title="statement not covered" >	RoutesMap.add(config.method, config.url);</span>
-<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addActionRoute: Added route', config.method, config.url, '\n');</span></span>
+	fastify.route(config);
+	RoutesMap.add(config.method, config.url);
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addActionRoute: Added route', config.method, config.url, '\n');
 };
 export default addActionRoute;
 &nbsp;</pre></td></tr></table></pre>
@@ -157,7 +157,7 @@ export default addActionRoute;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-13T08:41:20.539Z
+                at 2025-07-09T15:23:31.769Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -1,37 +1,35 @@
 'use strict';
 
-import {expect} from 'chai';
-
 import * as FastifyAutoRoutes from '../src/fastify.auto.routes';
 
 describe('fastify.auto.routes.ts tests', () => {
 	it('FastifyAutoRoutes', () => {
-		expect(FastifyAutoRoutes).to.exist;
+		expect(FastifyAutoRoutes).toBeDefined();
 	});
 
 	it('FastifyAutoRoutes::RoutesMap:', () => {
-		expect(FastifyAutoRoutes.RoutesMap).to.exist;
-		expect(FastifyAutoRoutes.RoutesMap).to.be.a('function');
+		expect(FastifyAutoRoutes.RoutesMap).toBeDefined();
+		expect(typeof FastifyAutoRoutes.RoutesMap).toBe('function');
 	});
 
 	it('FastifyAutoRoutes::addActionRoutes:', () => {
-		expect(FastifyAutoRoutes.addActionRoutes).to.exist;
-		expect(FastifyAutoRoutes.addActionRoutes).to.be.a('function');
+		expect(FastifyAutoRoutes.addActionRoutes).toBeDefined();
+		expect(typeof FastifyAutoRoutes.addActionRoutes).toBe('function');
 	});
 
 	it('FastifyAutoRoutes::addFastifyRoutes:', () => {
-		expect(FastifyAutoRoutes.addFastifyRoutes).to.exist;
-		expect(FastifyAutoRoutes.addFastifyRoutes).to.be.a('function');
+		expect(FastifyAutoRoutes.addFastifyRoutes).toBeDefined();
+		expect(typeof FastifyAutoRoutes.addFastifyRoutes).toBe('function');
 	});
 
 	it('FastifyAutoRoutes::cleanRelativePath:', () => {
-		expect(FastifyAutoRoutes.cleanRelativePath).to.exist;
-		expect(FastifyAutoRoutes.cleanRelativePath).to.be.a('function');
+		expect(FastifyAutoRoutes.cleanRelativePath).toBeDefined();
+		expect(typeof FastifyAutoRoutes.cleanRelativePath).toBe('function');
 	});
 
 	it('FastifyAutoRoutes::default', () => {
-		expect(FastifyAutoRoutes.default).to.exist;
-		expect(FastifyAutoRoutes.default).to.be.empty;
-		expect(FastifyAutoRoutes.default).to.deep.equal({});
+		expect(FastifyAutoRoutes.default).toBeDefined();
+		expect(Object.keys(FastifyAutoRoutes.default)).toHaveLength(0);
+		expect(FastifyAutoRoutes.default).toEqual({});
 	});
 });

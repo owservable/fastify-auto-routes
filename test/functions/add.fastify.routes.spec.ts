@@ -1,16 +1,52 @@
 'use strict';
 
-import {expect} from 'chai';
-
+import * as fs from 'fs';
+import * as path from 'path';
 import addFastifyRoutes from '../../src/functions/add.fastify.routes';
 
 describe('add.fastify.routes.ts tests', () => {
-	it('addFastifyRoutes exists', () => {
-		expect(addFastifyRoutes).to.exist;
-		expect(addFastifyRoutes).to.be.a('function');
+	const testDir = path.join(__dirname, '../../test-temp');
+	
+	beforeEach(() => {
+		// Create test directory if it doesn't exist
+		if (!fs.existsSync(testDir)) {
+			fs.mkdirSync(testDir, { recursive: true });
+		}
+	});
+	
+	afterEach(() => {
+		// Clean up test directory
+		if (fs.existsSync(testDir)) {
+			fs.rmSync(testDir, { recursive: true, force: true });
+		}
 	});
 
-	it('should be implemented');
+	it('addFastifyRoutes exists', () => {
+		expect(addFastifyRoutes).toBeDefined();
+		expect(typeof addFastifyRoutes).toBe('function');
+	});
+
+	it('should handle verbose logging when enabled', () => {
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+		const mockFastify = {} as any;
+		
+		addFastifyRoutes(mockFastify, testDir, true);
+		
+		expect(consoleSpy).toHaveBeenCalledWith('\n[@owservable/fastify-auto-routes] -> addFastifyRoutes:', testDir);
+		
+		consoleSpy.mockRestore();
+	});
+
+	it('should not log when verbose is disabled', () => {
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+		const mockFastify = {} as any;
+		
+		addFastifyRoutes(mockFastify, testDir, false);
+		
+		expect(consoleSpy).not.toHaveBeenCalledWith('\n[@owservable/fastify-auto-routes] -> addFastifyRoutes:', testDir);
+		
+		consoleSpy.mockRestore();
+	});
 });
 
 const fail =

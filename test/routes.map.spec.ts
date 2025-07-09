@@ -1,7 +1,5 @@
 'use strict';
 
-import {expect} from 'chai';
-
 import * as _ from 'lodash';
 import {faker} from '@faker-js/faker';
 
@@ -22,165 +20,165 @@ describe('routes.map.ts tests', () => {
 
 	describe('RoutesMap::add', () => {
 		it('add', () => {
-			expect((RoutesMap as any)._routes).to.be.empty;
+			expect((RoutesMap as any)._routes.size).toBe(0);
 
 			const methods = _methods();
 			const routes = [_routes(3), _routes(2), _routes(4)];
 
 			RoutesMap.add(_.toLower(methods[0]), routes[0][0]);
-			expect((RoutesMap as any)._routes).to.not.be.empty;
-			expect(Array.from((RoutesMap as any)._routes.keys())).to.have.length(1);
-			expect(Array.from((RoutesMap as any)._routes.values())).to.have.length(1);
-			expect(Array.from((RoutesMap as any)._routes.values())[0]).to.have.length(1);
+			expect((RoutesMap as any)._routes.size).toBeGreaterThan(0);
+			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
+			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
+			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(1);
 
 			RoutesMap.add(_.toLower(methods[0]), routes[0][1]);
-			expect(Array.from((RoutesMap as any)._routes.keys())).to.have.length(1);
-			expect(Array.from((RoutesMap as any)._routes.values())).to.have.length(1);
-			expect(Array.from((RoutesMap as any)._routes.values())[0]).to.have.length(2);
+			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
+			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
+			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(2);
 
 			RoutesMap.add(_.toLower(methods[0]), routes[0][2]);
-			expect(Array.from((RoutesMap as any)._routes.keys())).to.have.length(1);
-			expect(Array.from((RoutesMap as any)._routes.values())).to.have.length(1);
-			expect(Array.from((RoutesMap as any)._routes.values())[0]).to.have.length(3);
+			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
+			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
+			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(3);
 
 			RoutesMap.add(_.toLower(methods[1]), routes[1][0]);
 			RoutesMap.add(_.toLower(methods[1]), routes[1][1]);
-			expect(Array.from((RoutesMap as any)._routes.keys())).to.have.length(2);
-			expect(Array.from((RoutesMap as any)._routes.values())).to.have.length(2);
-			expect(Array.from((RoutesMap as any)._routes.values())[1]).to.have.length(2);
+			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(2);
+			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(2);
+			expect(Array.from((RoutesMap as any)._routes.values())[1]).toHaveLength(2);
 		});
 	});
 
 	describe('RoutesMap::getMethods', () => {
 		it('empty', () => {
-			expect(RoutesMap.getMethods()).to.be.empty;
+			expect(RoutesMap.getMethods()).toHaveLength(0);
 		});
 
 		it('not empty', () => {
 			const methods = _methods();
 			(RoutesMap as any)._routes.set(methods[0], _routes(3));
-			expect(RoutesMap.getMethods()).to.not.be.empty;
-			expect(RoutesMap.getMethods()).to.have.length(1);
+			expect(RoutesMap.getMethods().length).toBeGreaterThan(0);
+			expect(RoutesMap.getMethods()).toHaveLength(1);
 			(RoutesMap as any)._routes.set(methods[1], _routes(2));
 			(RoutesMap as any)._routes.set(methods[2], _routes(4));
-			expect(RoutesMap.getMethods()).to.have.length(3);
+			expect(RoutesMap.getMethods()).toHaveLength(3);
 		});
 	});
 
 	describe('RoutesMap::getRoutes', () => {
 		it('null', () => {
-			expect(RoutesMap.getRoutes(null)).to.be.undefined;
-			expect(RoutesMap.getRoutes(faker.lorem.word())).to.be.undefined;
+			expect(RoutesMap.getRoutes(null)).toBeUndefined();
+			expect(RoutesMap.getRoutes(faker.lorem.word())).toBeUndefined();
 		});
 
 		it('not null', () => {
 			const methods = _methods();
 			(RoutesMap as any)._routes.set(methods[0], _routes(3));
-			expect(RoutesMap.getRoutes(methods[0])).to.not.be.empty;
-			expect(RoutesMap.getRoutes(methods[0])).to.have.length(3);
+			expect(RoutesMap.getRoutes(methods[0]).length).toBeGreaterThan(0);
+			expect(RoutesMap.getRoutes(methods[0])).toHaveLength(3);
 			(RoutesMap as any)._routes.set(methods[1], _routes(2));
-			expect(RoutesMap.getRoutes(methods[1])).to.have.length(2);
+			expect(RoutesMap.getRoutes(methods[1])).toHaveLength(2);
 			(RoutesMap as any)._routes.set(methods[2], _routes(4));
-			expect(RoutesMap.getRoutes(methods[2])).to.have.length(4);
+			expect(RoutesMap.getRoutes(methods[2])).toHaveLength(4);
 		});
 	});
 
 	describe('RoutesMap::keys', () => {
 		it('empty', () => {
-			expect(RoutesMap.keys()).to.be.empty;
+			expect(RoutesMap.keys()).toHaveLength(0);
 		});
 
 		it('not empty', () => {
 			const methods = _methods();
 			(RoutesMap as any)._routes.set(methods[0], _routes(3));
-			expect(RoutesMap.keys()).to.not.be.empty;
-			expect(RoutesMap.keys()).to.have.length(1);
+			expect(RoutesMap.keys().length).toBeGreaterThan(0);
+			expect(RoutesMap.keys()).toHaveLength(1);
 			(RoutesMap as any)._routes.set(methods[1], _routes(2));
-			expect(RoutesMap.keys()).to.have.length(2);
+			expect(RoutesMap.keys()).toHaveLength(2);
 			(RoutesMap as any)._routes.set(methods[2], _routes(4));
-			expect(RoutesMap.keys()).to.have.length(3);
-			expect(RoutesMap.keys()).to.deep.equal(methods);
+			expect(RoutesMap.keys()).toHaveLength(3);
+			expect(RoutesMap.keys()).toEqual(methods);
 		});
 	});
 
 	describe('RoutesMap::values', () => {
 		it('empty', () => {
-			expect(RoutesMap.values()).to.be.empty;
+			expect(RoutesMap.values()).toHaveLength(0);
 		});
 
 		it('not empty', () => {
 			const methods = _methods();
 			const routes = [_routes(3), _routes(2), _routes(4)];
 			(RoutesMap as any)._routes.set(methods[0], routes[0]);
-			expect(RoutesMap.values()).to.not.be.empty;
-			expect(RoutesMap.values()).to.have.length(1);
+			expect(RoutesMap.values().length).toBeGreaterThan(0);
+			expect(RoutesMap.values()).toHaveLength(1);
 			(RoutesMap as any)._routes.set(methods[1], routes[1]);
-			expect(RoutesMap.values()).to.have.length(2);
+			expect(RoutesMap.values()).toHaveLength(2);
 			(RoutesMap as any)._routes.set(methods[2], routes[2]);
-			expect(RoutesMap.values()).to.have.length(3);
-			expect(RoutesMap.values()).to.deep.equal(routes);
+			expect(RoutesMap.values()).toHaveLength(3);
+			expect(RoutesMap.values()).toEqual(routes);
 		});
 	});
 
 	describe('RoutesMap::clear', () => {
 		it('empty', () => {
-			expect((RoutesMap as any)._routes).to.be.empty;
+			expect((RoutesMap as any)._routes.size).toBe(0);
 		});
 
 		it('not empty', () => {
 			(RoutesMap as any)._routes.set(faker.lorem.word(), _routes(3));
-			expect((RoutesMap as any)._routes).to.not.be.empty;
+			expect((RoutesMap as any)._routes.size).toBeGreaterThan(0);
 
 			RoutesMap.clear();
-			expect((RoutesMap as any)._routes).to.be.empty;
+			expect((RoutesMap as any)._routes.size).toBe(0);
 		});
 	});
 
 	describe('RoutesMap::list', () => {
 		it('empty', () => {
-			expect(RoutesMap.list()).to.be.empty;
+			expect(Object.keys(RoutesMap.list())).toHaveLength(0);
 		});
 
 		it('not empty', () => {
 			const methods = _methods();
 			const routes = [_routes(3), _routes(2), _routes(4)];
 			(RoutesMap as any)._routes.set(methods[0], routes[0]);
-			expect(RoutesMap.list()).to.not.be.empty;
-			expect(_.keys(RoutesMap.list())).to.have.length(1);
+			expect(Object.keys(RoutesMap.list()).length).toBeGreaterThan(0);
+			expect(_.keys(RoutesMap.list())).toHaveLength(1);
 
 			(RoutesMap as any)._routes.set(methods[1], routes[1]);
-			expect(_.keys(RoutesMap.list())).to.have.length(2);
+			expect(_.keys(RoutesMap.list())).toHaveLength(2);
 
 			(RoutesMap as any)._routes.set(methods[2], routes[2]);
-			expect(_.keys(RoutesMap.list())).to.have.length(3);
+			expect(_.keys(RoutesMap.list())).toHaveLength(3);
 
-			expect(_.sortBy(_.keys(RoutesMap.list()))).to.deep.equal(methods);
+			expect(_.sortBy(_.keys(RoutesMap.list()))).toEqual(methods);
 
 			const test = {};
 			for (const i in methods) _.set(test, methods[i], routes[i]);
-			expect(RoutesMap.list()).to.deep.equal(test);
+			expect(RoutesMap.list()).toEqual(test);
 		});
 	});
 
 	describe('RoutesMap::json', () => {
 		it('empty', () => {
-			expect(RoutesMap.json()).to.be.empty;
+			expect(Object.keys(RoutesMap.json())).toHaveLength(0);
 		});
 
 		it('not empty', () => {
 			const methods = _methods();
 			const routes = [_routes(3), _routes(2), _routes(4)];
 			(RoutesMap as any)._routes.set(methods[0], routes[0]);
-			expect(RoutesMap.json()).to.not.be.empty;
-			expect(_.keys(RoutesMap.json())).to.have.length(1);
+			expect(Object.keys(RoutesMap.json()).length).toBeGreaterThan(0);
+			expect(_.keys(RoutesMap.json())).toHaveLength(1);
 
 			(RoutesMap as any)._routes.set(methods[1], routes[1]);
-			expect(_.keys(RoutesMap.json())).to.have.length(2);
+			expect(_.keys(RoutesMap.json())).toHaveLength(2);
 
 			(RoutesMap as any)._routes.set(methods[2], routes[2]);
-			expect(_.keys(RoutesMap.json())).to.have.length(3);
+			expect(_.keys(RoutesMap.json())).toHaveLength(3);
 
-			expect(_.sortBy(_.keys(RoutesMap.json()))).to.deep.equal(methods);
+			expect(_.sortBy(_.keys(RoutesMap.json()))).toEqual(methods);
 		});
 	});
 });

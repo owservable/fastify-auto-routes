@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/26</span>
+                <span class='fraction'>26/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,38 +99,38 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
 import * as _ from 'lodash';
@@ -142,27 +142,27 @@ import fixTags from './fix.tags';
 import fixSchema from './fix.schema';
 import fixRouteMethod from './fix.route.method';
 &nbsp;
-const addRoute: Function = <span class="fstat-no" title="function not covered" >(f</span>astify: any, route: any, relativeFilePath: string, verbose: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false)</span>: void =&gt; {
-<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isPlainObject(route)) {</span>
-<span class="cstat-no" title="statement not covered" >		<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addRoute: ROUTE PROBLEM', relativeFilePath, route);</span></span>
-<span class="cstat-no" title="statement not covered" >		return;</span>
+const addRoute: Function = (fastify: any, route: any, relativeFilePath: string, verbose: boolean = false): void =&gt; {
+	if (!_.isPlainObject(route)) {
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addRoute: ROUTE PROBLEM', relativeFilePath, route);
+		return;
 	}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (!_.has(route, 'url')) {</span>
-<span class="cstat-no" title="statement not covered" >		<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addRoute: MISSING URL WARNING', relativeFilePath);</span></span>
-<span class="cstat-no" title="statement not covered" >		_.set(route, 'url', '/');</span>
+	if (!_.has(route, 'url')) {
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addRoute: MISSING URL WARNING', relativeFilePath);
+		_.set(route, 'url', '/');
 	}
 &nbsp;
-	const {url} = <span class="cstat-no" title="statement not covered" >route;</span>
-<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (!_.startsWith(_.toLower(url), relativeFilePath)) <span class="cstat-no" title="statement not covered" >_.set(route, 'url', fixUrl(url, relativeFilePath));</span></span>
+	const {url} = route;
+	if (!_.startsWith(_.toLower(url), relativeFilePath)) _.set(route, 'url', fixUrl(url, relativeFilePath));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	route.method = fixRouteMethod(route, verbose);</span>
-<span class="cstat-no" title="statement not covered" >	route.schema = fixSchema(route);</span>
-<span class="cstat-no" title="statement not covered" >	route.schema.tags = fixTags(route, relativeFilePath);</span>
+	route.method = fixRouteMethod(route, verbose);
+	route.schema = fixSchema(route);
+	route.schema.tags = fixTags(route, relativeFilePath);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	fastify.route(route);</span>
-<span class="cstat-no" title="statement not covered" >	RoutesMap.add(route.method, route.url);</span>
-<span class="cstat-no" title="statement not covered" >	<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addRoute: Added route', route.method, route.url, '\n');</span></span>
+	fastify.route(route);
+	RoutesMap.add(route.method, route.url);
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addRoute: Added route', route.method, route.url, '\n');
 };
 export default addRoute;
 &nbsp;</pre></td></tr></table></pre>
@@ -172,7 +172,7 @@ export default addRoute;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-13T08:41:20.539Z
+                at 2025-07-09T15:23:31.769Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
