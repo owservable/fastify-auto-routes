@@ -37,7 +37,7 @@ const addFastifyRoutes = (
 	for (const file of files) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: processing...', `${folder}/${file}`);
 		const ext: string = path.extname(file);
-		if (ext !== '.ts' && ext !== '.js') return;
+		if (ext !== '.ts' && ext !== '.js') continue;
 
 		const absoluteFilePath: string = path.join(folder, file);
 		const relativeFilePath: string = cleanRelativePath(routesRootFolder, absoluteFilePath, ext);

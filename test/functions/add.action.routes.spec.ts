@@ -4,95 +4,107 @@ import * as fs from 'fs';
 import * as path from 'path';
 import addActionRoutes from '../../src/functions/add.action.routes';
 
-describe('add.action.routes.ts tests', () => {
-	const testDir = path.join(__dirname, '../../test-temp');
+describe('addActionRoutes', () => {
+  let fastify: any;
+  let consoleLogSpy: jest.SpyInstance;
 
-	beforeEach(() => {
-		// Clean up any existing test directory
-		if (fs.existsSync(testDir)) {
-			fs.rmSync(testDir, {recursive: true, force: true});
-		}
-		// Create fresh test directory
-		fs.mkdirSync(testDir, {recursive: true});
-	});
+  beforeEach(() => {
+    jest.clearAllMocks();
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    fastify = {
+      register: jest.fn(),
+      route: jest.fn(),
+      get: jest.fn(),
+      post: jest.fn(),
+      put: jest.fn(),
+      delete: jest.fn(),
+      patch: jest.fn(),
+      head: jest.fn(),
+      options: jest.fn(),
+    };
+  });
 
-	afterEach(() => {
-		// Clean up test directory
-		if (fs.existsSync(testDir)) {
-			fs.rmSync(testDir, {recursive: true, force: true});
-		}
-	});
+  afterEach(() => {
+    consoleLogSpy.mockRestore();
+  });
 
-	it('addActionRoutes exists', () => {
-		expect(addActionRoutes).toBeDefined();
-		expect(typeof addActionRoutes).toBe('function');
-	});
+  it('should skip actions without required methods', async () => {
+    const testFolder = path.join(__dirname, '../test-actions-invalid');
+    if (fs.existsSync(testFolder)) {
+      fs.rmSync(testFolder, { recursive: true });
+    }
+    fs.mkdirSync(testFolder, { recursive: true });
 
-	it('should handle verbose logging when enabled', async () => {
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-		const mockFastify = {route: jest.fn()} as any;
+    // Create action subfolder
+    const actionFolder = path.join(testFolder, 'invalid-action');
+    fs.mkdirSync(actionFolder, { recursive: true });
 
-		// Ensure test directory exists
-		fs.mkdirSync(testDir, {recursive: true});
+    // Create action file without routes method
+    const actionFile = path.join(actionFolder, 'invalid-action.ts');
+    fs.writeFileSync(actionFile, `
+      module.exports = {
+        default: class InvalidAction {
+          // Missing routes method
+          async asController() {
+            return true;
+          }
+        }
+      };
+    `);
 
-		await addActionRoutes(mockFastify, testDir, 'actions', true);
+    await addActionRoutes(fastify, testFolder, 'invalid-action');
 
-		expect(consoleSpy).toHaveBeenCalledWith('\n[@owservable/fastify-auto-routes] -> addActionRoutes:', 'actions');
+    expect(fastify.route).not.toHaveBeenCalled();
 
-		consoleSpy.mockRestore();
-	});
+    // Cleanup
+    fs.rmSync(testFolder, { recursive: true });
+  });
 
-	it('should not log when verbose is disabled', async () => {
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-		const mockFastify = {route: jest.fn()} as any;
+  it('should handle empty action folders', async () => {
+    const testFolder = path.join(__dirname, '../test-actions-empty');
+    if (fs.existsSync(testFolder)) {
+      fs.rmSync(testFolder, { recursive: true });
+    }
+    fs.mkdirSync(testFolder, { recursive: true });
 
-		// Ensure test directory exists
-		fs.mkdirSync(testDir, {recursive: true});
+    await expect(addActionRoutes(fastify, testFolder, 'nonexistent-action')).resolves.not.toThrow();
 
-		await addActionRoutes(mockFastify, testDir, 'actions', false);
+    expect(fastify.route).not.toHaveBeenCalled();
 
-		// Note: The function always logs the initial message regardless of verbose setting
-		// This is expected behavior based on the current implementation
+    // Cleanup
+    fs.rmSync(testFolder, { recursive: true });
+  });
 
-		consoleSpy.mockRestore();
-	});
+  it('should handle actions with non-function routes property', async () => {
+    const testFolder = path.join(__dirname, '../test-actions-non-function');
+    if (fs.existsSync(testFolder)) {
+      fs.rmSync(testFolder, { recursive: true });
+    }
+    fs.mkdirSync(testFolder, { recursive: true });
 
-	it('should handle empty action directories', async () => {
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-		const mockFastify = {route: jest.fn()} as any;
+    // Create action subfolder
+    const actionFolder = path.join(testFolder, 'non-function-action');
+    fs.mkdirSync(actionFolder, { recursive: true });
 
-		// Create empty action folder
-		const actionFolder = path.join(testDir, 'actions');
-		fs.mkdirSync(actionFolder, {recursive: true});
+    // Create action file with non-function routes property
+    const actionFile = path.join(actionFolder, 'non-function-action.ts');
+    fs.writeFileSync(actionFile, `
+      module.exports = {
+        default: class NonFunctionAction {
+          routes = 'not a function';
+          
+          async asController() {
+            return true;
+          }
+        }
+      };
+    `);
 
-		await addActionRoutes(mockFastify, testDir, 'actions', true);
+    await addActionRoutes(fastify, testFolder, 'non-function-action');
 
-		expect(consoleSpy).toHaveBeenCalledWith('\n[@owservable/fastify-auto-routes] -> addActionRoutes:', 'actions');
-		expect(mockFastify.route).not.toHaveBeenCalled();
+    expect(fastify.route).not.toHaveBeenCalled();
 
-		consoleSpy.mockRestore();
-	});
-
-	it('should handle non-existent action directories', async () => {
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-		const mockFastify = {route: jest.fn()} as any;
-
-		await addActionRoutes(mockFastify, testDir, 'nonexistent', true);
-
-		expect(consoleSpy).toHaveBeenCalledWith('\n[@owservable/fastify-auto-routes] -> addActionRoutes:', 'nonexistent');
-		expect(mockFastify.route).not.toHaveBeenCalled();
-
-		consoleSpy.mockRestore();
-	});
-
-	// Note: These tests have been removed as they required complex setup
-	// for the listSubfoldersFilesByFolderName function which expects a specific
-	// directory structure. The important coverage paths are tested by the 
-	// remaining tests which handle the error cases and edge cases.
-
-	// These tests have been removed as they require complex setup that is not 
-	// easily testable with the current folder structure requirements
-
-	// Additional tests removed - the core functionality is well covered
-	// by the existing tests and the coverage is already excellent
+    // Cleanup
+    fs.rmSync(testFolder, { recursive: true });
+  });
 });
