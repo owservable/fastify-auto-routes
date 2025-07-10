@@ -26,12 +26,14 @@ describe('add.action.route.ts tests', () => {
 
 		addActionRoute(mockFastify, mockAction, config);
 
-		expect(mockFastify.route).toHaveBeenCalledWith(expect.objectContaining({
-			url: '/test',
-			method: 'POST',
-			schema: expect.any(Object),
-			handler: mockAction.asController
-		}));
+		expect(mockFastify.route).toHaveBeenCalledWith(
+			expect.objectContaining({
+				url: '/test',
+				method: 'POST',
+				schema: expect.any(Object),
+				handler: mockAction.asController
+			})
+		);
 	});
 
 	it('should fix method using fixRouteMethod', () => {
@@ -85,7 +87,7 @@ describe('add.action.route.ts tests', () => {
 		addActionRoute(mockFastify, mockAction, config, true);
 
 		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addActionRoute: Added route', 'GET', '/test', '\n');
-		
+
 		consoleSpy.mockRestore();
 	});
 
@@ -105,7 +107,7 @@ describe('add.action.route.ts tests', () => {
 		addActionRoute(mockFastify, mockAction, config, false);
 
 		expect(consoleSpy).not.toHaveBeenCalled();
-		
+
 		consoleSpy.mockRestore();
 	});
 
@@ -120,15 +122,15 @@ describe('add.action.route.ts tests', () => {
 			url: '/test',
 			method: 'GET',
 			schema: {
-				body: { type: 'object' },
-				response: { 200: { type: 'object' } }
+				body: {type: 'object'},
+				response: {200: {type: 'object'}}
 			}
 		};
 
 		addActionRoute(mockFastify, mockAction, config);
 
-		expect(config.schema.body).toEqual({ type: 'object' });
-		expect(config.schema.response).toEqual({ 200: { type: 'object' } });
+		expect(config.schema.body).toEqual({type: 'object'});
+		expect(config.schema.response).toEqual({200: {type: 'object'}});
 		expect(config.schema.tags).toEqual(['ACTION', 'GET']);
 	});
 });

@@ -17,12 +17,12 @@
 		"url": "git+https://github.com/owservable/fastify-auto-routes.git"
 	},
 	"scripts": {
-		"all": "pnpm i & pnpm dedupe & pnpm audit --fix tsc & pnpm clean & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
+		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm format & pnpm clean & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
 		"build": "del /S /Q lib\\* && tsc",
 		"build:watch": "tsc --watch",
 		"lint": "tslint -p tsconfig.json",
 		"clean": "tslint --config tslint-imports.json --fix --project .",
-		"format": "prettier --write \"src/**/*.ts\"",
+		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
 		"docs": "typedoc --readme none --out docs ./src/fastify.auto.routes.ts",
 		"sync": "git pull & git fetch origin & git merge origin/main & pnpm i & git branch",
 		"test": "jest --coverage --config jest.config.js",

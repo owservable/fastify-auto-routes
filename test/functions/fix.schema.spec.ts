@@ -11,14 +11,14 @@ describe('fix.schema.ts tests', () => {
 	it('should return route.schema if it exists', () => {
 		const route = {
 			schema: {
-				body: { type: 'object' },
-				response: { 200: { type: 'object' } }
+				body: {type: 'object'},
+				response: {200: {type: 'object'}}
 			}
 		};
 		const result = fixSchema(route);
 		expect(result).toEqual({
-			body: { type: 'object' },
-			response: { 200: { type: 'object' } }
+			body: {type: 'object'},
+			response: {200: {type: 'object'}}
 		});
 	});
 

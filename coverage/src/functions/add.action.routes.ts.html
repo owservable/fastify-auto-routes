@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/20</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -121,25 +121,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,24 +163,24 @@ const addActionRoutes: Function = async (
 	folderName: string,
 	verbose: boolean = false
 ): Promise&lt;void&gt; =&gt; {
-	<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('\n[@owservable/fastify-auto-routes] -&gt; addActionRoutes:', folderName);</span>
+	if (verbose) console.log('\n[@owservable/fastify-auto-routes] -&gt; addActionRoutes:', folderName);
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 &nbsp;
 	for (const actionPath of actionPaths) {
-		<span class="missing-if-branch" title="if path not taken" >I</span>if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; Initializing route', actionPath);</span>
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; Initializing route', actionPath);
 &nbsp;
 		// tslint:disable-next-line:callable-types
 		const ActionClass: new () =&gt; ActionAsControllerInterface = require(actionPath).default;
 		const action: ActionAsControllerInterface = new ActionClass();
 &nbsp;
-		<span class="missing-if-branch" title="if path not taken" >I</span>if (typeof action.routes === 'function' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof action.asController === 'function')</span> {
-			const config = <span class="cstat-no" title="statement not covered" >await action.routes();</span>
-<span class="cstat-no" title="statement not covered" >			if (_.isArray(config)) {</span>
-<span class="cstat-no" title="statement not covered" >				_.each(config, <span class="fstat-no" title="function not covered" >(c</span>onf) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >					addActionRoute(fastify, action, conf, verbose);</span>
+		if (typeof action.routes === 'function' &amp;&amp; typeof action.asController === 'function') {
+			const config = await action.routes();
+			if (_.isArray(config)) {
+				_.each(config, (conf) =&gt; {
+					addActionRoute(fastify, action, conf, verbose);
 				});
 			} else {
-<span class="cstat-no" title="statement not covered" >				addActionRoute(fastify, action, config, verbose);</span>
+				addActionRoute(fastify, action, config, verbose);
 			}
 		}
 	}
@@ -193,7 +193,7 @@ export default addActionRoutes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-10T11:54:10.515Z
+                at 2025-07-10T12:13:38.490Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
