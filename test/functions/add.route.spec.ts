@@ -52,6 +52,54 @@ describe('add.route.ts tests', () => {
 		consoleSpy.mockRestore();
 	});
 
+	it('should return early if route is null without verbose logging', () => {
+		const mockFastify = {
+			route: jest.fn()
+		};
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
+
+		addRoute(mockFastify, null, '/api', false);
+
+		expect(mockFastify.route).not.toHaveBeenCalled();
+		expect(consoleSpy).not.toHaveBeenCalled();
+
+		consoleSpy.mockRestore();
+	});
+
+	it('should return early if route is an array with verbose logging', () => {
+		const mockFastify = {
+			route: jest.fn()
+		};
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
+
+		addRoute(mockFastify, [], '/api', true);
+
+		expect(mockFastify.route).not.toHaveBeenCalled();
+		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ROUTE PROBLEM', '/api', []);
+
+		consoleSpy.mockRestore();
+	});
+
+	it('should return early if route is undefined without verbose logging', () => {
+		const mockFastify = {
+			route: jest.fn()
+		};
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
+
+		addRoute(mockFastify, undefined, '/api', false);
+
+		expect(mockFastify.route).not.toHaveBeenCalled();
+		expect(consoleSpy).not.toHaveBeenCalled();
+
+		consoleSpy.mockRestore();
+	});
+
 	it('should set default url to / if missing', () => {
 		const mockFastify = {
 			route: jest.fn()
@@ -70,6 +118,29 @@ describe('add.route.ts tests', () => {
 
 		expect(route.url).toBe('/api'); // URL gets fixed with relative path
 		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: MISSING URL WARNING', '/api');
+		expect(mockFastify.route).toHaveBeenCalled();
+
+		consoleSpy.mockRestore();
+	});
+
+	it('should set default url to / if missing without verbose logging', () => {
+		const mockFastify = {
+			route: jest.fn()
+		};
+		const route: any = {
+			method: 'POST',
+			handler: () => {
+				// Mock handler for testing
+			}
+		};
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
+
+		addRoute(mockFastify, route, '/api', false);
+
+		expect(route.url).toBe('/api'); // URL gets fixed with relative path
+		expect(consoleSpy).not.toHaveBeenCalled();
 		expect(mockFastify.route).toHaveBeenCalled();
 
 		consoleSpy.mockRestore();

@@ -1,14 +1,12 @@
 'use strict';
 
-import {toLower, replace, join, split} from 'lodash';
-
 const cleanRelativePath = (rootFolder: string, absoluteFilePath: string, ext: '.ts' | '.js'): string => {
-	let relativeFilePath = toLower(absoluteFilePath) + '/';
-	relativeFilePath = replace(relativeFilePath, toLower(rootFolder), '');
-	relativeFilePath = replace(relativeFilePath, toLower(ext), '');
-	relativeFilePath = replace(relativeFilePath, 'root', '');
-	relativeFilePath = join(split(relativeFilePath, '\\'), '/');
-	relativeFilePath = join(split(relativeFilePath, '//'), '/');
+	let relativeFilePath = absoluteFilePath.toLowerCase() + '/';
+	relativeFilePath = relativeFilePath.replace(rootFolder.toLowerCase(), '');
+	relativeFilePath = relativeFilePath.replace(ext.toLowerCase(), '');
+	relativeFilePath = relativeFilePath.replace('root', '');
+	relativeFilePath = relativeFilePath.split('\\').join('/');
+	relativeFilePath = relativeFilePath.split('//').join('/');
 	return relativeFilePath;
 };
 export default cleanRelativePath;

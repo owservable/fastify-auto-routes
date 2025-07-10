@@ -1,7 +1,5 @@
 'use strict';
 
-import * as _ from 'lodash';
-
 import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
 
@@ -17,7 +15,7 @@ const addActionRoutes: Function = async (
 	verbose: boolean = false
 ): Promise<void> => {
 	if (verbose) console.log('\n[@owservable/fastify-auto-routes] -> addActionRoutes:', folderName);
-	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
+	const actionPaths: string[] = await listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> Initializing route', actionPath);
@@ -28,8 +26,8 @@ const addActionRoutes: Function = async (
 
 		if (typeof action.routes === 'function' && typeof action.asController === 'function') {
 			const config = await action.routes();
-			if (_.isArray(config)) {
-				_.each(config, (conf) => {
+			if (Array.isArray(config)) {
+				config.forEach((conf) => {
 					addActionRoute(fastify, action, conf, verbose);
 				});
 			} else {

@@ -1,22 +1,20 @@
 'use strict';
 
-import * as _ from 'lodash';
-
 export default class RoutesMap {
 	public static add(method: string, route: string): void {
-		method = _.toUpper(method);
+		method = method.toUpperCase();
 		let routes: string[] = RoutesMap._routes.get(method) || [];
 		routes.push(route);
-		routes = _.sortBy(_.compact(_.uniq(routes)));
+		routes = Array.from(new Set(routes)).filter(Boolean).sort();
 		RoutesMap._routes.set(method, routes);
 	}
 
 	public static getMethods(): string[] {
-		return _.sortBy(_.compact(Array.from(RoutesMap._routes.keys())));
+		return Array.from(RoutesMap._routes.keys()).filter(Boolean).sort();
 	}
 
 	public static getRoutes(method: string): string[] | null {
-		return RoutesMap._routes.get(_.toUpper(method));
+		return RoutesMap._routes.get(method?.toUpperCase() || '');
 	}
 
 	public static keys(): string[] {
@@ -47,10 +45,19 @@ export default class RoutesMap {
 			const apis: any = {};
 			const routes: string[] = RoutesMap.getRoutes(method);
 			for (const route of routes) {
-				let parts: string[] = _.split(route, '/');
-				parts = _.compact(parts);
-				const last: string = _.join(parts, '.');
-				_.set(apis, last, true);
+				let parts: string[] = route.split('/');
+				parts = parts.filter(Boolean);
+				const last: string = parts.join('.');
+				// Replace lodash _.set with native object assignment
+				const keys = last.split('.');
+				let current = apis;
+				for (let i = 0; i < keys.length - 1; i++) {
+					if (!(keys[i] in current)) {
+						current[keys[i]] = {};
+					}
+					current = current[keys[i]];
+				}
+				current[keys[keys.length - 1]] = true;
 			}
 			obj[method] = apis;
 		}

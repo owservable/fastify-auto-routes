@@ -17,9 +17,9 @@ describe('addActionRoutes', () => {
 	beforeEach(() => {
 		jest.clearAllMocks();
 		mockAddActionRoute.mockReset();
-		    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {
-      // Mock console.log to avoid test output
-    });
+		consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
 		fastify = {
 			register: jest.fn(),
 			route: jest.fn(),

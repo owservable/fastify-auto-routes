@@ -4,10 +4,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {hrtime} from 'node:process';
 
-import * as _ from 'lodash';
-
 import {IncomingMessage, Server, ServerResponse} from 'http';
-import {FastifyBaseLogger, FastifyInstance, FastifyTypeProviderDefault} from 'fastify';
+import {FastifyInstance} from 'fastify';
 
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
@@ -25,7 +23,7 @@ const addFastifyRoutes = (
 	if (!routesRootFolder) routesRootFolder = folder;
 
 	const fileNames: string[] = fs.readdirSync(folder);
-	const files: string[] = _.filter(fileNames, (name) => !fs.lstatSync(path.join(folder, name)).isDirectory());
+	const files: string[] = fileNames.filter((name) => !fs.lstatSync(path.join(folder, name)).isDirectory());
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, `${files.length} files`);
 
 	for (const file of files) {
@@ -42,7 +40,7 @@ const addFastifyRoutes = (
 
 		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file}`);
-		if (_.isArray(routes)) {
+		if (Array.isArray(routes)) {
 			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', absoluteFilePath, `${routes.length} routes`);
 			for (const route of routes) {
 				addRoute(fastify, route, relativeFilePath, verbose);
@@ -53,7 +51,7 @@ const addFastifyRoutes = (
 		}
 	}
 
-	const folders: string[] = _.filter(fileNames, (name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
+	const folders: string[] = fileNames.filter((name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, 'subfolders:', `${folders.length} subfolders`);
 	for (const sub of folders) {
 		addFastifyRoutes(fastify, path.join(folder, sub), verbose);

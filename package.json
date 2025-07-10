@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "1.6.3",
+	"version": "1.7.3",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
@@ -18,7 +18,8 @@
 	},
 	"scripts": {
 		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm clean & pnpm format & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
-		"build": "del /S /Q lib\\* && tsc",
+		"clear:lib": "del /S /Q lib\\*",
+		"build": "pnpm clear:lib & tsc",
 		"build:watch": "tsc --watch",
 		"lint": "tslint -p tsconfig.json",
 		"clean": "tslint --config tslint-imports.json --fix --project .",
@@ -35,19 +36,17 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^1.6.3",
-		"@owservable/folders": "^1.6.3",
-		"@types/lodash": "^4.17.20",
-		"@types/node": "^24.0.12",
-		"fastify": "^5.4.0",
-		"lodash": "^4.17.21"
+		"@owservable/actions": "^1.7.3",
+		"@owservable/folders": "^1.7.3",
+		"@types/node": "^24.0.13",
+		"fastify": "^5.4.0"
 	},
 	"devDependencies": {
 		"@faker-js/faker": "^9.9.0",
-		"@types/jest": "^29.5.5",
+		"@types/jest": "^30.0.0",
 		"@types/rewire": "^2.5.30",
 		"coveralls": "^3.1.1",
-		"jest": "^29.7.0",
+		"jest": "^30.0.4",
 		"jest-sonar-reporter": "^2.0.0",
 		"prettier": "^3.6.2",
 		"rewire": "^9.0.0",

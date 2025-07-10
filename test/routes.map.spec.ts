@@ -1,16 +1,25 @@
 'use strict';
 
-import * as _ from 'lodash';
 import {faker} from '@faker-js/faker';
 
 import RoutesMap from '../src/routes.map';
 
-const _methods = (): string[] => _.sortBy(_.map(faker.lorem.words(3).split(' '), _.toUpper));
-const _route = (): string => _.join(_.map(faker.lorem.words(_.random(2, 5)).split(' '), _.toLower), '/');
+const _methods = (): string[] =>
+	faker.lorem
+		.words(3)
+		.split(' ')
+		.map((word) => word.toUpperCase())
+		.sort();
+const _route = (): string =>
+	faker.lorem
+		.words(Math.floor(Math.random() * 4) + 2)
+		.split(' ')
+		.map((word) => word.toLowerCase())
+		.join('/');
 const _routes = (count: number): string[] => {
 	const routes: string[] = [];
-	_.each(_.range(count), (i) => routes.push(_route()));
-	return _.sortBy(routes);
+	Array.from({length: count}, (_, i) => i).forEach((i) => routes.push(_route()));
+	return routes.sort();
 };
 
 describe('routes.map.ts tests', () => {
@@ -25,24 +34,24 @@ describe('routes.map.ts tests', () => {
 			const methods = _methods();
 			const routes = [_routes(3), _routes(2), _routes(4)];
 
-			RoutesMap.add(_.toLower(methods[0]), routes[0][0]);
+			RoutesMap.add(methods[0].toLowerCase(), routes[0][0]);
 			expect((RoutesMap as any)._routes.size).toBeGreaterThan(0);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(1);
 
-			RoutesMap.add(_.toLower(methods[0]), routes[0][1]);
+			RoutesMap.add(methods[0].toLowerCase(), routes[0][1]);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(2);
 
-			RoutesMap.add(_.toLower(methods[0]), routes[0][2]);
+			RoutesMap.add(methods[0].toLowerCase(), routes[0][2]);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(3);
 
-			RoutesMap.add(_.toLower(methods[1]), routes[1][0]);
-			RoutesMap.add(_.toLower(methods[1]), routes[1][1]);
+			RoutesMap.add(methods[1].toLowerCase(), routes[1][0]);
+			RoutesMap.add(methods[1].toLowerCase(), routes[1][1]);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(2);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(2);
 			expect(Array.from((RoutesMap as any)._routes.values())[1]).toHaveLength(2);
@@ -144,18 +153,20 @@ describe('routes.map.ts tests', () => {
 			const routes = [_routes(3), _routes(2), _routes(4)];
 			(RoutesMap as any)._routes.set(methods[0], routes[0]);
 			expect(Object.keys(RoutesMap.list()).length).toBeGreaterThan(0);
-			expect(_.keys(RoutesMap.list())).toHaveLength(1);
+			expect(Object.keys(RoutesMap.list())).toHaveLength(1);
 
 			(RoutesMap as any)._routes.set(methods[1], routes[1]);
-			expect(_.keys(RoutesMap.list())).toHaveLength(2);
+			expect(Object.keys(RoutesMap.list())).toHaveLength(2);
 
 			(RoutesMap as any)._routes.set(methods[2], routes[2]);
-			expect(_.keys(RoutesMap.list())).toHaveLength(3);
+			expect(Object.keys(RoutesMap.list())).toHaveLength(3);
 
-			expect(_.sortBy(_.keys(RoutesMap.list()))).toEqual(methods);
+			expect(Object.keys(RoutesMap.list()).sort()).toEqual(methods);
 
-			const test = {};
-			for (const i in methods) _.set(test, methods[i], routes[i]);
+			const test: {[key: string]: string[]} = {};
+			for (const i in methods) {
+				test[methods[i]] = routes[i];
+			}
 			expect(RoutesMap.list()).toEqual(test);
 		});
 	});
@@ -170,15 +181,46 @@ describe('routes.map.ts tests', () => {
 			const routes = [_routes(3), _routes(2), _routes(4)];
 			(RoutesMap as any)._routes.set(methods[0], routes[0]);
 			expect(Object.keys(RoutesMap.json()).length).toBeGreaterThan(0);
-			expect(_.keys(RoutesMap.json())).toHaveLength(1);
+			expect(Object.keys(RoutesMap.json())).toHaveLength(1);
 
 			(RoutesMap as any)._routes.set(methods[1], routes[1]);
-			expect(_.keys(RoutesMap.json())).toHaveLength(2);
+			expect(Object.keys(RoutesMap.json())).toHaveLength(2);
 
 			(RoutesMap as any)._routes.set(methods[2], routes[2]);
-			expect(_.keys(RoutesMap.json())).toHaveLength(3);
+			expect(Object.keys(RoutesMap.json())).toHaveLength(3);
 
-			expect(_.sortBy(_.keys(RoutesMap.json()))).toEqual(methods);
+			expect(Object.keys(RoutesMap.json()).sort()).toEqual(methods);
+		});
+
+		it('should handle routes with shared path prefixes', () => {
+			// Clear any existing routes
+			RoutesMap.clear();
+
+			// Add routes with shared prefixes to trigger the existing key branch
+			// Avoid conflicts between parent/child routes by using different paths
+			RoutesMap.add('GET', '/api/users');
+			RoutesMap.add('GET', '/api/posts');
+			RoutesMap.add('GET', '/admin/users');
+			RoutesMap.add('POST', '/api/comments');
+
+			const result = RoutesMap.json();
+
+			// Verify structure is correct
+			expect(result).toHaveProperty('GET');
+			expect(result).toHaveProperty('POST');
+			expect(result.GET).toHaveProperty('api');
+			expect(result.GET).toHaveProperty('admin');
+			expect(result.GET.api).toHaveProperty('users');
+			expect(result.GET.api).toHaveProperty('posts');
+			expect(result.GET.admin).toHaveProperty('users');
+			expect(result.POST).toHaveProperty('api');
+			expect(result.POST.api).toHaveProperty('comments');
+
+			// Verify leaf nodes have true values
+			expect(result.GET.api.users).toBe(true);
+			expect(result.GET.api.posts).toBe(true);
+			expect(result.GET.admin.users).toBe(true);
+			expect(result.POST.api.comments).toBe(true);
 		});
 	});
 });
