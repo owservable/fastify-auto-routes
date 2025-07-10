@@ -10,7 +10,9 @@ describe('addFastifyRoutes', () => {
 
 	beforeEach(() => {
 		jest.clearAllMocks();
-		consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+		    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+      // Mock console.log to avoid test output
+    });
 		fastify = {
 			register: jest.fn(),
 			route: jest.fn(),
@@ -266,5 +268,46 @@ describe('addFastifyRoutes', () => {
 
 		// Cleanup
 		fs.rmSync(testFolder, {recursive: true});
+	});
+
+	it('should handle array of routes with verbose logging', () => {
+		const testFolder = path.join(__dirname, '../test-routes-array-verbose');
+		if (fs.existsSync(testFolder)) {
+			fs.rmSync(testFolder, { recursive: true });
+		}
+		fs.mkdirSync(testFolder, { recursive: true });
+
+		// Create a test route file with array export
+		const routeFile = path.join(testFolder, 'test.js');
+		fs.writeFileSync(routeFile, `
+			module.exports = [
+				{
+					method: 'GET',
+					url: '/test1',
+					handler: async (request, reply) => {
+						return { message: 'test1' };
+					}
+				},
+				{
+					method: 'POST',
+					url: '/test2',
+					handler: async (request, reply) => {
+						return { message: 'test2' };
+					}
+				}
+			];
+		`);
+
+		addFastifyRoutes(fastify, testFolder, true);
+
+		expect(consoleLogSpy).toHaveBeenCalledWith(
+			'[@owservable/fastify-auto-routes] -> addFastifyRoutes:',
+			expect.stringContaining('test.js'),
+			'2 routes'
+		);
+		expect(fastify.route).toHaveBeenCalledTimes(2);
+
+		// Cleanup
+		fs.rmSync(testFolder, { recursive: true });
 	});
 });

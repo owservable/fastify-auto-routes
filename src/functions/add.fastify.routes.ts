@@ -17,13 +17,7 @@ let routesRootFolder: string;
 const NS_PER_SEC: number = 1e9;
 
 const addFastifyRoutes = (
-	fastify: FastifyInstance<
-		Server<typeof IncomingMessage, typeof ServerResponse>,
-		IncomingMessage,
-		ServerResponse<IncomingMessage>,
-		FastifyBaseLogger,
-		FastifyTypeProviderDefault
-	>,
+	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>>,
 	folder: string,
 	verbose: boolean = false
 ): void => {

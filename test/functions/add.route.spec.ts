@@ -19,7 +19,9 @@ describe('add.route.ts tests', () => {
 		const route = {
 			url: '/test',
 			method: 'GET',
-			handler: () => {}
+			handler: () => {
+				// Mock handler for testing
+			}
 		};
 		const relativeFilePath = '/api';
 
@@ -38,7 +40,9 @@ describe('add.route.ts tests', () => {
 		const mockFastify = {
 			route: jest.fn()
 		};
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
 
 		addRoute(mockFastify, 'not an object', '/api', true);
 
@@ -54,9 +58,13 @@ describe('add.route.ts tests', () => {
 		};
 		const route: any = {
 			method: 'POST',
-			handler: () => {}
+			handler: () => {
+				// Mock handler for testing
+			}
 		};
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
 
 		addRoute(mockFastify, route, '/api', true);
 
@@ -74,7 +82,9 @@ describe('add.route.ts tests', () => {
 		const route = {
 			url: '/test',
 			method: 'GET',
-			handler: () => {}
+			handler: () => {
+				// Mock handler for testing
+			}
 		};
 
 		addRoute(mockFastify, route, '/api');
@@ -89,7 +99,9 @@ describe('add.route.ts tests', () => {
 		const route = {
 			url: '/api/test',
 			method: 'GET',
-			handler: () => {}
+			handler: () => {
+				// Mock handler for testing
+			}
 		};
 
 		addRoute(mockFastify, route, '/api');
@@ -104,9 +116,13 @@ describe('add.route.ts tests', () => {
 		const route = {
 			url: '/test',
 			method: 'GET',
-			handler: () => {}
+			handler: () => {
+				// Mock handler for testing
+			}
 		};
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
 
 		addRoute(mockFastify, route, '/api', true);
 
@@ -122,9 +138,13 @@ describe('add.route.ts tests', () => {
 		const route = {
 			url: '/test',
 			method: 'GET',
-			handler: () => {}
+			handler: () => {
+				// Mock handler for testing
+			}
 		};
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+		const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {
+			// Mock console.log to avoid test output
+		});
 
 		addRoute(mockFastify, route, '/api', false);
 

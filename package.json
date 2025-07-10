@@ -17,7 +17,7 @@
 		"url": "git+https://github.com/owservable/fastify-auto-routes.git"
 	},
 	"scripts": {
-		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm format & pnpm clean & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
+		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm clean & pnpm format & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
 		"build": "del /S /Q lib\\* && tsc",
 		"build:watch": "tsc --watch",
 		"lint": "tslint -p tsconfig.json",
