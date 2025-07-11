@@ -30,8 +30,8 @@ importers:
         specifier: ^1.7.4
         version: 1.7.4
       '@owservable/folders':
-        specifier: ^1.7.4
-        version: 1.7.4
+        specifier: ^1.7.5
+        version: 1.7.5
       '@types/node':
         specifier: ^24.0.13
         version: 24.0.13
@@ -485,8 +485,8 @@ packages:
     resolution: {integrity: sha512-y7kkgAtSbYxqKiiUMP9ri2Q7HxhxwPjhyCpPtU6PxhieT01djliReNdJmFEgm4IbZoblnq5a32yfNer1cV6i6w==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.7.4':
-    resolution: {integrity: sha512-R/LC/5lY97HiZA+8o0TN87od4uguKJZ/3Fswy+3ejLzVSBcMtd8I9lHDDj4vo6smYFRlINbSK3/eWnpOUrSJQQ==}
+  '@owservable/folders@1.7.5':
+    resolution: {integrity: sha512-EP3fJRzk3knjML9FYcH6YaOSErkP5Jub3tEYOb5lhThb2tO2I7GXA48nn4V2PSbo81T+UfwbBGbaoKlr044rJA==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -3133,13 +3133,13 @@ snapshots:
 
   '@owservable/actions@1.7.4':
     dependencies:
-      '@owservable/folders': 1.7.4
+      '@owservable/folders': 1.7.5
       '@types/lodash': 4.17.20
       '@types/node': 24.0.13
       commander: 14.0.0
       lodash: 4.17.21
 
-  '@owservable/folders@1.7.4':
+  '@owservable/folders@1.7.5':
     dependencies:
       '@types/lodash': 4.17.20
       '@types/node': 24.0.13
