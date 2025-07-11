@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.36% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/19</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,20 +122,20 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,20 +161,20 @@ const addActionRoutes: Function = async (
 	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 &nbsp;
 	for (const actionPath of actionPaths) {
-<span class="cstat-no" title="statement not covered" >		if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; Initializing route', actionPath);</span></span>
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; Initializing route', actionPath);
 &nbsp;
 		// tslint:disable-next-line:callable-types
-		const ActionClass: new () =&gt; ActionAsControllerInterface = <span class="cstat-no" title="statement not covered" >require(actionPath).default;</span>
-		const action: ActionAsControllerInterface = <span class="cstat-no" title="statement not covered" >new ActionClass();</span>
+		const ActionClass: new () =&gt; ActionAsControllerInterface = require(actionPath).default;
+		const action: ActionAsControllerInterface = new ActionClass();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		if (typeof action.routes === 'function' &amp;&amp; typeof action.asController === 'function') {</span>
-			const config = <span class="cstat-no" title="statement not covered" >await action.routes();</span>
-<span class="cstat-no" title="statement not covered" >			if (Array.isArray(config)) {</span>
-<span class="cstat-no" title="statement not covered" >				config.forEach(<span class="fstat-no" title="function not covered" >(c</span>onf) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >					addActionRoute(fastify, action, conf, verbose);</span>
+		if (typeof action.routes === 'function' &amp;&amp; typeof action.asController === 'function') {
+			const config = await action.routes();
+			if (Array.isArray(config)) {
+				config.forEach((conf) =&gt; {
+					addActionRoute(fastify, action, conf, verbose);
 				});
 			} else {
-<span class="cstat-no" title="statement not covered" >				addActionRoute(fastify, action, config, verbose);</span>
+				addActionRoute(fastify, action, config, verbose);
 			}
 		}
 	}
@@ -187,7 +187,7 @@ export default addActionRoutes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-11T12:35:13.217Z
+                at 2025-07-11T13:00:08.059Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
