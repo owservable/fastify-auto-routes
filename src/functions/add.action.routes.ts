@@ -15,7 +15,7 @@ const addActionRoutes: Function = async (
 	verbose: boolean = false
 ): Promise<void> => {
 	if (verbose) console.log('\n[@owservable/fastify-auto-routes] -> addActionRoutes:', folderName);
-	const actionPaths: string[] = await listSubfoldersFilesByFolderName(root, folderName);
+	const actionPaths: string[] = listSubfoldersFilesByFolderName(root, folderName);
 
 	for (const actionPath of actionPaths) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> Initializing route', actionPath);

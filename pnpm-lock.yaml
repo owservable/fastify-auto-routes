@@ -27,11 +27,11 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^1.7.3
-        version: 1.7.3
+        specifier: ^1.7.4
+        version: 1.7.4
       '@owservable/folders':
-        specifier: ^1.7.3
-        version: 1.7.3
+        specifier: ^1.7.4
+        version: 1.7.4
       '@types/node':
         specifier: ^24.0.13
         version: 24.0.13
@@ -73,8 +73,8 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       strictr:
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.4.0
+        version: 0.4.0
       ts-jest:
         specifier: ^29.1.1
         version: 29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.4)(@jest/types@30.0.1)(babel-jest@30.0.4(@babel/core@7.28.0))(jest-util@30.0.2)(jest@30.0.4(@types/node@24.0.13)(ts-node@10.9.2(@types/node@24.0.13)(typescript@5.8.3)))(typescript@5.8.3)
@@ -481,12 +481,12 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@owservable/actions@1.7.3':
-    resolution: {integrity: sha512-EeFdhI7E+E4GDS4MpNh77rxJ1OWbyCIzfpuHXboTuXnW+Ehmy6Uyv7i5sAhTi7sjKNqvHE7ZBg1w8i3h9/piFQ==}
+  '@owservable/actions@1.7.4':
+    resolution: {integrity: sha512-y7kkgAtSbYxqKiiUMP9ri2Q7HxhxwPjhyCpPtU6PxhieT01djliReNdJmFEgm4IbZoblnq5a32yfNer1cV6i6w==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.7.3':
-    resolution: {integrity: sha512-gRs9J86FmZhsyrng0nCim5pC03HH/JZPo5z4OgwjuvqPJ2m3JfbTq85DSsNIBjq8ECyhJgospvssyp8VDFGuGw==}
+  '@owservable/folders@1.7.4':
+    resolution: {integrity: sha512-R/LC/5lY97HiZA+8o0TN87od4uguKJZ/3Fswy+3ejLzVSBcMtd8I9lHDDj4vo6smYFRlINbSK3/eWnpOUrSJQQ==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -2246,8 +2246,8 @@ packages:
   streamx@2.22.0:
     resolution: {integrity: sha512-sLh1evHOzBy/iWRiR6d1zRcLao4gGZr3C1kzNz4fopCOKJb6xD9ub8Mpi9Mr1R6id5o43S+d93fI48UC5uM9aw==}
 
-  strictr@0.3.0:
-    resolution: {integrity: sha512-9UMGVcgjL1bSR11IbdWkOavDCNuziJkEV+peP++a75WVzf7vBHebt1hv21vBNrlxMAZGLpbxwL7CNxKWG3lhyg==}
+  strictr@0.4.0:
+    resolution: {integrity: sha512-x5ToS/P6UEiHg/xEQc77d917R/8ujvyvcvw730HKzGFkGOGbfBRG/LyMErA3atwmsvln2DON18RYrrvxQkbH6w==}
     engines: {node: '>=20.12.1'}
     hasBin: true
 
@@ -3131,15 +3131,15 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@owservable/actions@1.7.3':
+  '@owservable/actions@1.7.4':
     dependencies:
-      '@owservable/folders': 1.7.3
+      '@owservable/folders': 1.7.4
       '@types/lodash': 4.17.20
       '@types/node': 24.0.13
       commander: 14.0.0
       lodash: 4.17.21
 
-  '@owservable/folders@1.7.3':
+  '@owservable/folders@1.7.4':
     dependencies:
       '@types/lodash': 4.17.20
       '@types/node': 24.0.13
@@ -5048,7 +5048,7 @@ snapshots:
     optionalDependencies:
       bare-events: 2.5.4
 
-  strictr@0.3.0:
+  strictr@0.4.0:
     dependencies:
       '@types/cli-color': 2.0.6
       '@types/cli-table': 0.3.4
