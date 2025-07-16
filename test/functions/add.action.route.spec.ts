@@ -68,7 +68,7 @@ describe('add.action.route.ts tests', () => {
 		addActionRoute(mockFastify, mockAction, config);
 
 		expect(config.schema).toBeDefined();
-		expect(config.schema.tags).toEqual(['ACTION', 'GET']);
+		expect(config.schema.tags).toEqual(['ACTION']);
 	});
 
 	it('should log when verbose is enabled', () => {
@@ -131,6 +131,6 @@ describe('add.action.route.ts tests', () => {
 
 		expect(config.schema.body).toEqual({type: 'object'});
 		expect(config.schema.response).toEqual({200: {type: 'object'}});
-		expect(config.schema.tags).toEqual(['ACTION', 'GET']);
+		expect(config.schema.tags).toEqual(['ACTION']);
 	});
 });
