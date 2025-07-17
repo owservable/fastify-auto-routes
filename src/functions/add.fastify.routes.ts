@@ -14,47 +14,74 @@ let routesRootFolder: string;
 
 const NS_PER_SEC: number = 1e9;
 
-const addFastifyRoutes = (
+const addFastifyRoutes = async (
 	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>>,
 	folder: string,
 	verbose: boolean = false
-): void => {
+): Promise<void> => {
 	if (verbose) console.log('\n[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder);
 	if (!routesRootFolder) routesRootFolder = folder;
 
-	const fileNames: string[] = fs.readdirSync(folder);
-	const files: string[] = fileNames.filter((name) => !fs.lstatSync(path.join(folder, name)).isDirectory());
+	const fileNames: string[] = await fs.promises.readdir(folder);
+	const stats = await Promise.all(
+		fileNames.map(async (name) => ({
+			name,
+			fullPath: path.join(folder, name),
+			isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
+		}))
+	);
+
+	const files = stats.filter((stat) => !stat.isDirectory);
+	const folders = stats.filter((stat) => stat.isDirectory);
+
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, `${files.length} files`);
 
-	for (const file of files) {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: processing...', `${folder}/${file}`);
-		const ext: string = path.extname(file);
-		if (ext !== '.ts' && ext !== '.js') continue;
+	// Process files in parallel batches for better performance
+	const BATCH_SIZE = 10; // Process up to 10 files concurrently
+	const validFiles = files.filter((file) => {
+		const ext: string = path.extname(file.name);
+		return ext === '.ts' || ext === '.js';
+	});
 
-		const absoluteFilePath: string = path.join(folder, file);
-		const relativeFilePath: string = cleanRelativePath(routesRootFolder, absoluteFilePath, ext);
+	const processFile = async (file: any): Promise<void> => {
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: processing...', `${folder}/${file.name}`);
+
+		const ext: string = path.extname(file.name);
+		const relativeFilePath: string = cleanRelativePath(routesRootFolder, file.fullPath, ext as '.ts' | '.js');
 
 		const start: number = Number(hrtime.bigint());
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loading file...', absoluteFilePath);
-		const routes = require(absoluteFilePath);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loading file...', file.fullPath);
+
+		const routeModule = await import(file.fullPath);
+		const routes = routeModule.default || routeModule;
 
 		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file}`);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file.name}`);
+
 		if (Array.isArray(routes)) {
-			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', absoluteFilePath, `${routes.length} routes`);
+			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', file.fullPath, `${routes.length} routes`);
 			for (const route of routes) {
 				addRoute(fastify, route, relativeFilePath, verbose);
 			}
 		} else {
-			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', absoluteFilePath, '1 route');
+			if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', file.fullPath, '1 route');
 			addRoute(fastify, routes, relativeFilePath, verbose);
 		}
+	};
+
+	// Process files in parallel batches
+	for (let i = 0; i < validFiles.length; i += BATCH_SIZE) {
+		const batch = validFiles.slice(i, i + BATCH_SIZE);
+		await Promise.all(batch.map(processFile));
 	}
 
-	const folders: string[] = fileNames.filter((name: string) => fs.lstatSync(path.join(folder, name)).isDirectory());
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, 'subfolders:', `${folders.length} subfolders`);
-	for (const sub of folders) {
-		addFastifyRoutes(fastify, path.join(folder, sub), verbose);
-	}
+
+	// Process subdirectories in parallel for better performance
+	await Promise.all(
+		folders.map(async (sub) => {
+			await addFastifyRoutes(fastify, sub.fullPath, verbose);
+		})
+	);
 };
 export default addFastifyRoutes;

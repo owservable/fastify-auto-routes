@@ -4,6 +4,29 @@ import * as fs from 'fs';
 import * as path from 'path';
 import addFastifyRoutes from '../../src/functions/add.fastify.routes';
 
+// Helper function to handle Windows file locking issues
+const cleanupFolder = (folderPath: string, retries: number = 3): void => {
+	if (!fs.existsSync(folderPath)) return;
+
+	for (let i = 0; i < retries; i++) {
+		try {
+			fs.rmSync(folderPath, {recursive: true});
+			return;
+		} catch (error: any) {
+			if (error.code === 'EBUSY' && i < retries - 1) {
+				// Wait a bit and try again
+				const delay = Math.pow(2, i) * 100; // 100ms, 200ms, 400ms
+				const start = Date.now();
+				while (Date.now() - start < delay) {
+					// Busy wait
+				}
+				continue;
+			}
+			throw error;
+		}
+	}
+};
+
 describe('addFastifyRoutes', () => {
 	let fastify: any;
 	let consoleLogSpy: jest.SpyInstance;
@@ -30,7 +53,7 @@ describe('addFastifyRoutes', () => {
 		consoleLogSpy.mockRestore();
 	});
 
-	it('should process routes in the specified folder', () => {
+	it('should process routes in the specified folder', async () => {
 		const testFolder = path.join(__dirname, '../test-routes');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -52,15 +75,15 @@ describe('addFastifyRoutes', () => {
     `
 		);
 
-		addFastifyRoutes(fastify, testFolder);
+		await addFastifyRoutes(fastify, testFolder);
 
 		expect(fastify.route).toHaveBeenCalled();
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 
-	it('should handle array of routes', () => {
+	it('should handle array of routes', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-array');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -91,7 +114,7 @@ describe('addFastifyRoutes', () => {
     `
 		);
 
-		addFastifyRoutes(fastify, testFolder);
+		await addFastifyRoutes(fastify, testFolder);
 
 		expect(fastify.route).toHaveBeenCalledTimes(2);
 
@@ -99,7 +122,7 @@ describe('addFastifyRoutes', () => {
 		fs.rmSync(testFolder, {recursive: true});
 	});
 
-	it('should skip non-JS/TS files', () => {
+	it('should skip non-JS/TS files', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-mixed');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -127,16 +150,16 @@ describe('addFastifyRoutes', () => {
 		const mdFile = path.join(testFolder, 'README.md');
 		fs.writeFileSync(mdFile, '# Documentation');
 
-		addFastifyRoutes(fastify, testFolder);
+		await addFastifyRoutes(fastify, testFolder);
 
 		// Only the JS file should be processed
 		expect(fastify.route).toHaveBeenCalledTimes(1);
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 
-	it('should handle verbose logging', () => {
+	it('should handle verbose logging', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-verbose');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -158,7 +181,7 @@ describe('addFastifyRoutes', () => {
     `
 		);
 
-		addFastifyRoutes(fastify, testFolder, true);
+		await addFastifyRoutes(fastify, testFolder, true);
 
 		expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('[@owservable/fastify-auto-routes] -> addFastifyRoutes:'), expect.any(String));
 
@@ -166,24 +189,24 @@ describe('addFastifyRoutes', () => {
 		fs.rmSync(testFolder, {recursive: true});
 	});
 
-	it('should handle empty directories', () => {
+	it('should handle empty directories', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-empty');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
 		}
 		fs.mkdirSync(testFolder, {recursive: true});
 
-		expect(() => {
-			addFastifyRoutes(fastify, testFolder);
+		await expect(async () => {
+			await addFastifyRoutes(fastify, testFolder);
 		}).not.toThrow();
 
 		expect(fastify.route).not.toHaveBeenCalled();
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 
-	it('should handle subdirectories recursively', () => {
+	it('should handle subdirectories recursively', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-recursive');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -224,15 +247,15 @@ describe('addFastifyRoutes', () => {
     `
 		);
 
-		addFastifyRoutes(fastify, testFolder);
+		await addFastifyRoutes(fastify, testFolder);
 
 		expect(fastify.route).toHaveBeenCalledTimes(2);
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 
-	it('should handle mixed file types correctly', () => {
+	it('should handle mixed file types correctly', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-mixed-types');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -261,16 +284,16 @@ describe('addFastifyRoutes', () => {
 		const xmlFile = path.join(testFolder, 'data.xml');
 		fs.writeFileSync(xmlFile, '<root><data>test</data></root>');
 
-		addFastifyRoutes(fastify, testFolder);
+		await addFastifyRoutes(fastify, testFolder);
 
 		// Only JS file should be processed (TS file might fail due to compilation)
 		expect(fastify.route).toHaveBeenCalledTimes(1);
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 
-	it('should handle array of routes with verbose logging', () => {
+	it('should handle array of routes with verbose logging', async () => {
 		const testFolder = path.join(__dirname, '../test-routes-array-verbose');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
@@ -301,12 +324,12 @@ describe('addFastifyRoutes', () => {
 		`
 		);
 
-		addFastifyRoutes(fastify, testFolder, true);
+		await addFastifyRoutes(fastify, testFolder, true);
 
 		expect(consoleLogSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', expect.stringContaining('test.js'), '2 routes');
 		expect(fastify.route).toHaveBeenCalledTimes(2);
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 });

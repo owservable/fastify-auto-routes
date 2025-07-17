@@ -1,0 +1,15 @@
+{
+	"srcFolderName": "src",
+	"filesExtensions": [
+		"ts"
+	],
+	"testFolderName": "test",
+	"testFileExtensionPrefix": "spec",
+	"testExtension": "ts",
+	"ignoreSrcFiles": [
+	],
+	"ignoreTestFiles": [
+		"test/test-routes-mixed-types/",
+		"test/test-routes-recursive/"
+	]
+}

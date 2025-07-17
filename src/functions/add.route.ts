@@ -8,7 +8,7 @@ import fixSchema from './fix.schema';
 import fixRouteMethod from './fix.route.method';
 
 const addRoute: Function = (fastify: any, route: any, relativeFilePath: string, verbose: boolean = false): void => {
-	if (!route || typeof route !== 'object' || route === null || Array.isArray(route)) {
+	if (!route || typeof route !== 'object' || Array.isArray(route)) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: ROUTE PROBLEM', relativeFilePath, route);
 		return;
 	}

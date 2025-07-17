@@ -3,18 +3,20 @@
 export default class RoutesMap {
 	public static add(method: string, route: string): void {
 		method = method.toUpperCase();
-		let routes: string[] = RoutesMap._routes.get(method) || [];
-		routes.push(route);
-		routes = Array.from(new Set(routes)).filter(Boolean).sort();
-		RoutesMap._routes.set(method, routes);
+		if (!RoutesMap._routes.has(method)) {
+			RoutesMap._routes.set(method, new Set<string>());
+		}
+		RoutesMap._routes.get(method)!.add(route);
 	}
 
 	public static getMethods(): string[] {
 		return Array.from(RoutesMap._routes.keys()).filter(Boolean).sort();
 	}
 
-	public static getRoutes(method: string): string[] | null {
-		return RoutesMap._routes.get(method?.toUpperCase() || '');
+	public static getRoutes(method: string): string[] | undefined {
+		if (!method) return undefined;
+		const routes = RoutesMap._routes.get(method.toUpperCase());
+		return routes ? Array.from(routes).sort() : undefined;
 	}
 
 	public static keys(): string[] {
@@ -22,7 +24,7 @@ export default class RoutesMap {
 	}
 
 	public static values(): string[][] {
-		return Array.from(RoutesMap._routes.values());
+		return Array.from(RoutesMap._routes.values()).map((routeSet) => Array.from(routeSet));
 	}
 
 	public static clear(): void {
@@ -43,7 +45,7 @@ export default class RoutesMap {
 		const methods: string[] = RoutesMap.getMethods();
 		for (const method of methods) {
 			const apis: any = {};
-			const routes: string[] = RoutesMap.getRoutes(method);
+			const routes: string[] = RoutesMap.getRoutes(method)!;
 			for (const route of routes) {
 				let parts: string[] = route.split('/');
 				parts = parts.filter(Boolean);
@@ -64,5 +66,5 @@ export default class RoutesMap {
 		return obj;
 	}
 
-	private static readonly _routes: Map<string, string[]> = new Map<string, string[]>();
+	private static readonly _routes: Map<string, Set<string>> = new Map<string, Set<string>>();
 }

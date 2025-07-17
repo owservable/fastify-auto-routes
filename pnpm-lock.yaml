@@ -27,11 +27,11 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^1.7.7
-        version: 1.7.7
+        specifier: ^1.7.8
+        version: 1.7.8
       '@owservable/folders':
-        specifier: ^1.7.7
-        version: 1.7.7
+        specifier: ^1.7.8
+        version: 1.7.8
       '@types/node':
         specifier: ^24.0.14
         version: 24.0.14
@@ -64,8 +64,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       skeletest:
-        specifier: ^0.6.0
-        version: 0.6.0
+        specifier: ^0.7.1
+        version: 0.7.1
       sonarjs:
         specifier: ^1.0.0
         version: 1.0.0
@@ -73,8 +73,8 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       strictr:
-        specifier: ^0.4.1
-        version: 0.4.1
+        specifier: ^0.5.3
+        version: 0.5.3
       ts-jest:
         specifier: ^29.1.1
         version: 29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.4)(@jest/types@30.0.1)(babel-jest@30.0.4(@babel/core@7.28.0))(jest-util@30.0.2)(jest@30.0.4(@types/node@24.0.14)(ts-node@10.9.2(@types/node@24.0.14)(typescript@5.8.3)))(typescript@5.8.3)
@@ -481,12 +481,12 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@owservable/actions@1.7.7':
-    resolution: {integrity: sha512-nL1ZKdq83D2OFRgQ70r1fVudfODb13PyJmw3LFBDLdqEWXI26rO94gB4TGFncmC9u0gJd/JmM8pHcoa9fb1EWA==}
+  '@owservable/actions@1.7.8':
+    resolution: {integrity: sha512-rtcw9dkcBEW5uSOH47oqzy302O/CAxwUpsDmC/23Waxcs4nBM1vLuB7CeTdcz/J8GhjjrvyFIbx9nlT0w7dI+A==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.7.7':
-    resolution: {integrity: sha512-F4sSU6ZsLacimqa0j44ERsUmRAHZIXeN++ECoKqa8JNRLQU+6VG8fPq9OjNxl4CH/cSB/UmnhbGkOD0vFFvFRQ==}
+  '@owservable/folders@1.7.8':
+    resolution: {integrity: sha512-t4jcqJsUW4iOTc30FVGyWc1gQKt/OUtZQAZymPxiFhyiLDPutNVARhpWi5eGOQ5T5Gbw0eQaNB8BxOdfyXshWg==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -2200,8 +2200,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  skeletest@0.6.0:
-    resolution: {integrity: sha512-t23cbO/fd9BVPNdIY+xc3WKB9YHIMdwBblDcfTUd0+EEvgvdsJZEtKxHTJ5PcLfZeFgyiZ1qIGRXyepMPLf7cA==}
+  skeletest@0.7.1:
+    resolution: {integrity: sha512-BfyjvwJYiKRtw3T8OUT6U5z1ci0ju3Qz3EIHRUEb2VKywk4tBusCQ8lMgkO0hTFQ4yu53yOoXlweCjl1o5Urhw==}
     engines: {node: '>=20.12.1'}
     hasBin: true
 
@@ -2246,8 +2246,8 @@ packages:
   streamx@2.22.0:
     resolution: {integrity: sha512-sLh1evHOzBy/iWRiR6d1zRcLao4gGZr3C1kzNz4fopCOKJb6xD9ub8Mpi9Mr1R6id5o43S+d93fI48UC5uM9aw==}
 
-  strictr@0.4.1:
-    resolution: {integrity: sha512-+dM6vBQAWPACTetPh6DUY0rcnyEPQSP6uHP6ycRaixX9PCLktCZ7PWyDxDBeOqBHbguWDEEtfkUnlHBcxPl2yg==}
+  strictr@0.5.3:
+    resolution: {integrity: sha512-idKWeNf39YJIQLRODm+Kh7ZojPssrrAMNYjgQBVvp0SpC1zNgqTbsvcXdPVm84Jytn/2jRVk5tmnMuSHa9I4wQ==}
     engines: {node: '>=20.12.1'}
     hasBin: true
 
@@ -3131,15 +3131,15 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@owservable/actions@1.7.7':
+  '@owservable/actions@1.7.8':
     dependencies:
-      '@owservable/folders': 1.7.7
+      '@owservable/folders': 1.7.8
       '@types/lodash': 4.17.20
       '@types/node': 24.0.14
       commander: 14.0.0
       lodash: 4.17.21
 
-  '@owservable/folders@1.7.7':
+  '@owservable/folders@1.7.8':
     dependencies:
       '@types/lodash': 4.17.20
       '@types/node': 24.0.14
@@ -4982,7 +4982,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  skeletest@0.6.0:
+  skeletest@0.7.1:
     dependencies:
       '@types/cli-color': 2.0.6
       '@types/cli-table': 0.3.4
@@ -5048,7 +5048,7 @@ snapshots:
     optionalDependencies:
       bare-events: 2.5.4
 
-  strictr@0.4.1:
+  strictr@0.5.3:
     dependencies:
       '@types/cli-color': 2.0.6
       '@types/cli-table': 0.3.4

@@ -8,6 +8,29 @@ import addActionRoute from '../../src/functions/add.action.route';
 import * as fs from 'fs';
 import * as path from 'path';
 
+// Helper function to handle Windows file locking issues
+const cleanupFolder = (folderPath: string, retries: number = 3): void => {
+	if (!fs.existsSync(folderPath)) return;
+
+	for (let i = 0; i < retries; i++) {
+		try {
+			fs.rmSync(folderPath, {recursive: true});
+			return;
+		} catch (error: any) {
+			if (error.code === 'EBUSY' && i < retries - 1) {
+				// Wait a bit and try again
+				const delay = Math.pow(2, i) * 100; // 100ms, 200ms, 400ms
+				const start = Date.now();
+				while (Date.now() - start < delay) {
+					// Busy wait
+				}
+				continue;
+			}
+			throw error;
+		}
+	}
+};
+
 const mockAddActionRoute = addActionRoute as jest.Mock;
 
 describe('addActionRoutes', () => {
@@ -252,7 +275,7 @@ describe('addActionRoutes', () => {
 		expect(mockAddActionRoute).not.toHaveBeenCalled();
 
 		// Cleanup
-		fs.rmSync(testFolder, {recursive: true});
+		cleanupFolder(testFolder);
 	});
 
 	it('should skip actions without asController method', async () => {

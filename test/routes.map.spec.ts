@@ -38,23 +38,23 @@ describe('routes.map.ts tests', () => {
 			expect((RoutesMap as any)._routes.size).toBeGreaterThan(0);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
-			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(1);
+			expect(Array.from(Array.from((RoutesMap as any)._routes.values())[0] as Set<string>)).toHaveLength(1);
 
 			RoutesMap.add(methods[0].toLowerCase(), routes[0][1]);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
-			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(2);
+			expect(Array.from(Array.from((RoutesMap as any)._routes.values())[0] as Set<string>)).toHaveLength(2);
 
 			RoutesMap.add(methods[0].toLowerCase(), routes[0][2]);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(1);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(1);
-			expect(Array.from((RoutesMap as any)._routes.values())[0]).toHaveLength(3);
+			expect(Array.from(Array.from((RoutesMap as any)._routes.values())[0] as Set<string>)).toHaveLength(3);
 
 			RoutesMap.add(methods[1].toLowerCase(), routes[1][0]);
 			RoutesMap.add(methods[1].toLowerCase(), routes[1][1]);
 			expect(Array.from((RoutesMap as any)._routes.keys())).toHaveLength(2);
 			expect(Array.from((RoutesMap as any)._routes.values())).toHaveLength(2);
-			expect(Array.from((RoutesMap as any)._routes.values())[1]).toHaveLength(2);
+			expect(Array.from(Array.from((RoutesMap as any)._routes.values())[1] as Set<string>)).toHaveLength(2);
 		});
 	});
 
@@ -65,11 +65,11 @@ describe('routes.map.ts tests', () => {
 
 		it('not empty', () => {
 			const methods = _methods();
-			(RoutesMap as any)._routes.set(methods[0], _routes(3));
+			(RoutesMap as any)._routes.set(methods[0], new Set(_routes(3)));
 			expect(RoutesMap.getMethods().length).toBeGreaterThan(0);
 			expect(RoutesMap.getMethods()).toHaveLength(1);
-			(RoutesMap as any)._routes.set(methods[1], _routes(2));
-			(RoutesMap as any)._routes.set(methods[2], _routes(4));
+			(RoutesMap as any)._routes.set(methods[1], new Set(_routes(2)));
+			(RoutesMap as any)._routes.set(methods[2], new Set(_routes(4)));
 			expect(RoutesMap.getMethods()).toHaveLength(3);
 		});
 	});
@@ -82,12 +82,12 @@ describe('routes.map.ts tests', () => {
 
 		it('not null', () => {
 			const methods = _methods();
-			(RoutesMap as any)._routes.set(methods[0], _routes(3));
+			(RoutesMap as any)._routes.set(methods[0], new Set(_routes(3)));
 			expect(RoutesMap.getRoutes(methods[0]).length).toBeGreaterThan(0);
 			expect(RoutesMap.getRoutes(methods[0])).toHaveLength(3);
-			(RoutesMap as any)._routes.set(methods[1], _routes(2));
+			(RoutesMap as any)._routes.set(methods[1], new Set(_routes(2)));
 			expect(RoutesMap.getRoutes(methods[1])).toHaveLength(2);
-			(RoutesMap as any)._routes.set(methods[2], _routes(4));
+			(RoutesMap as any)._routes.set(methods[2], new Set(_routes(4)));
 			expect(RoutesMap.getRoutes(methods[2])).toHaveLength(4);
 		});
 	});
@@ -179,17 +179,27 @@ describe('routes.map.ts tests', () => {
 		it('not empty', () => {
 			const methods = _methods();
 			const routes = [_routes(3), _routes(2), _routes(4)];
-			(RoutesMap as any)._routes.set(methods[0], routes[0]);
+			(RoutesMap as any)._routes.set(methods[0], new Set(routes[0]));
 			expect(Object.keys(RoutesMap.json()).length).toBeGreaterThan(0);
 			expect(Object.keys(RoutesMap.json())).toHaveLength(1);
 
-			(RoutesMap as any)._routes.set(methods[1], routes[1]);
+			(RoutesMap as any)._routes.set(methods[1], new Set(routes[1]));
 			expect(Object.keys(RoutesMap.json())).toHaveLength(2);
 
-			(RoutesMap as any)._routes.set(methods[2], routes[2]);
+			(RoutesMap as any)._routes.set(methods[2], new Set(routes[2]));
 			expect(Object.keys(RoutesMap.json())).toHaveLength(3);
 
 			expect(Object.keys(RoutesMap.json()).sort()).toEqual(methods);
+		});
+
+		it('should handle empty method sets', () => {
+			const methods = _methods();
+			// Add a method with an empty Set to trigger the fallback case
+			(RoutesMap as any)._routes.set(methods[0], new Set());
+
+			const result = RoutesMap.json();
+			expect(Object.keys(result)).toHaveLength(1);
+			expect(Object.keys(result[methods[0]])).toHaveLength(0);
 		});
 
 		it('should handle routes with shared path prefixes', () => {
