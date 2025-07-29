@@ -27,6 +27,7 @@
 		"docs": "typedoc --readme none --out docs ./src/fastify.auto.routes.ts",
 		"sync": "git pull & git fetch origin & git merge origin/main & pnpm i & git branch",
 		"test": "jest --coverage --config jest.config.js",
+		"quick": "jest --config jest.config.js",
 		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
 		"sonar": "sonarjs -e .sonarlint/**,node_modules/**,coverage/**",
 		"test_qube": "jest --coverage --config jest.config.js --testResultsProcessor=jest-sonar-reporter",
