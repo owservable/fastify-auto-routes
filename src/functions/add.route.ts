@@ -27,6 +27,6 @@ const addRoute: Function = (fastify: any, route: any, relativeFilePath: string, 
 
 	fastify.route(route);
 	RoutesMap.add(route.method, route.url);
-	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: Added route', route.method, route.url, '\n');
+	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addRoute: Added route', route.method, route.url);
 };
 export default addRoute;

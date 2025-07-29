@@ -7,6 +7,8 @@ import {hrtime} from 'node:process';
 import {IncomingMessage, Server, ServerResponse} from 'http';
 import {FastifyInstance} from 'fastify';
 
+import {ItemStat} from '@owservable/folders';
+
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
 
@@ -23,27 +25,29 @@ const addFastifyRoutes = async (
 	if (!routesRootFolder) routesRootFolder = folder;
 
 	const fileNames: string[] = await fs.promises.readdir(folder);
-	const stats = await Promise.all(
-		fileNames.map(async (name) => ({
-			name,
-			fullPath: path.join(folder, name),
-			isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
-		}))
+	const stats: ItemStat[] = await Promise.all(
+		fileNames.map(
+			async (name): Promise<ItemStat> => ({
+				name,
+				fullPath: path.join(folder, name),
+				isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
+			})
+		)
 	);
 
-	const files = stats.filter((stat) => !stat.isDirectory);
-	const folders = stats.filter((stat) => stat.isDirectory);
+	const files: ItemStat[] = stats.filter((stat: ItemStat): boolean => !stat.isDirectory);
+	const folders: ItemStat[] = stats.filter((stat: ItemStat): boolean => stat.isDirectory);
 
 	if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', folder, `${files.length} files`);
 
 	// Process files in parallel batches for better performance
 	const BATCH_SIZE = 10; // Process up to 10 files concurrently
-	const validFiles = files.filter((file) => {
+	const validFiles: ItemStat[] = files.filter((file: ItemStat): boolean => {
 		const ext: string = path.extname(file.name);
 		return ext === '.ts' || ext === '.js';
 	});
 
-	const processFile = async (file: any): Promise<void> => {
+	const processFile = async (file: ItemStat): Promise<void> => {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: processing...', `${folder}/${file.name}`);
 
 		const ext: string = path.extname(file.name);
@@ -71,7 +75,7 @@ const addFastifyRoutes = async (
 
 	// Process files in parallel batches
 	for (let i = 0; i < validFiles.length; i += BATCH_SIZE) {
-		const batch = validFiles.slice(i, i + BATCH_SIZE);
+		const batch: ItemStat[] = validFiles.slice(i, i + BATCH_SIZE);
 		await Promise.all(batch.map(processFile));
 	}
 
@@ -79,9 +83,10 @@ const addFastifyRoutes = async (
 
 	// Process subdirectories in parallel for better performance
 	await Promise.all(
-		folders.map(async (sub) => {
+		folders.map(async (sub: ItemStat): Promise<void> => {
 			await addFastifyRoutes(fastify, sub.fullPath, verbose);
 		})
 	);
 };
+
 export default addFastifyRoutes;
