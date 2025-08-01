@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "1.8.0",
+	"version": "1.8.1",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
@@ -37,8 +37,8 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^1.8.0",
-		"@owservable/folders": "^1.8.0",
+		"@owservable/actions": "^1.8.1",
+		"@owservable/folders": "^1.8.1",
 		"@types/node": "^24.1.0",
 		"fastify": "^5.4.0"
 	},
@@ -61,7 +61,7 @@
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-etc": "^1.13.10",
 		"typedoc": "^0.28.8",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.2"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
@@ -89,9 +89,11 @@
 			"@babel/helpers@<7.26.10": ">=7.26.10",
 			"tar-fs@<1.16.5": ">=1.16.5",
 			"brace-expansion@>=1.0.0 <=1.1.11": ">=1.1.12",
-			"brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2"
+			"brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2",
+			"form-data@<2.5.4": ">=2.5.4",
+			"@eslint/plugin-kit@<0.3.4": ">=0.3.4"
 		},
 		"neverBuiltDependencies": []
 	},
-	"packageManager": "pnpm@10.13.0"
+	"packageManager": "pnpm@10.14.0"
 }
