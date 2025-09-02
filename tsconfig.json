@@ -17,6 +17,8 @@
 		"noImplicitAny": true,
 		"strict": true,
 		"strictNullChecks": false,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"types": ["jest", "node"]
 	},
 	"include": [

@@ -326,7 +326,7 @@ describe('addFastifyRoutes', () => {
 
 		await addFastifyRoutes(fastify, testFolder, true);
 
-		expect(consoleLogSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addFastifyRoutes:', expect.stringContaining('test.js'), '2 routes');
+		expect(consoleLogSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', expect.stringContaining('test.js'));
 		expect(fastify.route).toHaveBeenCalledTimes(2);
 
 		// Cleanup

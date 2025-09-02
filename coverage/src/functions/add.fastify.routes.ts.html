@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>59/59</span>
+                <span class='fraction'>45/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>10/11</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>44/44</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
@@ -145,17 +145,7 @@
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -177,7 +167,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,8 +183,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
@@ -206,6 +193,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
@@ -214,19 +204,11 @@
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,8 +217,6 @@
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
@@ -270,7 +250,6 @@ const addFastifyRoutes = async (
 	folder: string,
 	verbose: boolean = false
 ): Promise&lt;void&gt; =&gt; {
-	if (verbose) console.log('\n[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder);
 	if (!routesRootFolder) routesRootFolder = folder;
 &nbsp;
 	const fileNames: string[] = await fs.promises.readdir(folder);
@@ -287,8 +266,6 @@ const addFastifyRoutes = async (
 	const files: ItemStat[] = stats.filter((stat: ItemStat): boolean =&gt; !stat.isDirectory);
 	const folders: ItemStat[] = stats.filter((stat: ItemStat): boolean =&gt; stat.isDirectory);
 &nbsp;
-	if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder, `${files.length} files`);
-&nbsp;
 	// Process files in parallel batches for better performance
 	const BATCH_SIZE = 10; // Process up to 10 files concurrently
 	const validFiles: ItemStat[] = files.filter((file: ItemStat): boolean =&gt; {
@@ -297,27 +274,22 @@ const addFastifyRoutes = async (
 	});
 &nbsp;
 	const processFile = async (file: ItemStat): Promise&lt;void&gt; =&gt; {
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes: processing...', `${folder}/${file.name}`);
-&nbsp;
 		const ext: string = path.extname(file.name);
 		const relativeFilePath: string = cleanRelativePath(routesRootFolder, file.fullPath, ext as '.ts' | '.js');
 &nbsp;
 		const start: number = Number(hrtime.bigint());
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes: loading file...', file.fullPath);
 &nbsp;
 		const routeModule = await import(file.fullPath);
-		const routes = routeModule.default || routeModule;
+		const routes = routeModule.default || <span class="branch-1 cbranch-no" title="branch not covered" >routeModule;</span>
 &nbsp;
 		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file.name}`);
 &nbsp;
 		if (Array.isArray(routes)) {
-			if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', file.fullPath, `${routes.length} routes`);
 			for (const route of routes) {
 				addRoute(fastify, route, relativeFilePath, verbose);
 			}
 		} else {
-			if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', file.fullPath, '1 route');
 			addRoute(fastify, routes, relativeFilePath, verbose);
 		}
 	};
@@ -327,8 +299,6 @@ const addFastifyRoutes = async (
 		const batch: ItemStat[] = validFiles.slice(i, i + BATCH_SIZE);
 		await Promise.all(batch.map(processFile));
 	}
-&nbsp;
-	if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes:', folder, 'subfolders:', `${folders.length} subfolders`);
 &nbsp;
 	// Process subdirectories in parallel for better performance
 	await Promise.all(
@@ -346,7 +316,7 @@ export default addFastifyRoutes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-28T13:47:40.649Z
+                at 2025-09-02T10:25:34.617Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

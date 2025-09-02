@@ -47,7 +47,7 @@ describe('add.route.ts tests', () => {
 		addRoute(mockFastify, 'not an object', '/api', true);
 
 		expect(mockFastify.route).not.toHaveBeenCalled();
-		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ROUTE PROBLEM', '/api', 'not an object');
+		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ERROR:', '/api', 'not an object');
 
 		consoleSpy.mockRestore();
 	});
@@ -63,7 +63,7 @@ describe('add.route.ts tests', () => {
 		addRoute(mockFastify, null, '/api', false);
 
 		expect(mockFastify.route).not.toHaveBeenCalled();
-		expect(consoleSpy).not.toHaveBeenCalled();
+		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ERROR:', '/api', null);
 
 		consoleSpy.mockRestore();
 	});
@@ -79,7 +79,7 @@ describe('add.route.ts tests', () => {
 		addRoute(mockFastify, [], '/api', true);
 
 		expect(mockFastify.route).not.toHaveBeenCalled();
-		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ROUTE PROBLEM', '/api', []);
+		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ERROR:', '/api', []);
 
 		consoleSpy.mockRestore();
 	});
@@ -95,7 +95,7 @@ describe('add.route.ts tests', () => {
 		addRoute(mockFastify, undefined, '/api', false);
 
 		expect(mockFastify.route).not.toHaveBeenCalled();
-		expect(consoleSpy).not.toHaveBeenCalled();
+		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: ERROR:', '/api', undefined);
 
 		consoleSpy.mockRestore();
 	});
@@ -117,7 +117,7 @@ describe('add.route.ts tests', () => {
 		addRoute(mockFastify, route, '/api', true);
 
 		expect(route.url).toBe('/api'); // URL gets fixed with relative path
-		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: MISSING URL WARNING', '/api');
+		expect(consoleSpy).not.toHaveBeenCalled();
 		expect(mockFastify.route).toHaveBeenCalled();
 
 		consoleSpy.mockRestore();
@@ -197,7 +197,7 @@ describe('add.route.ts tests', () => {
 
 		addRoute(mockFastify, route, '/api', true);
 
-		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addRoute: Added route', 'GET', '/api/test');
+		expect(consoleSpy).not.toHaveBeenCalled();
 
 		consoleSpy.mockRestore();
 	});
