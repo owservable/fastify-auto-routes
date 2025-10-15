@@ -30,11 +30,11 @@ importers:
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^1.9.01
-        version: 1.9.1
+        specifier: ^1.9.2
+        version: 1.9.2
       '@owservable/folders':
-        specifier: ^1.9.01
-        version: 1.9.1
+        specifier: ^1.9.2
+        version: 1.9.2
       '@types/node':
         specifier: ^24.7.2
         version: 24.7.2
@@ -479,12 +479,12 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@owservable/actions@1.9.1':
-    resolution: {integrity: sha512-dBKP+xl1+O7BPSU04vlT4Nfx8CPCy3cMateiqjDsTNjQ0vLZkPJf3+lB222XjOmThIbu4WxWtzgkcOfApAdEjQ==}
+  '@owservable/actions@1.9.2':
+    resolution: {integrity: sha512-NExVBicg0tINB1vinous5xr235GNtjAzrjtnxmuFVQ5rxIiZOYfn2EWi1jR2QqlUu1n/W11+wDFSb41XC6TKeQ==}
     engines: {node: '>=20'}
 
-  '@owservable/folders@1.9.1':
-    resolution: {integrity: sha512-Igi4fy4UL5oIbFvWiOrtnY12vXj09oz7EJJnSxvERvru02JFokNCMdTHT4BOcxzdURJD67dhObPOe9ipwWOUTw==}
+  '@owservable/folders@1.9.2':
+    resolution: {integrity: sha512-nYfQAze8S3GmRjfg2VFe4taNT9neYIYq1JF5GM4GNEDHnzOPxruYO+L7ljllJ/NI7ZjVOLbKpry4TvauDQta+g==}
     engines: {node: '>=20'}
 
   '@phenomnomnominal/tsquery@4.2.0':
@@ -3130,13 +3130,13 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@owservable/actions@1.9.1':
+  '@owservable/actions@1.9.2':
     dependencies:
-      '@owservable/folders': 1.9.1
+      '@owservable/folders': 1.9.2
       '@types/node': 24.7.2
       commander: 14.0.1
 
-  '@owservable/folders@1.9.1':
+  '@owservable/folders@1.9.2':
     dependencies:
       '@types/node': 24.7.2
 
