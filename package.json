@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "1.9.6",
+	"version": "1.9.7",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=20"
@@ -37,9 +37,9 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^1.9.6",
-		"@owservable/folders": "^1.9.6",
-		"@types/node": "^24.9.1",
+		"@owservable/actions": "^1.9.7",
+		"@owservable/folders": "^1.9.7",
+		"@types/node": "^24.9.2",
 		"fastify": "^5.6.1"
 	},
 	"devDependencies": {
@@ -98,5 +98,5 @@
 		},
 		"neverBuiltDependencies": []
 	},
-	"packageManager": "pnpm@10.19.0"
+	"packageManager": "pnpm@10.20.0"
 }
