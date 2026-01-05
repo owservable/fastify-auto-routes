@@ -18,7 +18,7 @@
 	},
 	"minimumReleaseAge": 2880,
 	"scripts": {
-		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm clean & pnpm format & pnpm build & pnpm test & pnpm docs & skeletest & strictr",
+		"all": "pnpm i & pnpm dedupe & pnpm audit --fix & pnpm clean & pnpm format & pnpm build & skeletest -f & strictr -f & pnpm test & pnpm docs",
 		"clear:lib": "del /S /Q lib\\*",
 		"build": "pnpm clear:lib & tsc",
 		"build:watch": "tsc --watch",
