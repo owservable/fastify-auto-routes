@@ -1,7 +1,7 @@
 'use strict';
 
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import addFastifyRoutes from '../../src/functions/add.fastify.routes';
 
 // Helper function to handle Windows file locking issues

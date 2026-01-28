@@ -5,8 +5,8 @@ jest.mock('../../src/functions/add.action.route');
 
 import addActionRoutes from '../../src/functions/add.action.routes';
 import addActionRoute from '../../src/functions/add.action.route';
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 // Helper function to handle Windows file locking issues
 const cleanupFolder = (folderPath: string, retries: number = 3): void => {
