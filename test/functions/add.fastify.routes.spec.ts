@@ -332,4 +332,29 @@ describe('addFastifyRoutes', () => {
 		// Cleanup
 		cleanupFolder(testFolder);
 	});
+
+	it('should use module namespace when ESM has no default export', async () => {
+		const testFolder: string = path.join(__dirname, '../test-routes-esm-named');
+		if (fs.existsSync(testFolder)) {
+			fs.rmSync(testFolder, {recursive: true});
+		}
+		fs.mkdirSync(testFolder, {recursive: true});
+
+		const routeFile: string = path.join(testFolder, 'named.ts');
+		fs.writeFileSync(
+			routeFile,
+			`export const method = 'GET';
+export const url = '/named-only';
+export const handler = async (request: any, reply: any) => {
+	return { message: 'named' };
+};
+`
+		);
+
+		await addFastifyRoutes(fastify, testFolder);
+
+		expect(fastify.route).toHaveBeenCalled();
+
+		cleanupFolder(testFolder);
+	});
 });

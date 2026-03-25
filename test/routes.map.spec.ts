@@ -4,12 +4,13 @@ import {faker} from '@faker-js/faker';
 
 import RoutesMap from '../src/routes.map';
 
-const _methods = (): string[] =>
-	faker.lorem
-		.words(3)
-		.split(' ')
-		.map((word) => word.toUpperCase())
-		.sort();
+const _methods = (): string[] => {
+	const names: Set<string> = new Set<string>();
+	while (names.size < 3) {
+		names.add(faker.lorem.word().toUpperCase());
+	}
+	return Array.from(names).sort();
+};
 const _route = (): string =>
 	faker.lorem
 		.words(Math.floor(Math.random() * 4) + 2)
