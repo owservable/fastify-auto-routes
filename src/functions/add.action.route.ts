@@ -3,7 +3,7 @@
 import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
 
-import {ActionAsControllerInterface} from '@owservable/actions';
+import type {ActionAsControllerInterface} from '@owservable/actions';
 
 import RoutesMap from '../routes.map';
 
@@ -11,7 +11,7 @@ import fixTags from './fix.tags';
 import fixSchema from './fix.schema';
 import fixRouteMethod from './fix.route.method';
 
-const addActionRoute: Function = (
+const addActionRoute = (
 	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>>,
 	action: ActionAsControllerInterface,
 	config: any,

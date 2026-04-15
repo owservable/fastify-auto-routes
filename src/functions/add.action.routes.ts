@@ -3,12 +3,12 @@
 import {FastifyInstance} from 'fastify';
 import {IncomingMessage, Server, ServerResponse} from 'http';
 
-import {ActionAsControllerInterface} from '@owservable/actions';
+import type {ActionAsControllerInterface} from '@owservable/actions';
 import {listSubfoldersFilesByFolderName} from '@owservable/folders';
 
 import addActionRoute from './add.action.route';
 
-const addActionRoutes: Function = async (
+const addActionRoutes = async (
 	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>>,
 	root: string,
 	folderName: string,
@@ -20,7 +20,6 @@ const addActionRoutes: Function = async (
 	for (const actionPath of actionPaths) {
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> Initializing route', actionPath);
 
-		// tslint:disable-next-line:callable-types
 		const ActionClass: new () => ActionAsControllerInterface = require(actionPath).default;
 		const action: ActionAsControllerInterface = new ActionClass();
 

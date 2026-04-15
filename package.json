@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "2.0.6",
+	"version": "2.0.8",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=22.11.0"
@@ -22,58 +22,55 @@
 		"clear:lib": "del /S /Q lib\\*",
 		"build": "pnpm clear:lib & tsc",
 		"build:watch": "tsc --watch",
-		"lint": "tslint -p tsconfig.json",
-		"clean": "tslint --config tslint-imports.json --fix --project .",
+		"lint": "eslint .",
+		"clean": "eslint --fix .",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
 		"docs": "typedoc --readme none --out docs ./src/fastify.auto.routes.ts",
 		"sync": "git pull & git fetch origin & git merge origin/main & pnpm i & git branch",
-		"test": "jest --coverage --config jest.config.js",
-		"quick": "jest --config jest.config.js",
+		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage --config jest.config.js",
+		"quick": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config jest.config.js",
 		"coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-		"sonar": "sonarjs -e .sonarlint/**,node_modules/**,coverage/**",
-		"test_qube": "jest --coverage --config jest.config.js --testResultsProcessor=jest-sonar-reporter",
+		"test_qube": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage --config jest.config.js --testResultsProcessor=jest-sonar-reporter",
 		"up": "pnpm up -i",
 		"latest": "pnpm up -i -L",
 		"l": "pnpm i & pnpm latest",
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^2.0.6",
-		"@owservable/folders": "^2.0.6",
-		"@types/node": "^25.5.0",
-		"fastify": "^5.8.4"
+		"@owservable/actions": "^2.0.8",
+		"@owservable/folders": "^2.0.8",
+		"@types/node": "^25.6.0",
+		"fastify": "^5.8.5"
 	},
 	"devDependencies": {
+		"@eslint/js": "^10.0.1",
 		"@faker-js/faker": "^9.9.0",
 		"@types/jest": "^30.0.0",
 		"@types/rewire": "^2.5.30",
 		"coveralls": "^3.1.1",
+		"eslint": "^10.2.0",
+		"eslint-config-prettier": "^10.1.1",
+		"eslint-plugin-sonarjs": "^4.0.2",
 		"jest": "^30.3.0",
 		"jest-sonar-reporter": "^2.0.0",
-		"prettier": "^3.8.1",
+		"prettier": "^3.8.3",
 		"rewire": "^9.0.1",
 		"skeletest": "^0.7.4",
-		"sonarjs": "^1.0.0",
 		"source-map-support": "^0.5.21",
 		"strictr": "^0.5.6",
-		"ts-jest": "^29.4.6",
+		"ts-jest": "^29.4.9",
 		"ts-node": "^10.9.2",
-		"tslint": "^6.1.3",
-		"tslint-config-prettier": "^1.18.0",
-		"tslint-etc": "^1.13.10",
-		"typedoc": "^0.28.18",
-		"typescript": "^5.9.3"
+		"typedoc": "^0.28.19",
+		"typescript": "^6.0.2",
+		"typescript-eslint": "^8.46.0"
 	},
 	"pnpm": {
 		"allowedDeprecatedVersions": {
-			"@faker-js/faker": "9.9.0",
-			"tslint": "6.1.3"
+			"@faker-js/faker": "9.9.0"
 		},
 		"updateConfig": {
 			"ignoreDependencies": [
-				"@faker-js/faker",
-				"sonarjs",
-				"tslint"
+				"@faker-js/faker"
 			]
 		},
 		"overrides": {
@@ -111,7 +108,10 @@
 			"minimatch@<3.1.4": ">=3.1.4",
 			"ajv@<6.14.0": ">=6.14.0",
 			"flatted@<3.4.0": ">=3.4.0",
-			"flatted@<=3.4.1": ">=3.4.2"
+			"flatted@<=3.4.1": ">=3.4.2",
+			"brace-expansion@>=2.0.0 <2.0.3": ">=2.0.3",
+			"lodash@>=4.0.0 <=4.17.23": ">=4.18.0",
+			"lodash@<=4.17.23": ">=4.18.0"
 		},
 		"neverBuiltDependencies": []
 	},

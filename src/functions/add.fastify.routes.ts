@@ -7,7 +7,7 @@ import {hrtime} from 'node:process';
 import {IncomingMessage, Server, ServerResponse} from 'http';
 import {FastifyInstance} from 'fastify';
 
-import {ItemStat} from '@owservable/folders';
+import type {ItemStat} from '@owservable/folders';
 
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';

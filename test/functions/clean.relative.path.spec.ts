@@ -1,5 +1,4 @@
 'use strict';
-// process.env.NODE_ENV = 'test';
 
 import cleanRelativePath from '../../src/functions/clean.relative.path';
 

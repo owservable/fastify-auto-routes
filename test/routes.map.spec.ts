@@ -13,13 +13,13 @@ const _methods = (): string[] => {
 };
 const _route = (): string =>
 	faker.lorem
-		.words(Math.floor(Math.random() * 4) + 2)
+		.words(faker.number.int({min: 2, max: 5}))
 		.split(' ')
 		.map((word) => word.toLowerCase())
 		.join('/');
 const _routes = (count: number): string[] => {
 	const routes: string[] = [];
-	Array.from({length: count}, (_, i) => i).forEach((i) => routes.push(_route()));
+	Array.from({length: count}, (_, i) => i).forEach((_i) => routes.push(_route()));
 	return routes.sort();
 };
 
