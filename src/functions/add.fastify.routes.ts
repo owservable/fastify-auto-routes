@@ -3,8 +3,9 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import {hrtime} from 'node:process';
+import {pathToFileURL} from 'node:url';
+import {IncomingMessage, Server, ServerResponse} from 'node:http';
 
-import {IncomingMessage, Server, ServerResponse} from 'http';
 import {FastifyInstance} from 'fastify';
 
 import type {ItemStat} from '@owservable/folders';
@@ -50,8 +51,9 @@ const addFastifyRoutes = async (
 
 		const start: number = Number(hrtime.bigint());
 
-		const routeModule = await import(file.fullPath);
-		const routes = routeModule.default || routeModule;
+		const fileUrl: string = pathToFileURL(file.fullPath).href;
+		const routeModule: {default?: unknown} = (await import(fileUrl)) as {default?: unknown};
+		const routes: unknown = routeModule.default || routeModule;
 
 		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
 		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file.name}`);

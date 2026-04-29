@@ -43,17 +43,18 @@ overrides:
   brace-expansion@>=2.0.0 <2.0.3: '>=2.0.3'
   lodash@>=4.0.0 <=4.17.23: '>=4.18.0'
   lodash@<=4.17.23: '>=4.18.0'
+  uuid@<14.0.0: '>=14.0.0'
 
 importers:
 
   .:
     dependencies:
       '@owservable/actions':
-        specifier: ^2.0.9
-        version: 2.0.9
+        specifier: ^2.1.1
+        version: 2.1.1
       '@owservable/folders':
-        specifier: ^2.0.9
-        version: 2.0.9
+        specifier: ^2.1.1
+        version: 2.1.1
       '@types/node':
         specifier: ^25.6.0
         version: 25.6.0
@@ -530,13 +531,13 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@owservable/actions@2.0.9':
-    resolution: {integrity: sha512-qz8zKvEUJOprdEcGbpPYhou3qclRi68FV4d0FZuWFV8SXJy/bRd0ZUSLzbBWtNx4pVMICGLdaPup7109gVTfHg==}
+  '@owservable/actions@2.1.1':
+    resolution: {integrity: sha512-SZxizwLlLiprSPMoYuAmIBs6IpnNWa2prLsI80+wudDQBWxBl3fs+QzVHHDFdUymokxRgbFFbvmtAnZubXZyJQ==}
     engines: {node: '>=24.12.0'}
 
-  '@owservable/folders@2.0.9':
-    resolution: {integrity: sha512-n650VfVSOkptGLcfWpqHhg2Zv1G2PE35jMPnb2XrEl56fAjhKpo9pqGS9LVOLmRc3WqLGm69M2y1wd6YNvHzyA==}
-    engines: {node: '>=22.11.0'}
+  '@owservable/folders@2.1.1':
+    resolution: {integrity: sha512-uQdH6jMNMrWKT637h2HOY6ndYoiFOIgcMCvbKPnra5oSLQv45JOee+Wrm0VBxGGeJ9eYBYhzC/7AWlJu2TsO2w==}
+    engines: {node: '>=24.12.0'}
 
   '@pinojs/redact@0.4.0':
     resolution: {integrity: sha512-k2ENnmBugE/rzQfEcdWHcCY+/FM3VLzH9cYEsbdsoqrvzAKRhUZeRNhAZvB8OitQJ1TBed3yqWtdjzS6wJKBwg==}
@@ -2375,9 +2376,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  uuid@3.4.0:
-    resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
-    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+  uuid@14.0.0:
+    resolution: {integrity: sha512-Qo+uWgilfSmAhXCMav1uYFynlQO7fMFiMVZsQqZRMIXp0O7rR7qjkj+cPvBHLgBqi960QCoo/PH2/6ZtVqKvrg==}
     hasBin: true
 
   v8-compile-cache-lib@3.0.1:
@@ -3014,13 +3014,13 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@owservable/actions@2.0.9':
+  '@owservable/actions@2.1.1':
     dependencies:
-      '@owservable/folders': 2.0.9
+      '@owservable/folders': 2.1.1
       '@types/node': 25.6.0
       commander: 14.0.3
 
-  '@owservable/folders@2.0.9':
+  '@owservable/folders@2.1.1':
     dependencies:
       '@types/node': 25.6.0
 
@@ -4741,7 +4741,7 @@ snapshots:
       safe-buffer: 5.2.1
       tough-cookie: 5.1.0
       tunnel-agent: 0.6.0
-      uuid: 3.4.0
+      uuid: 14.0.0
 
   require-directory@2.1.1: {}
 
@@ -5088,7 +5088,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  uuid@3.4.0: {}
+  uuid@14.0.0: {}
 
   v8-compile-cache-lib@3.0.1: {}
 
