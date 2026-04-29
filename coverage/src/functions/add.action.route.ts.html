@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,28 +99,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
 import {FastifyInstance} from 'fastify';
@@ -128,28 +128,28 @@ import {IncomingMessage, Server, ServerResponse} from 'http';
 &nbsp;
 import type {ActionAsControllerInterface} from '@owservable/actions';
 &nbsp;
-import RoutesMap from '../routes.map';
+<span class="cstat-no" title="statement not covered" >import RoutesMap from '../routes.map';</span>
 &nbsp;
-import fixTags from './fix.tags';
-import fixSchema from './fix.schema';
-import fixRouteMethod from './fix.route.method';
+<span class="cstat-no" title="statement not covered" >import fixTags from './fix.tags';</span>
+<span class="cstat-no" title="statement not covered" >import fixSchema from './fix.schema';</span>
+<span class="cstat-no" title="statement not covered" >import fixRouteMethod from './fix.route.method';</span>
 &nbsp;
-const addActionRoute = (
+const addActionRoute = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
 	fastify: FastifyInstance&lt;Server&lt;typeof IncomingMessage, typeof ServerResponse&gt;, IncomingMessage, ServerResponse&lt;IncomingMessage&gt;&gt;,
 	action: ActionAsControllerInterface,
 	config: any,
-	verbose: boolean = false
+	verbose: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false</span>
 ): void =&gt; {
-	config.method = fixRouteMethod(config, verbose);
-	config.schema = fixSchema(config);
-	config.schema.tags = fixTags(config, 'action');
-	config.handler = action.asController;
+<span class="cstat-no" title="statement not covered" >	config.method = fixRouteMethod(config, verbose);</span>
+<span class="cstat-no" title="statement not covered" >	config.schema = fixSchema(config);</span>
+<span class="cstat-no" title="statement not covered" >	config.schema.tags = fixTags(config, 'action');</span>
+<span class="cstat-no" title="statement not covered" >	config.handler = action.asController;</span>
 &nbsp;
-	fastify.route(config);
-	RoutesMap.add(config.method, config.url);
-	if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addActionRoute: Added route', config.method, config.url, '\n');
+<span class="cstat-no" title="statement not covered" >	fastify.route(config);</span>
+<span class="cstat-no" title="statement not covered" >	RoutesMap.add(config.method, config.url);</span>
+<span class="cstat-no" title="statement not covered" >	if (verbose) <span class="cstat-no" title="statement not covered" >console.log('[@owservable/fastify-auto-routes] -&gt; addActionRoute: Added route', config.method, config.url, '\n');</span></span>
 };
-export default addActionRoute;
+<span class="cstat-no" title="statement not covered" >export default addActionRoute;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -157,7 +157,7 @@ export default addActionRoute;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-29T12:20:40.362Z
+                at 2026-04-29T13:13:23.418Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

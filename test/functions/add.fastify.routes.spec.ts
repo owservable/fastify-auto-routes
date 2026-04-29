@@ -2,7 +2,6 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import {fileURLToPath, pathToFileURL} from 'node:url';
 import addFastifyRoutes from '../../src/functions/add.fastify.routes';
 
 // Helper function to handle Windows file locking issues
@@ -359,47 +358,17 @@ export const handler = async (request: any, reply: any) => {
 		cleanupFolder(testFolder);
 	});
 
-	(process.platform === 'win32' ? it : it.skip)('converts a Windows C: file path to a file: URL and round-trips with fileURLToPath', () => {
-		const drivePath: string = 'C:' + path.sep + 'Windows' + path.sep + 'Temp' + path.sep + 'fastify-auto-routes-sanity.js';
-		const href: string = pathToFileURL(drivePath).href;
-		expect(href).toMatch(/^file:\/\//);
-		expect(href).toMatch(/C:/i);
-		expect(fileURLToPath(href).toLowerCase()).toBe(path.resolve(drivePath).toLowerCase());
-	});
-
-	it('dynamic import() of an absolute file path must use a file: URL, not a bare drive path', async () => {
-		const testFolder: string = path.join(__dirname, '../test-routes-fileurl-import');
+	it('loads each route file with require(absolutePath) and uses CJS when default is undefined', async () => {
+		const testFolder: string = path.join(__dirname, '../test-routes-require');
 		if (fs.existsSync(testFolder)) {
 			fs.rmSync(testFolder, {recursive: true});
 		}
 		fs.mkdirSync(testFolder, {recursive: true});
-		const routeFile: string = path.join(testFolder, 'round.js');
-		const href: string = pathToFileURL(path.resolve(routeFile)).href;
-		try {
-			fs.writeFileSync(routeFile, `module.exports = { method: 'GET', url: '/round', handler: async () => ({ ok: 1 }) };`);
-			const m: {default?: unknown} = (await import(href)) as {default?: unknown};
-			expect(m.default).toBeDefined();
-		} finally {
-			cleanupFolder(testFolder);
-		}
-	});
-
-	it('selects the module namespace when the default export is falsy (line 56 second branch)', async () => {
-		const testFolder: string = path.join(__dirname, '../test-routes-falsy-default');
-		if (fs.existsSync(testFolder)) {
-			fs.rmSync(testFolder, {recursive: true});
-		}
-		fs.mkdirSync(testFolder, {recursive: true});
-		fs.writeFileSync(path.join(testFolder, 'package.json'), `{"type":"module"}\n`, 'utf8');
-		const routeFile: string = path.join(testFolder, 'd.js');
-		fs.writeFileSync(
-			routeFile,
-			`export default 0;
-export const method = 'GET';
-export const url = '/falsy';
-export const handler = async (request, reply) => ({});`
-		);
-		await expect(addFastifyRoutes(fastify, testFolder)).rejects.toThrow();
+		const routeFile: string = path.join(testFolder, 'cjs.js');
+		const exportBody: string = `module.exports = { default: undefined, method: 'GET', url: '/r', handler: async () => ({}) };`;
+		fs.writeFileSync(routeFile, exportBody, 'utf8');
+		await addFastifyRoutes(fastify, testFolder, false);
+		expect(fastify.route).toHaveBeenCalled();
 		cleanupFolder(testFolder);
 	});
 });

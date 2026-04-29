@@ -3,7 +3,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import {hrtime} from 'node:process';
-import {pathToFileURL} from 'node:url';
 import {IncomingMessage, Server, ServerResponse} from 'node:http';
 
 import {FastifyInstance} from 'fastify';
@@ -51,8 +50,7 @@ const addFastifyRoutes = async (
 
 		const start: number = Number(hrtime.bigint());
 
-		const fileUrl: string = pathToFileURL(file.fullPath).href;
-		const routeModule: {default?: unknown} = (await import(fileUrl)) as {default?: unknown};
+		const routeModule: {default?: unknown} = require(file.fullPath) as {default?: unknown};
 		const routes: unknown = routeModule.default || routeModule;
 
 		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
