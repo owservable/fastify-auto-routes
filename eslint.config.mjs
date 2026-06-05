@@ -5,17 +5,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
 	{
-		ignores: [
-			'**/node_modules/**',
-			'**/coverage/**',
-			'**/lib/**',
-			'**/docs/**',
-			'**/.nyc_output/**',
-			'**/.sonarlint/**',
-			'test/**/*.js',
-			'test/test-routes*/**',
-			'**/*.min.js'
-		]
+		ignores: ['**/node_modules/**', '**/coverage/**', '**/lib/**', '**/docs/**', '**/.nyc_output/**', '**/.sonarlint/**', 'test/**/*.js', 'test/test-routes*/**', '**/*.min.js']
 	},
 	{
 		files: ['jest.config.js'],
@@ -36,7 +26,7 @@ export default tseslint.config(
 	{
 		files: ['**/*.ts'],
 		rules: {
-			'no-console': ['error', { allow: ['warn', 'log'] }],
+			'no-console': ['error', {allow: ['warn', 'log']}],
 			curly: ['error', 'multi-line'],
 			'max-classes-per-file': ['error', 5],
 			'@typescript-eslint/no-unused-vars': [
@@ -51,17 +41,12 @@ export default tseslint.config(
 				'error',
 				{
 					types: {
-						Object: { message: 'Use {} instead.' }
+						Object: {message: 'Use {} instead.'}
 					}
 				}
 			],
-			'@typescript-eslint/no-explicit-any': 'off'
-		}
-	},
-	{
-		files: ['src/functions/add.action.routes.ts'],
-		rules: {
-			'@typescript-eslint/no-require-imports': 'off'
+			'@typescript-eslint/no-explicit-any': 'off',
+			'@typescript-eslint/no-require-imports': 'warn'
 		}
 	}
 );
