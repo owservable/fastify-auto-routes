@@ -3,20 +3,20 @@
 import addActionRoute from '../../src/functions/add.action.route';
 
 describe('add.action.route.ts tests', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('addActionRoute exists', () => {
 		expect(addActionRoute).toBeDefined();
 		expect(typeof addActionRoute).toBe('function');
 	});
 
-	beforeEach(() => {
-		jest.clearAllMocks();
-	});
-
 	it('should add action route to fastify and RoutesMap', () => {
-		const mockFastify = {
+		const mockFastify: any = {
 			route: jest.fn()
 		};
-		const mockAction = {
+		const mockAction: any = {
 			asController: jest.fn()
 		};
 		const config: any = {
@@ -37,10 +37,10 @@ describe('add.action.route.ts tests', () => {
 	});
 
 	it('should fix method using fixRouteMethod', () => {
-		const mockFastify = {
+		const mockFastify: any = {
 			route: jest.fn()
 		};
-		const mockAction = {
+		const mockAction: any = {
 			asController: jest.fn()
 		};
 		const config: any = {
@@ -54,10 +54,10 @@ describe('add.action.route.ts tests', () => {
 	});
 
 	it('should set schema with tags', () => {
-		const mockFastify = {
+		const mockFastify: any = {
 			route: jest.fn()
 		};
-		const mockAction = {
+		const mockAction: any = {
 			asController: jest.fn()
 		};
 		const config: any = {
@@ -72,10 +72,10 @@ describe('add.action.route.ts tests', () => {
 	});
 
 	it('should log when verbose is enabled', () => {
-		const mockFastify = {
+		const mockFastify: any = {
 			route: jest.fn()
 		};
-		const mockAction = {
+		const mockAction: any = {
 			asController: jest.fn()
 		};
 		const config: any = {
@@ -86,16 +86,22 @@ describe('add.action.route.ts tests', () => {
 
 		addActionRoute(mockFastify, mockAction, config, true);
 
-		expect(consoleSpy).toHaveBeenCalledWith('[@owservable/fastify-auto-routes] -> addActionRoute: Added route', 'GET', '/test', '\n');
+		expect(consoleSpy).toHaveBeenCalledWith(
+			'[@owservable/fastify-auto-routes] -> addActionRoute: Added route',
+			expect.stringMatching(/^\[\d+\.\d{3}ms]$/),
+			'GET',
+			'/test',
+			'\n'
+		);
 
 		consoleSpy.mockRestore();
 	});
 
 	it('should not log when verbose is disabled', () => {
-		const mockFastify = {
+		const mockFastify: any = {
 			route: jest.fn()
 		};
-		const mockAction = {
+		const mockAction: any = {
 			asController: jest.fn()
 		};
 		const config: any = {
@@ -112,10 +118,10 @@ describe('add.action.route.ts tests', () => {
 	});
 
 	it('should use existing schema if provided', () => {
-		const mockFastify = {
+		const mockFastify: any = {
 			route: jest.fn()
 		};
-		const mockAction = {
+		const mockAction: any = {
 			asController: jest.fn()
 		};
 		const config: any = {

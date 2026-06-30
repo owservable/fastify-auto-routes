@@ -3,13 +3,13 @@
 import addRoute from '../../src/functions/add.route';
 
 describe('add.route.ts tests', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('addRoute exists', () => {
 		expect(addRoute).toBeDefined();
 		expect(typeof addRoute).toBe('function');
-	});
-
-	beforeEach(() => {
-		jest.clearAllMocks();
 	});
 
 	it('should add route to fastify and RoutesMap when route is valid', () => {

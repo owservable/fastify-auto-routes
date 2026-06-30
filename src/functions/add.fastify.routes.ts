@@ -11,10 +11,9 @@ import type {ItemStat} from '@owservable/folders';
 
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
+import getMillisecondsFrom from './performance/get.milliseconds.from';
 
 let routesRootFolder: string;
-
-const NS_PER_SEC: number = 1e9;
 
 const addFastifyRoutes = async (
 	fastify: FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>>,
@@ -25,13 +24,11 @@ const addFastifyRoutes = async (
 
 	const fileNames: string[] = await fs.promises.readdir(folder);
 	const stats: ItemStat[] = await Promise.all(
-		fileNames.map(
-			async (name): Promise<ItemStat> => ({
-				name,
-				fullPath: path.join(folder, name),
-				isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
-			})
-		)
+		fileNames.map(async (name): Promise<ItemStat> => ({
+			name,
+			fullPath: path.join(folder, name),
+			isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
+		}))
 	);
 
 	const files: ItemStat[] = stats.filter((stat: ItemStat): boolean => !stat.isDirectory);
@@ -45,16 +42,15 @@ const addFastifyRoutes = async (
 	});
 
 	const processFile = async (file: ItemStat): Promise<void> => {
+		const start: number = Number(hrtime.bigint());
+
 		const ext: string = path.extname(file.name);
 		const relativeFilePath: string = cleanRelativePath(routesRootFolder, file.fullPath, ext as '.ts' | '.js');
-
-		const start: number = Number(hrtime.bigint());
 
 		const routeModule: {default?: unknown} = require(file.fullPath) as {default?: unknown};
 		const routes: unknown = routeModule.default || routeModule;
 
-		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file.name}`);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -> addFastifyRoutes: loaded file', `[${getMillisecondsFrom(start).toFixed(3)}ms]${folder}/${file.name}`);
 
 		if (Array.isArray(routes)) {
 			for (const route of routes) {

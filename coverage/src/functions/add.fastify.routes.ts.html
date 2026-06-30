@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>44/44</span>
+                <span class='fraction'>43/43</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>37/37</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -141,11 +141,7 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -158,10 +154,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,9 +167,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,14 +186,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -240,10 +232,9 @@ import type {ItemStat} from '@owservable/folders';
 &nbsp;
 import addRoute from './add.route';
 import cleanRelativePath from './clean.relative.path';
+import getMillisecondsFrom from './performance/get.milliseconds.from';
 &nbsp;
 let routesRootFolder: string;
-&nbsp;
-const NS_PER_SEC: number = 1e9;
 &nbsp;
 const addFastifyRoutes = async (
 	fastify: FastifyInstance&lt;Server&lt;typeof IncomingMessage, typeof ServerResponse&gt;, IncomingMessage, ServerResponse&lt;IncomingMessage&gt;&gt;,
@@ -254,13 +245,11 @@ const addFastifyRoutes = async (
 &nbsp;
 	const fileNames: string[] = await fs.promises.readdir(folder);
 	const stats: ItemStat[] = await Promise.all(
-		fileNames.map(
-			async (name): Promise&lt;ItemStat&gt; =&gt; ({
-				name,
-				fullPath: path.join(folder, name),
-				isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
-			})
-		)
+		fileNames.map(async (name): Promise&lt;ItemStat&gt; =&gt; ({
+			name,
+			fullPath: path.join(folder, name),
+			isDirectory: (await fs.promises.lstat(path.join(folder, name))).isDirectory()
+		}))
 	);
 &nbsp;
 	const files: ItemStat[] = stats.filter((stat: ItemStat): boolean =&gt; !stat.isDirectory);
@@ -274,16 +263,15 @@ const addFastifyRoutes = async (
 	});
 &nbsp;
 	const processFile = async (file: ItemStat): Promise&lt;void&gt; =&gt; {
+		const start: number = Number(hrtime.bigint());
+&nbsp;
 		const ext: string = path.extname(file.name);
 		const relativeFilePath: string = cleanRelativePath(routesRootFolder, file.fullPath, ext as '.ts' | '.js');
-&nbsp;
-		const start: number = Number(hrtime.bigint());
 &nbsp;
 		const routeModule: {default?: unknown} = require(file.fullPath) as {default?: unknown};
 		const routes: unknown = routeModule.default || routeModule;
 &nbsp;
-		const time: number = Number(Number(hrtime.bigint()) - start) / NS_PER_SEC;
-		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes: loaded file', `[${time.toFixed(3)}s] ${folder}/${file.name}`);
+		if (verbose) console.log('[@owservable/fastify-auto-routes] -&gt; addFastifyRoutes: loaded file', `[${getMillisecondsFrom(start).toFixed(3)}ms]${folder}/${file.name}`);
 &nbsp;
 		if (Array.isArray(routes)) {
 			for (const route of routes) {
@@ -316,7 +304,7 @@ export default addFastifyRoutes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-06-05T09:57:30.881Z
+                at 2026-06-30T10:54:36.136Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
