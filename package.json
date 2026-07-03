@@ -18,7 +18,7 @@
 	},
 	"minimumReleaseAge": 2880,
 	"scripts": {
-		"all": "pnpm i & pnpm dedupe & pnpm audit --fix=update & pnpm clean & pnpm format & pnpm build & skeletest -f & strictr -f & pnpm test & pnpm docs @owservable/fastify-auto-routes",
+		"all": "pnpm i & pnpm dedupe & pnpm audit --fix=update & pnpm clean & pnpm format & pnpm build & skeletest -f & strictr -f & pnpm test & pnpm run docs @owservable/fastify-auto-routes",
 		"clear:lib": "del /S /Q lib\\*",
 		"build": "pnpm clear:lib & tsc",
 		"build:watch": "tsc --watch",
