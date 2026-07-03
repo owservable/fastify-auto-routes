@@ -2,6 +2,8 @@
 
 # @owservable/fastify-auto-routes
 
+[📖 API Docs](https://owservable.github.io/fastify-auto-routes/docs/) · [✅ Coverage](https://owservable.github.io/fastify-auto-routes/coverage/)
+
 Automatically register Fastify routes from your file system structure. This library scans your routes directory and automatically registers all route files with your Fastify instance, supporting both TypeScript and JavaScript files.
 
 ## 🚀 Features
