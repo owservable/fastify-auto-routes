@@ -48,5 +48,11 @@ export default tseslint.config(
 			'@typescript-eslint/no-explicit-any': 'off',
 			'@typescript-eslint/no-require-imports': 'warn'
 		}
+	},
+	{
+		files: ['src/functions/add.action.routes.ts', 'src/functions/add.fastify.routes.ts'],
+		rules: {
+			'@typescript-eslint/no-require-imports': 'off'
+		}
 	}
 );

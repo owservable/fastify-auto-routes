@@ -8,61 +8,17 @@ describe('fix.tags.ts tests', () => {
 		expect(typeof fixTags).toBe('function');
 	});
 
-	it('should return existing tags in uppercase when present', () => {
-		const route = {
-			schema: {
-				tags: ['user', 'auth', 'admin']
-			}
-		};
-		const result = fixTags(route, '/api/users');
-		expect(result).toEqual(['USER', 'AUTH', 'ADMIN']);
-	});
-
-	it('should return default tags when no schema tags exist', () => {
-		const route = {};
-		const result = fixTags(route, '/api/users/profile');
-		expect(result).toEqual(['API']);
-	});
-
-	it('should return default tags when schema is empty', () => {
-		const route = {
-			schema: {}
-		};
-		const result = fixTags(route, '/auth/login');
-		expect(result).toEqual(['AUTH']);
-	});
-
-	it('should return default tags when tags array is empty', () => {
-		const route = {
-			schema: {
-				tags: [] as string[]
-			}
-		};
-		const result = fixTags(route, '/api/data/update');
-		expect(result).toEqual(['API']);
-	});
-
-	it('should handle single word relative path', () => {
-		const route = {};
-		const result = fixTags(route, '/users');
-		expect(result).toEqual(['USERS']);
-	});
-
-	it('should handle empty relative path', () => {
-		const route = {};
-		const result = fixTags(route, '');
-		expect(result).toEqual(['']);
-	});
-
-	it('should handle complex relative paths', () => {
-		const route = {};
-		const result = fixTags(route, '/api/v1/users/admin/settings');
-		expect(result).toEqual(['API']);
-	});
-
-	it('should handle route without schema', () => {
-		const route = {};
-		const result = fixTags(route, '/api/test');
-		expect(result).toEqual(['API']);
+	it.each([
+		{name: 'existing tags in uppercase when present', route: {schema: {tags: ['user', 'auth', 'admin']}}, relativeFilePath: '/api/users', expected: ['USER', 'AUTH', 'ADMIN']},
+		{name: 'default tags when no schema tags exist', route: {}, relativeFilePath: '/api/users/profile', expected: ['API']},
+		{name: 'default tags when schema is empty', route: {schema: {}}, relativeFilePath: '/auth/login', expected: ['AUTH']},
+		{name: 'default tags when tags array is empty', route: {schema: {tags: [] as string[]}}, relativeFilePath: '/api/data/update', expected: ['API']},
+		{name: 'single word relative path', route: {}, relativeFilePath: '/users', expected: ['USERS']},
+		{name: 'empty relative path', route: {}, relativeFilePath: '', expected: ['']},
+		{name: 'complex relative paths', route: {}, relativeFilePath: '/api/v1/users/admin/settings', expected: ['API']},
+		{name: 'route without schema', route: {}, relativeFilePath: '/api/test', expected: ['API']}
+	])('should handle $name', ({route, relativeFilePath, expected}) => {
+		const result = fixTags(route, relativeFilePath);
+		expect(result).toEqual(expected);
 	});
 });
