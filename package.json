@@ -1,6 +1,6 @@
 {
 	"name": "@owservable/fastify-auto-routes",
-	"version": "3.2.0",
+	"version": "3.2.1",
 	"description": "fastify auto routes",
 	"engines": {
 		"node": ">=24.12.0"
@@ -37,10 +37,10 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"dependencies": {
-		"@owservable/actions": "^3.2.0",
-		"@owservable/folders": "^3.2.0",
-		"@types/node": "^26.6.3",
-		"fastify": "^5.12.5"
+		"@owservable/actions": "^3.2.1",
+		"@owservable/folders": "^3.2.1",
+		"@types/node": "^26.6.6",
+		"fastify": "^5.12.8"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
@@ -48,21 +48,21 @@
 		"@types/jest": "^30.0.0",
 		"@types/rewire": "^2.5.30",
 		"coveralls": "^3.1.1",
-		"eslint": "^10.11.0",
+		"eslint": "^10.15.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-sonarjs": "^4.2.1",
+		"eslint-plugin-sonarjs": "^4.2.2",
 		"jest": "^30.5.2",
 		"jest-sonar-reporter": "^2.0.0",
-		"prettier": "^3.9.9",
+		"prettier": "^3.10.1",
 		"rewire": "^9.0.1",
-		"skeletest": "^0.7.5",
+		"skeletest": "^0.8.3",
 		"source-map-support": "^0.5.21",
-		"strictr": "^0.5.7",
-		"ts-jest": "^29.4.14",
+		"strictr": "^0.6.3",
+		"ts-jest": "^29.4.15",
 		"ts-node": "^10.9.2",
 		"typedoc": "^0.28.20",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.70.1"
+		"typescript-eslint": "^8.73.0"
 	},
-	"packageManager": "pnpm@12.6.0"
+	"packageManager": "pnpm@12.21.0"
 }
